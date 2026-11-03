@@ -1,0 +1,25 @@
+package qt
+
+type QOpenGLFunctions__OpenGLFeature int64
+
+const (
+	QOpenGLFunctions__Multitexture QOpenGLFunctions__OpenGLFeature = 1
+	QOpenGLFunctions__Shaders QOpenGLFunctions__OpenGLFeature = 2
+	QOpenGLFunctions__Buffers QOpenGLFunctions__OpenGLFeature = 4
+	QOpenGLFunctions__Framebuffers QOpenGLFunctions__OpenGLFeature = 8
+	QOpenGLFunctions__BlendColor QOpenGLFunctions__OpenGLFeature = 16
+	QOpenGLFunctions__BlendEquation QOpenGLFunctions__OpenGLFeature = 32
+	QOpenGLFunctions__BlendEquationSeparate QOpenGLFunctions__OpenGLFeature = 64
+	QOpenGLFunctions__BlendFuncSeparate QOpenGLFunctions__OpenGLFeature = 128
+	QOpenGLFunctions__BlendSubtract QOpenGLFunctions__OpenGLFeature = 256
+	QOpenGLFunctions__CompressedTextures QOpenGLFunctions__OpenGLFeature = 512
+	QOpenGLFunctions__Multisample QOpenGLFunctions__OpenGLFeature = 1024
+	QOpenGLFunctions__StencilSeparate QOpenGLFunctions__OpenGLFeature = 2048
+	QOpenGLFunctions__NPOTTextures QOpenGLFunctions__OpenGLFeature = 4096
+	QOpenGLFunctions__NPOTTextureRepeat QOpenGLFunctions__OpenGLFeature = 8192
+	QOpenGLFunctions__FixedFunctionPipeline QOpenGLFunctions__OpenGLFeature = 16384
+	QOpenGLFunctions__TextureRGFormats QOpenGLFunctions__OpenGLFeature = 32768
+	QOpenGLFunctions__MultipleRenderTargets QOpenGLFunctions__OpenGLFeature = 65536
+	QOpenGLFunctions__BlendEquationAdvanced QOpenGLFunctions__OpenGLFeature = 131072
+)
+

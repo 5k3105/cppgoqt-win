@@ -1,0 +1,87 @@
+package qt
+
+type QGraphicsItem__GraphicsItemFlag int64
+
+const (
+	QGraphicsItem__ItemIsMovable QGraphicsItem__GraphicsItemFlag = 1
+	QGraphicsItem__ItemIsSelectable QGraphicsItem__GraphicsItemFlag = 2
+	QGraphicsItem__ItemIsFocusable QGraphicsItem__GraphicsItemFlag = 4
+	QGraphicsItem__ItemClipsToShape QGraphicsItem__GraphicsItemFlag = 8
+	QGraphicsItem__ItemClipsChildrenToShape QGraphicsItem__GraphicsItemFlag = 16
+	QGraphicsItem__ItemIgnoresTransformations QGraphicsItem__GraphicsItemFlag = 32
+	QGraphicsItem__ItemIgnoresParentOpacity QGraphicsItem__GraphicsItemFlag = 64
+	QGraphicsItem__ItemDoesntPropagateOpacityToChildren QGraphicsItem__GraphicsItemFlag = 128
+	QGraphicsItem__ItemStacksBehindParent QGraphicsItem__GraphicsItemFlag = 256
+	QGraphicsItem__ItemUsesExtendedStyleOption QGraphicsItem__GraphicsItemFlag = 512
+	QGraphicsItem__ItemHasNoContents QGraphicsItem__GraphicsItemFlag = 1024
+	QGraphicsItem__ItemSendsGeometryChanges QGraphicsItem__GraphicsItemFlag = 2048
+	QGraphicsItem__ItemAcceptsInputMethod QGraphicsItem__GraphicsItemFlag = 4096
+	QGraphicsItem__ItemNegativeZStacksBehindParent QGraphicsItem__GraphicsItemFlag = 8192
+	QGraphicsItem__ItemIsPanel QGraphicsItem__GraphicsItemFlag = 16384
+	QGraphicsItem__ItemIsFocusScope QGraphicsItem__GraphicsItemFlag = 32768
+	QGraphicsItem__ItemSendsScenePositionChanges QGraphicsItem__GraphicsItemFlag = 65536
+	QGraphicsItem__ItemStopsClickFocusPropagation QGraphicsItem__GraphicsItemFlag = 131072
+	QGraphicsItem__ItemStopsFocusHandling QGraphicsItem__GraphicsItemFlag = 262144
+	QGraphicsItem__ItemContainsChildrenInShape QGraphicsItem__GraphicsItemFlag = 524288
+)
+
+type QGraphicsItem__GraphicsItemChange int64
+
+const (
+	QGraphicsItem__ItemPositionChange QGraphicsItem__GraphicsItemChange = 0
+	QGraphicsItem__ItemVisibleChange QGraphicsItem__GraphicsItemChange = 2
+	QGraphicsItem__ItemEnabledChange QGraphicsItem__GraphicsItemChange = 3
+	QGraphicsItem__ItemSelectedChange QGraphicsItem__GraphicsItemChange = 4
+	QGraphicsItem__ItemParentChange QGraphicsItem__GraphicsItemChange = 5
+	QGraphicsItem__ItemChildAddedChange QGraphicsItem__GraphicsItemChange = 6
+	QGraphicsItem__ItemChildRemovedChange QGraphicsItem__GraphicsItemChange = 7
+	QGraphicsItem__ItemTransformChange QGraphicsItem__GraphicsItemChange = 8
+	QGraphicsItem__ItemPositionHasChanged QGraphicsItem__GraphicsItemChange = 9
+	QGraphicsItem__ItemTransformHasChanged QGraphicsItem__GraphicsItemChange = 10
+	QGraphicsItem__ItemSceneChange QGraphicsItem__GraphicsItemChange = 11
+	QGraphicsItem__ItemVisibleHasChanged QGraphicsItem__GraphicsItemChange = 12
+	QGraphicsItem__ItemEnabledHasChanged QGraphicsItem__GraphicsItemChange = 13
+	QGraphicsItem__ItemSelectedHasChanged QGraphicsItem__GraphicsItemChange = 14
+	QGraphicsItem__ItemParentHasChanged QGraphicsItem__GraphicsItemChange = 15
+	QGraphicsItem__ItemSceneHasChanged QGraphicsItem__GraphicsItemChange = 16
+	QGraphicsItem__ItemCursorChange QGraphicsItem__GraphicsItemChange = 17
+	QGraphicsItem__ItemCursorHasChanged QGraphicsItem__GraphicsItemChange = 18
+	QGraphicsItem__ItemToolTipChange QGraphicsItem__GraphicsItemChange = 19
+	QGraphicsItem__ItemToolTipHasChanged QGraphicsItem__GraphicsItemChange = 20
+	QGraphicsItem__ItemFlagsChange QGraphicsItem__GraphicsItemChange = 21
+	QGraphicsItem__ItemFlagsHaveChanged QGraphicsItem__GraphicsItemChange = 22
+	QGraphicsItem__ItemZValueChange QGraphicsItem__GraphicsItemChange = 23
+	QGraphicsItem__ItemZValueHasChanged QGraphicsItem__GraphicsItemChange = 24
+	QGraphicsItem__ItemOpacityChange QGraphicsItem__GraphicsItemChange = 25
+	QGraphicsItem__ItemOpacityHasChanged QGraphicsItem__GraphicsItemChange = 26
+	QGraphicsItem__ItemScenePositionHasChanged QGraphicsItem__GraphicsItemChange = 27
+	QGraphicsItem__ItemRotationChange QGraphicsItem__GraphicsItemChange = 28
+	QGraphicsItem__ItemRotationHasChanged QGraphicsItem__GraphicsItemChange = 29
+	QGraphicsItem__ItemScaleChange QGraphicsItem__GraphicsItemChange = 30
+	QGraphicsItem__ItemScaleHasChanged QGraphicsItem__GraphicsItemChange = 31
+	QGraphicsItem__ItemTransformOriginPointChange QGraphicsItem__GraphicsItemChange = 32
+	QGraphicsItem__ItemTransformOriginPointHasChanged QGraphicsItem__GraphicsItemChange = 33
+)
+
+type QGraphicsItem__CacheMode int64
+
+const (
+	QGraphicsItem__NoCache QGraphicsItem__CacheMode = 0
+	QGraphicsItem__ItemCoordinateCache QGraphicsItem__CacheMode = 1
+	QGraphicsItem__DeviceCoordinateCache QGraphicsItem__CacheMode = 2
+)
+
+type QGraphicsItem__PanelModality int64
+
+const (
+	QGraphicsItem__NonModal QGraphicsItem__PanelModality = 0
+	QGraphicsItem__PanelModal QGraphicsItem__PanelModality = 1
+	QGraphicsItem__SceneModal QGraphicsItem__PanelModality = 2
+)
+
+type QGraphicsItem__Extension int64
+
+const (
+	QGraphicsItem__UserExtension QGraphicsItem__Extension = 2147483648
+)
+

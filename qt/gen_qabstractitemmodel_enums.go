@@ -1,0 +1,19 @@
+package qt
+
+type QAbstractItemModel__LayoutChangeHint int64
+
+const (
+	QAbstractItemModel__NoLayoutChangeHint QAbstractItemModel__LayoutChangeHint = 0
+	QAbstractItemModel__VerticalSortHint QAbstractItemModel__LayoutChangeHint = 1
+	QAbstractItemModel__HorizontalSortHint QAbstractItemModel__LayoutChangeHint = 2
+)
+
+type QAbstractItemModel__CheckIndexOption int64
+
+const (
+	QAbstractItemModel__CheckIndexOption__NoOption QAbstractItemModel__CheckIndexOption = 0
+	QAbstractItemModel__CheckIndexOption__IndexIsValid QAbstractItemModel__CheckIndexOption = 1
+	QAbstractItemModel__CheckIndexOption__DoNotUseParent QAbstractItemModel__CheckIndexOption = 2
+	QAbstractItemModel__CheckIndexOption__ParentIsInvalid QAbstractItemModel__CheckIndexOption = 4
+)
+

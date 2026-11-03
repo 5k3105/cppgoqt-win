@@ -1,0 +1,13 @@
+package qt
+
+type QtOrderingPrivate__QtOrderingType int64
+
+const (
+	QtOrderingPrivate__QtOrderingType__QtOrder QtOrderingPrivate__QtOrderingType = 0
+	QtOrderingPrivate__QtOrderingType__StdOrder QtOrderingPrivate__QtOrderingType = 1
+	QtOrderingPrivate__QtOrderingType__Partial QtOrderingPrivate__QtOrderingType = 0
+	QtOrderingPrivate__QtOrderingType__Weak QtOrderingPrivate__QtOrderingType = 32
+	QtOrderingPrivate__QtOrderingType__Strong QtOrderingPrivate__QtOrderingType = 64
+	QtOrderingPrivate__QtOrderingType__StrengthMask QtOrderingPrivate__QtOrderingType = 96
+)
+

@@ -1,0 +1,23 @@
+package qt
+
+type QCommandLineParser__SingleDashWordOptionMode int64
+
+const (
+	QCommandLineParser__ParseAsCompactedShortOptions QCommandLineParser__SingleDashWordOptionMode = 0
+	QCommandLineParser__ParseAsLongOptions QCommandLineParser__SingleDashWordOptionMode = 1
+)
+
+type QCommandLineParser__OptionsAfterPositionalArgumentsMode int64
+
+const (
+	QCommandLineParser__ParseAsOptions QCommandLineParser__OptionsAfterPositionalArgumentsMode = 0
+	QCommandLineParser__ParseAsPositionalArguments QCommandLineParser__OptionsAfterPositionalArgumentsMode = 1
+)
+
+type QCommandLineParser__MessageType int64
+
+const (
+	QCommandLineParser__MessageType__Information QCommandLineParser__MessageType = 0
+	QCommandLineParser__MessageType__Error QCommandLineParser__MessageType = 1
+)
+

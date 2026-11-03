@@ -1,0 +1,10 @@
+package qt
+
+type QAbstractScrollArea__SizeAdjustPolicy int64
+
+const (
+	QAbstractScrollArea__AdjustIgnored QAbstractScrollArea__SizeAdjustPolicy = 0
+	QAbstractScrollArea__AdjustToContentsOnFirstShow QAbstractScrollArea__SizeAdjustPolicy = 1
+	QAbstractScrollArea__AdjustToContents QAbstractScrollArea__SizeAdjustPolicy = 2
+)
+

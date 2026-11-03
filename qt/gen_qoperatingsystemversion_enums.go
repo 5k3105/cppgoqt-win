@@ -1,0 +1,15 @@
+package qt
+
+type QOperatingSystemVersion__OSType int64
+
+const (
+	QOperatingSystemVersion__Unknown QOperatingSystemVersion__OSType = 0
+	QOperatingSystemVersion__Windows QOperatingSystemVersion__OSType = 1
+	QOperatingSystemVersion__MacOS QOperatingSystemVersion__OSType = 2
+	QOperatingSystemVersion__IOS QOperatingSystemVersion__OSType = 3
+	QOperatingSystemVersion__TvOS QOperatingSystemVersion__OSType = 4
+	QOperatingSystemVersion__WatchOS QOperatingSystemVersion__OSType = 5
+	QOperatingSystemVersion__Android QOperatingSystemVersion__OSType = 6
+	QOperatingSystemVersion__VisionOS QOperatingSystemVersion__OSType = 7
+)
+

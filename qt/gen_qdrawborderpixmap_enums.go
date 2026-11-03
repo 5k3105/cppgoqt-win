@@ -1,0 +1,20 @@
+package qt
+
+type QDrawBorderPixmap__DrawingHint int64
+
+const (
+	QDrawBorderPixmap__OpaqueTopLeft QDrawBorderPixmap__DrawingHint = 1
+	QDrawBorderPixmap__OpaqueTop QDrawBorderPixmap__DrawingHint = 2
+	QDrawBorderPixmap__OpaqueTopRight QDrawBorderPixmap__DrawingHint = 4
+	QDrawBorderPixmap__OpaqueLeft QDrawBorderPixmap__DrawingHint = 8
+	QDrawBorderPixmap__OpaqueCenter QDrawBorderPixmap__DrawingHint = 16
+	QDrawBorderPixmap__OpaqueRight QDrawBorderPixmap__DrawingHint = 32
+	QDrawBorderPixmap__OpaqueBottomLeft QDrawBorderPixmap__DrawingHint = 64
+	QDrawBorderPixmap__OpaqueBottom QDrawBorderPixmap__DrawingHint = 128
+	QDrawBorderPixmap__OpaqueBottomRight QDrawBorderPixmap__DrawingHint = 256
+	QDrawBorderPixmap__OpaqueCorners QDrawBorderPixmap__DrawingHint = 325
+	QDrawBorderPixmap__OpaqueEdges QDrawBorderPixmap__DrawingHint = 170
+	QDrawBorderPixmap__OpaqueFrame QDrawBorderPixmap__DrawingHint = 495
+	QDrawBorderPixmap__OpaqueAll QDrawBorderPixmap__DrawingHint = 511
+)
+

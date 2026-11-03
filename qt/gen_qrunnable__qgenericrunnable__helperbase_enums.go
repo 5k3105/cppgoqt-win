@@ -1,0 +1,9 @@
+package qt
+
+type QRunnable__QGenericRunnable__HelperBase__Op int64
+
+const (
+	QRunnable__QGenericRunnable__HelperBase__Op__Run QRunnable__QGenericRunnable__HelperBase__Op = 0
+	QRunnable__QGenericRunnable__HelperBase__Op__Destroy QRunnable__QGenericRunnable__HelperBase__Op = 1
+)
+

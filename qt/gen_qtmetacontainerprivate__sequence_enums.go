@@ -1,0 +1,10 @@
+package qt
+
+type QtMetaContainerPrivate__Sequence__Position int64
+
+const (
+	QtMetaContainerPrivate__Sequence__Unspecified QtMetaContainerPrivate__Sequence__Position = 0
+	QtMetaContainerPrivate__Sequence__AtBegin QtMetaContainerPrivate__Sequence__Position = 1
+	QtMetaContainerPrivate__Sequence__AtEnd QtMetaContainerPrivate__Sequence__Position = 2
+)
+

@@ -1,0 +1,54 @@
+package qt
+
+type QDialogButtonBox__ButtonRole int64
+
+const (
+	QDialogButtonBox__InvalidRole QDialogButtonBox__ButtonRole = -1
+	QDialogButtonBox__AcceptRole QDialogButtonBox__ButtonRole = 0
+	QDialogButtonBox__RejectRole QDialogButtonBox__ButtonRole = 1
+	QDialogButtonBox__DestructiveRole QDialogButtonBox__ButtonRole = 2
+	QDialogButtonBox__ActionRole QDialogButtonBox__ButtonRole = 3
+	QDialogButtonBox__HelpRole QDialogButtonBox__ButtonRole = 4
+	QDialogButtonBox__YesRole QDialogButtonBox__ButtonRole = 5
+	QDialogButtonBox__NoRole QDialogButtonBox__ButtonRole = 6
+	QDialogButtonBox__ResetRole QDialogButtonBox__ButtonRole = 7
+	QDialogButtonBox__ApplyRole QDialogButtonBox__ButtonRole = 8
+	QDialogButtonBox__NRoles QDialogButtonBox__ButtonRole = 9
+)
+
+type QDialogButtonBox__StandardButton int64
+
+const (
+	QDialogButtonBox__NoButton QDialogButtonBox__StandardButton = 0
+	QDialogButtonBox__Ok QDialogButtonBox__StandardButton = 1024
+	QDialogButtonBox__Save QDialogButtonBox__StandardButton = 2048
+	QDialogButtonBox__SaveAll QDialogButtonBox__StandardButton = 4096
+	QDialogButtonBox__Open QDialogButtonBox__StandardButton = 8192
+	QDialogButtonBox__Yes QDialogButtonBox__StandardButton = 16384
+	QDialogButtonBox__YesToAll QDialogButtonBox__StandardButton = 32768
+	QDialogButtonBox__No QDialogButtonBox__StandardButton = 65536
+	QDialogButtonBox__NoToAll QDialogButtonBox__StandardButton = 131072
+	QDialogButtonBox__Abort QDialogButtonBox__StandardButton = 262144
+	QDialogButtonBox__Retry QDialogButtonBox__StandardButton = 524288
+	QDialogButtonBox__Ignore QDialogButtonBox__StandardButton = 1048576
+	QDialogButtonBox__Close QDialogButtonBox__StandardButton = 2097152
+	QDialogButtonBox__Cancel QDialogButtonBox__StandardButton = 4194304
+	QDialogButtonBox__Discard QDialogButtonBox__StandardButton = 8388608
+	QDialogButtonBox__Help QDialogButtonBox__StandardButton = 16777216
+	QDialogButtonBox__Apply QDialogButtonBox__StandardButton = 33554432
+	QDialogButtonBox__Reset QDialogButtonBox__StandardButton = 67108864
+	QDialogButtonBox__RestoreDefaults QDialogButtonBox__StandardButton = 134217728
+	QDialogButtonBox__FirstButton QDialogButtonBox__StandardButton = 1024
+	QDialogButtonBox__LastButton QDialogButtonBox__StandardButton = 134217728
+)
+
+type QDialogButtonBox__ButtonLayout int64
+
+const (
+	QDialogButtonBox__WinLayout QDialogButtonBox__ButtonLayout = 0
+	QDialogButtonBox__MacLayout QDialogButtonBox__ButtonLayout = 1
+	QDialogButtonBox__KdeLayout QDialogButtonBox__ButtonLayout = 2
+	QDialogButtonBox__GnomeLayout QDialogButtonBox__ButtonLayout = 3
+	QDialogButtonBox__AndroidLayout QDialogButtonBox__ButtonLayout = 4
+)
+

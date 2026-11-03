@@ -1,0 +1,41 @@
+package qt
+
+type QRegularExpression__PatternOption int64
+
+const (
+	QRegularExpression__NoPatternOption QRegularExpression__PatternOption = 0
+	QRegularExpression__CaseInsensitiveOption QRegularExpression__PatternOption = 1
+	QRegularExpression__DotMatchesEverythingOption QRegularExpression__PatternOption = 2
+	QRegularExpression__MultilineOption QRegularExpression__PatternOption = 4
+	QRegularExpression__ExtendedPatternSyntaxOption QRegularExpression__PatternOption = 8
+	QRegularExpression__InvertedGreedinessOption QRegularExpression__PatternOption = 16
+	QRegularExpression__DontCaptureOption QRegularExpression__PatternOption = 32
+	QRegularExpression__UseUnicodePropertiesOption QRegularExpression__PatternOption = 64
+)
+
+type QRegularExpression__MatchType int64
+
+const (
+	QRegularExpression__NormalMatch QRegularExpression__MatchType = 0
+	QRegularExpression__PartialPreferCompleteMatch QRegularExpression__MatchType = 1
+	QRegularExpression__PartialPreferFirstMatch QRegularExpression__MatchType = 2
+	QRegularExpression__NoMatch QRegularExpression__MatchType = 3
+)
+
+type QRegularExpression__MatchOption int64
+
+const (
+	QRegularExpression__NoMatchOption QRegularExpression__MatchOption = 0
+	QRegularExpression__AnchorAtOffsetMatchOption QRegularExpression__MatchOption = 1
+	QRegularExpression__AnchoredMatchOption QRegularExpression__MatchOption = 1
+	QRegularExpression__DontCheckSubjectStringMatchOption QRegularExpression__MatchOption = 2
+)
+
+type QRegularExpression__WildcardConversionOption int64
+
+const (
+	QRegularExpression__DefaultWildcardConversion QRegularExpression__WildcardConversionOption = 0
+	QRegularExpression__UnanchoredWildcardConversion QRegularExpression__WildcardConversionOption = 1
+	QRegularExpression__NonPathWildcardConversion QRegularExpression__WildcardConversionOption = 2
+)
+

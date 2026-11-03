@@ -1,0 +1,46 @@
+package qt
+
+type QStyleOptionViewItem__StyleOptionType int64
+
+const (
+	QStyleOptionViewItem__Type QStyleOptionViewItem__StyleOptionType = 10
+)
+
+type QStyleOptionViewItem__StyleOptionVersion int64
+
+const (
+	QStyleOptionViewItem__Version QStyleOptionViewItem__StyleOptionVersion = 1
+)
+
+type QStyleOptionViewItem__Position int64
+
+const (
+	QStyleOptionViewItem__Left QStyleOptionViewItem__Position = 0
+	QStyleOptionViewItem__Right QStyleOptionViewItem__Position = 1
+	QStyleOptionViewItem__Top QStyleOptionViewItem__Position = 2
+	QStyleOptionViewItem__Bottom QStyleOptionViewItem__Position = 3
+)
+
+type QStyleOptionViewItem__ViewItemFeature int64
+
+const (
+	QStyleOptionViewItem__None QStyleOptionViewItem__ViewItemFeature = 0
+	QStyleOptionViewItem__WrapText QStyleOptionViewItem__ViewItemFeature = 1
+	QStyleOptionViewItem__Alternate QStyleOptionViewItem__ViewItemFeature = 2
+	QStyleOptionViewItem__HasCheckIndicator QStyleOptionViewItem__ViewItemFeature = 4
+	QStyleOptionViewItem__HasDisplay QStyleOptionViewItem__ViewItemFeature = 8
+	QStyleOptionViewItem__HasDecoration QStyleOptionViewItem__ViewItemFeature = 16
+	QStyleOptionViewItem__IsDecoratedRootColumn QStyleOptionViewItem__ViewItemFeature = 32
+	QStyleOptionViewItem__IsDecorationForRootColumn QStyleOptionViewItem__ViewItemFeature = 64
+)
+
+type QStyleOptionViewItem__ViewItemPosition int64
+
+const (
+	QStyleOptionViewItem__Invalid QStyleOptionViewItem__ViewItemPosition = 0
+	QStyleOptionViewItem__Beginning QStyleOptionViewItem__ViewItemPosition = 1
+	QStyleOptionViewItem__Middle QStyleOptionViewItem__ViewItemPosition = 2
+	QStyleOptionViewItem__End QStyleOptionViewItem__ViewItemPosition = 3
+	QStyleOptionViewItem__OnlyOne QStyleOptionViewItem__ViewItemPosition = 4
+)
+

@@ -1,0 +1,22 @@
+package qt
+
+type QTextBoundaryFinder__BoundaryType int64
+
+const (
+	QTextBoundaryFinder__Grapheme QTextBoundaryFinder__BoundaryType = 0
+	QTextBoundaryFinder__Word QTextBoundaryFinder__BoundaryType = 1
+	QTextBoundaryFinder__Sentence QTextBoundaryFinder__BoundaryType = 2
+	QTextBoundaryFinder__Line QTextBoundaryFinder__BoundaryType = 3
+)
+
+type QTextBoundaryFinder__BoundaryReason int64
+
+const (
+	QTextBoundaryFinder__NotAtBoundary QTextBoundaryFinder__BoundaryReason = 0
+	QTextBoundaryFinder__BreakOpportunity QTextBoundaryFinder__BoundaryReason = 31
+	QTextBoundaryFinder__StartOfItem QTextBoundaryFinder__BoundaryReason = 32
+	QTextBoundaryFinder__EndOfItem QTextBoundaryFinder__BoundaryReason = 64
+	QTextBoundaryFinder__MandatoryBreak QTextBoundaryFinder__BoundaryReason = 128
+	QTextBoundaryFinder__SoftHyphen QTextBoundaryFinder__BoundaryReason = 256
+)
+

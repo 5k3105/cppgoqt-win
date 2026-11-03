@@ -1,0 +1,26 @@
+package qt
+
+type QTextFrameFormat__Position int64
+
+const (
+	QTextFrameFormat__InFlow QTextFrameFormat__Position = 0
+	QTextFrameFormat__FloatLeft QTextFrameFormat__Position = 1
+	QTextFrameFormat__FloatRight QTextFrameFormat__Position = 2
+)
+
+type QTextFrameFormat__BorderStyle int64
+
+const (
+	QTextFrameFormat__BorderStyle_None QTextFrameFormat__BorderStyle = 0
+	QTextFrameFormat__BorderStyle_Dotted QTextFrameFormat__BorderStyle = 1
+	QTextFrameFormat__BorderStyle_Dashed QTextFrameFormat__BorderStyle = 2
+	QTextFrameFormat__BorderStyle_Solid QTextFrameFormat__BorderStyle = 3
+	QTextFrameFormat__BorderStyle_Double QTextFrameFormat__BorderStyle = 4
+	QTextFrameFormat__BorderStyle_DotDash QTextFrameFormat__BorderStyle = 5
+	QTextFrameFormat__BorderStyle_DotDotDash QTextFrameFormat__BorderStyle = 6
+	QTextFrameFormat__BorderStyle_Groove QTextFrameFormat__BorderStyle = 7
+	QTextFrameFormat__BorderStyle_Ridge QTextFrameFormat__BorderStyle = 8
+	QTextFrameFormat__BorderStyle_Inset QTextFrameFormat__BorderStyle = 9
+	QTextFrameFormat__BorderStyle_Outset QTextFrameFormat__BorderStyle = 10
+)
+

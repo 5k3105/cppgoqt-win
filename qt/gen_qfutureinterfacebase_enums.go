@@ -1,0 +1,32 @@
+package qt
+
+type QFutureInterfaceBase__State int64
+
+const (
+	QFutureInterfaceBase__NoState QFutureInterfaceBase__State = 0
+	QFutureInterfaceBase__Running QFutureInterfaceBase__State = 1
+	QFutureInterfaceBase__Started QFutureInterfaceBase__State = 2
+	QFutureInterfaceBase__Finished QFutureInterfaceBase__State = 4
+	QFutureInterfaceBase__Canceled QFutureInterfaceBase__State = 8
+	QFutureInterfaceBase__Suspending QFutureInterfaceBase__State = 16
+	QFutureInterfaceBase__Suspended QFutureInterfaceBase__State = 32
+	QFutureInterfaceBase__Throttled QFutureInterfaceBase__State = 64
+	QFutureInterfaceBase__Pending QFutureInterfaceBase__State = 128
+)
+
+type QFutureInterfaceBase__ContinuationType int64
+
+const (
+	QFutureInterfaceBase__ContinuationType__Unknown QFutureInterfaceBase__ContinuationType = 0
+	QFutureInterfaceBase__ContinuationType__Then QFutureInterfaceBase__ContinuationType = 1
+	QFutureInterfaceBase__ContinuationType__OnFailed QFutureInterfaceBase__ContinuationType = 2
+	QFutureInterfaceBase__ContinuationType__OnCanceled QFutureInterfaceBase__ContinuationType = 3
+)
+
+type QFutureInterfaceBase__CancelMode int64
+
+const (
+	QFutureInterfaceBase__CancelMode__CancelOnly QFutureInterfaceBase__CancelMode = 0
+	QFutureInterfaceBase__CancelMode__CancelAndFinish QFutureInterfaceBase__CancelMode = 1
+)
+

@@ -1,0 +1,37 @@
+package qt
+
+type QStandardPaths__StandardLocation int64
+
+const (
+	QStandardPaths__DesktopLocation QStandardPaths__StandardLocation = 0
+	QStandardPaths__DocumentsLocation QStandardPaths__StandardLocation = 1
+	QStandardPaths__FontsLocation QStandardPaths__StandardLocation = 2
+	QStandardPaths__ApplicationsLocation QStandardPaths__StandardLocation = 3
+	QStandardPaths__MusicLocation QStandardPaths__StandardLocation = 4
+	QStandardPaths__MoviesLocation QStandardPaths__StandardLocation = 5
+	QStandardPaths__PicturesLocation QStandardPaths__StandardLocation = 6
+	QStandardPaths__TempLocation QStandardPaths__StandardLocation = 7
+	QStandardPaths__HomeLocation QStandardPaths__StandardLocation = 8
+	QStandardPaths__AppLocalDataLocation QStandardPaths__StandardLocation = 9
+	QStandardPaths__CacheLocation QStandardPaths__StandardLocation = 10
+	QStandardPaths__GenericDataLocation QStandardPaths__StandardLocation = 11
+	QStandardPaths__RuntimeLocation QStandardPaths__StandardLocation = 12
+	QStandardPaths__ConfigLocation QStandardPaths__StandardLocation = 13
+	QStandardPaths__DownloadLocation QStandardPaths__StandardLocation = 14
+	QStandardPaths__GenericCacheLocation QStandardPaths__StandardLocation = 15
+	QStandardPaths__GenericConfigLocation QStandardPaths__StandardLocation = 16
+	QStandardPaths__AppDataLocation QStandardPaths__StandardLocation = 17
+	QStandardPaths__AppConfigLocation QStandardPaths__StandardLocation = 18
+	QStandardPaths__PublicShareLocation QStandardPaths__StandardLocation = 19
+	QStandardPaths__TemplatesLocation QStandardPaths__StandardLocation = 20
+	QStandardPaths__StateLocation QStandardPaths__StandardLocation = 21
+	QStandardPaths__GenericStateLocation QStandardPaths__StandardLocation = 22
+)
+
+type QStandardPaths__LocateOption int64
+
+const (
+	QStandardPaths__LocateFile QStandardPaths__LocateOption = 0
+	QStandardPaths__LocateDirectory QStandardPaths__LocateOption = 1
+)
+

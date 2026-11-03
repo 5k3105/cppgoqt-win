@@ -1,0 +1,114 @@
+#pragma once
+#include <stddef.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void* QAction_base(void* self);
+void QAction__set_override(void* self, int idx);
+void* QAction_fromQObject(void* o);
+void* QAction_new(long long __goid);
+void* QAction_new2(long long __goid, const char* text, long long text_len);
+void* QAction_new3(long long __goid, void* icon, const char* text, long long text_len);
+void* QAction_new4(long long __goid, void* parent);
+void* QAction_new5(long long __goid, const char* text, long long text_len, void* parent);
+void* QAction_new6(long long __goid, void* icon, const char* text, long long text_len, void* parent);
+char* QAction_tr(const char* s, long long* __out_len);
+void** QAction_associatedObjects(void* self, long long* __out_len);
+void QAction_setActionGroup(void* self, void* group);
+void* QAction_actionGroup(void* self);
+void QAction_setIcon(void* self, void* icon);
+void* QAction_icon(void* self);
+void QAction_setText(void* self, const char* text, long long text_len);
+char* QAction_text(void* self, long long* __out_len);
+void QAction_setIconText(void* self, const char* text, long long text_len);
+char* QAction_iconText(void* self, long long* __out_len);
+void QAction_setToolTip(void* self, const char* tip, long long tip_len);
+char* QAction_toolTip(void* self, long long* __out_len);
+void QAction_setStatusTip(void* self, const char* statusTip, long long statusTip_len);
+char* QAction_statusTip(void* self, long long* __out_len);
+void QAction_setWhatsThis(void* self, const char* what, long long what_len);
+char* QAction_whatsThis(void* self, long long* __out_len);
+void QAction_setPriority(void* self, int priority);
+int QAction_priority(void* self);
+void QAction_setSeparator(void* self, int b);
+int QAction_isSeparator(void* self);
+void QAction_setShortcut(void* self, void* shortcut);
+void* QAction_shortcut(void* self);
+void QAction_setShortcuts(void* self, void** shortcuts, long long shortcuts_len);
+void QAction_setShortcuts2(void* self, int arg1);
+void** QAction_shortcuts(void* self, long long* __out_len);
+void QAction_setShortcutContext(void* self, int context);
+int QAction_shortcutContext(void* self);
+void QAction_setAutoRepeat(void* self, int arg1);
+int QAction_autoRepeat(void* self);
+void QAction_setFont(void* self, void* font);
+void* QAction_font(void* self);
+void QAction_setCheckable(void* self, int arg1);
+int QAction_isCheckable(void* self);
+void* QAction_data(void* self);
+void QAction_setData(void* self, void* var_);
+int QAction_isChecked(void* self);
+int QAction_isEnabled(void* self);
+int QAction_isVisible(void* self);
+void QAction_activate(void* self, int event);
+void QAction_setMenuRole(void* self, int menuRole);
+int QAction_menuRole(void* self);
+void QAction_setIconVisibleInMenu(void* self, int visible);
+int QAction_isIconVisibleInMenu(void* self);
+void QAction_setShortcutVisibleInContextMenu(void* self, int show);
+int QAction_isShortcutVisibleInContextMenu(void* self);
+int QAction_showStatusText(void* self);
+void QAction_trigger(void* self);
+void QAction_hover(void* self);
+void QAction_setChecked(void* self, int arg1);
+void QAction_toggle(void* self);
+void QAction_setEnabled(void* self, int arg1);
+void QAction_resetEnabled(void* self);
+void QAction_setDisabled(void* self, int b);
+void QAction_setVisible(void* self, int arg1);
+void QAction_changed(void* self);
+void QAction_enabledChanged(void* self, int enabled);
+void QAction_checkableChanged(void* self, int checkable);
+void QAction_visibleChanged(void* self);
+void QAction_triggered(void* self);
+void QAction_hovered(void* self);
+void QAction_toggled(void* self, int arg1);
+void* QAction_connect(void* sender, const char* signal, void* receiver, const char* member);
+void* QAction_connect2(void* sender, void* signal, void* receiver, void* method);
+void* QAction_sender(void* self);
+int QAction_senderSignalIndex(void* self);
+int QAction_receivers(void* self, const char* signal);
+int QAction_isSignalConnected(void* self, void* signal);
+char* QAction_tr2(const char* s, const char* c, long long* __out_len);
+char* QAction_tr3(const char* s, const char* c, int n, long long* __out_len);
+int QAction_showStatusText2(void* self, void* object);
+void QAction_triggered2(void* self, int checked);
+void* QAction_connect3(void* sender, const char* signal, void* receiver, const char* member, int arg5);
+void* QAction_connect4(void* sender, void* signal, void* receiver, void* method, int type_);
+void* QAction_metaObject_default(void* self);
+int QAction_event_default(void* self, void* arg1);
+int QAction_eventFilter_default(void* self, void* watched, void* event);
+void QAction_timerEvent_default(void* self, void* event);
+void QAction_childEvent_default(void* self, void* event);
+void QAction_customEvent_default(void* self, void* event);
+void QAction_connectNotify_default(void* self, void* signal);
+void QAction_disconnectNotify_default(void* self, void* signal);
+void QAction_connect_changed(void* self, long long id);
+void QAction_connect_enabledChanged(void* self, long long id);
+void QAction_connect_checkableChanged(void* self, long long id);
+void QAction_connect_visibleChanged(void* self, long long id);
+void QAction_connect_triggered(void* self, long long id);
+void QAction_connect_triggered2(void* self, long long id);
+void QAction_connect_hovered(void* self, long long id);
+void QAction_connect_toggled(void* self, long long id);
+void QAction_connect_destroyed(void* self, long long id);
+void QAction_connect_destroyed2(void* self, long long id);
+void QAction_connect_objectNameChanged(void* self, long long id);
+void QAction__disconnect(long long id);
+void* QAction__Go_new(long long id, void* parent);
+void QAction_delete(void* self);
+
+#ifdef __cplusplus
+}
+#endif

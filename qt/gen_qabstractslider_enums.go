@@ -1,0 +1,24 @@
+package qt
+
+type QAbstractSlider__SliderAction int64
+
+const (
+	QAbstractSlider__SliderNoAction QAbstractSlider__SliderAction = 0
+	QAbstractSlider__SliderSingleStepAdd QAbstractSlider__SliderAction = 1
+	QAbstractSlider__SliderSingleStepSub QAbstractSlider__SliderAction = 2
+	QAbstractSlider__SliderPageStepAdd QAbstractSlider__SliderAction = 3
+	QAbstractSlider__SliderPageStepSub QAbstractSlider__SliderAction = 4
+	QAbstractSlider__SliderToMinimum QAbstractSlider__SliderAction = 5
+	QAbstractSlider__SliderToMaximum QAbstractSlider__SliderAction = 6
+	QAbstractSlider__SliderMove QAbstractSlider__SliderAction = 7
+)
+
+type QAbstractSlider__SliderChange int64
+
+const (
+	QAbstractSlider__SliderRangeChange QAbstractSlider__SliderChange = 0
+	QAbstractSlider__SliderOrientationChange QAbstractSlider__SliderChange = 1
+	QAbstractSlider__SliderStepsChange QAbstractSlider__SliderChange = 2
+	QAbstractSlider__SliderValueChange QAbstractSlider__SliderChange = 3
+)
+

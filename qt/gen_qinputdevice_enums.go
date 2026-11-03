@@ -1,0 +1,37 @@
+package qt
+
+type QInputDevice__DeviceType int64
+
+const (
+	QInputDevice__DeviceType__Unknown QInputDevice__DeviceType = 0
+	QInputDevice__DeviceType__Mouse QInputDevice__DeviceType = 1
+	QInputDevice__DeviceType__TouchScreen QInputDevice__DeviceType = 2
+	QInputDevice__DeviceType__TouchPad QInputDevice__DeviceType = 4
+	QInputDevice__DeviceType__Puck QInputDevice__DeviceType = 8
+	QInputDevice__DeviceType__Stylus QInputDevice__DeviceType = 16
+	QInputDevice__DeviceType__Airbrush QInputDevice__DeviceType = 32
+	QInputDevice__DeviceType__Keyboard QInputDevice__DeviceType = 4096
+	QInputDevice__DeviceType__AllDevices QInputDevice__DeviceType = 2147483647
+)
+
+type QInputDevice__Capability int64
+
+const (
+	QInputDevice__Capability__None QInputDevice__Capability = 0
+	QInputDevice__Capability__Position QInputDevice__Capability = 1
+	QInputDevice__Capability__Area QInputDevice__Capability = 2
+	QInputDevice__Capability__Pressure QInputDevice__Capability = 4
+	QInputDevice__Capability__Velocity QInputDevice__Capability = 8
+	QInputDevice__Capability__NormalizedPosition QInputDevice__Capability = 32
+	QInputDevice__Capability__MouseEmulation QInputDevice__Capability = 64
+	QInputDevice__Capability__PixelScroll QInputDevice__Capability = 128
+	QInputDevice__Capability__Scroll QInputDevice__Capability = 256
+	QInputDevice__Capability__Hover QInputDevice__Capability = 512
+	QInputDevice__Capability__Rotation QInputDevice__Capability = 1024
+	QInputDevice__Capability__XTilt QInputDevice__Capability = 2048
+	QInputDevice__Capability__YTilt QInputDevice__Capability = 4096
+	QInputDevice__Capability__TangentialPressure QInputDevice__Capability = 8192
+	QInputDevice__Capability__ZPosition QInputDevice__Capability = 16384
+	QInputDevice__Capability__All QInputDevice__Capability = 2147483647
+)
+

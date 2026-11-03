@@ -1,0 +1,10 @@
+package qt
+
+type QtMetaContainerPrivate__QMetaContainerInterface__Position int64
+
+const (
+	QtMetaContainerPrivate__QMetaContainerInterface__AtBegin QtMetaContainerPrivate__QMetaContainerInterface__Position = 0
+	QtMetaContainerPrivate__QMetaContainerInterface__AtEnd QtMetaContainerPrivate__QMetaContainerInterface__Position = 1
+	QtMetaContainerPrivate__QMetaContainerInterface__Unspecified QtMetaContainerPrivate__QMetaContainerInterface__Position = 2
+)
+

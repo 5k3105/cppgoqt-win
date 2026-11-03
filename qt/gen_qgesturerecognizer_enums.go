@@ -1,0 +1,15 @@
+package qt
+
+type QGestureRecognizer__ResultFlag int64
+
+const (
+	QGestureRecognizer__Ignore QGestureRecognizer__ResultFlag = 1
+	QGestureRecognizer__MayBeGesture QGestureRecognizer__ResultFlag = 2
+	QGestureRecognizer__TriggerGesture QGestureRecognizer__ResultFlag = 4
+	QGestureRecognizer__FinishGesture QGestureRecognizer__ResultFlag = 8
+	QGestureRecognizer__CancelGesture QGestureRecognizer__ResultFlag = 16
+	QGestureRecognizer__ResultState_Mask QGestureRecognizer__ResultFlag = 255
+	QGestureRecognizer__ConsumeEventHint QGestureRecognizer__ResultFlag = 256
+	QGestureRecognizer__ResultHint_Mask QGestureRecognizer__ResultFlag = 65280
+)
+

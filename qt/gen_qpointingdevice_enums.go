@@ -1,0 +1,26 @@
+package qt
+
+type QPointingDevice__PointerType int64
+
+const (
+	QPointingDevice__PointerType__Unknown QPointingDevice__PointerType = 0
+	QPointingDevice__PointerType__Generic QPointingDevice__PointerType = 1
+	QPointingDevice__PointerType__Finger QPointingDevice__PointerType = 2
+	QPointingDevice__PointerType__Pen QPointingDevice__PointerType = 4
+	QPointingDevice__PointerType__Eraser QPointingDevice__PointerType = 8
+	QPointingDevice__PointerType__Cursor QPointingDevice__PointerType = 16
+	QPointingDevice__PointerType__AllPointerTypes QPointingDevice__PointerType = 32767
+)
+
+type QPointingDevice__GrabTransition int64
+
+const (
+	QPointingDevice__GrabPassive QPointingDevice__GrabTransition = 1
+	QPointingDevice__UngrabPassive QPointingDevice__GrabTransition = 2
+	QPointingDevice__CancelGrabPassive QPointingDevice__GrabTransition = 3
+	QPointingDevice__OverrideGrabPassive QPointingDevice__GrabTransition = 4
+	QPointingDevice__GrabExclusive QPointingDevice__GrabTransition = 16
+	QPointingDevice__UngrabExclusive QPointingDevice__GrabTransition = 32
+	QPointingDevice__CancelGrabExclusive QPointingDevice__GrabTransition = 48
+)
+

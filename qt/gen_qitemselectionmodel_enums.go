@@ -1,0 +1,18 @@
+package qt
+
+type QItemSelectionModel__SelectionFlag int64
+
+const (
+	QItemSelectionModel__NoUpdate QItemSelectionModel__SelectionFlag = 0
+	QItemSelectionModel__Clear QItemSelectionModel__SelectionFlag = 1
+	QItemSelectionModel__Select QItemSelectionModel__SelectionFlag = 2
+	QItemSelectionModel__Deselect QItemSelectionModel__SelectionFlag = 4
+	QItemSelectionModel__Toggle QItemSelectionModel__SelectionFlag = 8
+	QItemSelectionModel__Current QItemSelectionModel__SelectionFlag = 16
+	QItemSelectionModel__Rows QItemSelectionModel__SelectionFlag = 32
+	QItemSelectionModel__Columns QItemSelectionModel__SelectionFlag = 64
+	QItemSelectionModel__SelectCurrent QItemSelectionModel__SelectionFlag = 18
+	QItemSelectionModel__ToggleCurrent QItemSelectionModel__SelectionFlag = 24
+	QItemSelectionModel__ClearAndSelect QItemSelectionModel__SelectionFlag = 3
+)
+

@@ -1,0 +1,20 @@
+package qt
+
+type QAbstractFileIconProvider__IconType int64
+
+const (
+	QAbstractFileIconProvider__Computer QAbstractFileIconProvider__IconType = 0
+	QAbstractFileIconProvider__Desktop QAbstractFileIconProvider__IconType = 1
+	QAbstractFileIconProvider__Trashcan QAbstractFileIconProvider__IconType = 2
+	QAbstractFileIconProvider__Network QAbstractFileIconProvider__IconType = 3
+	QAbstractFileIconProvider__Drive QAbstractFileIconProvider__IconType = 4
+	QAbstractFileIconProvider__Folder QAbstractFileIconProvider__IconType = 5
+	QAbstractFileIconProvider__File QAbstractFileIconProvider__IconType = 6
+)
+
+type QAbstractFileIconProvider__Option int64
+
+const (
+	QAbstractFileIconProvider__DontUseCustomDirectoryIcons QAbstractFileIconProvider__Option = 1
+)
+

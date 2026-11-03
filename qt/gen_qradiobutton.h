@@ -1,0 +1,116 @@
+#pragma once
+#include <stddef.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void* QRadioButton_base(void* self);
+void QRadioButton_chain(void* self, void** out);
+void QRadioButton__set_override(void* self, int idx);
+void* QRadioButton_fromQObject(void* o);
+void* QRadioButton_new(long long __goid, void* parent);
+void* QRadioButton_new2(long long __goid);
+void* QRadioButton_new3(long long __goid, const char* text, long long text_len);
+void* QRadioButton_new4(long long __goid, const char* text, long long text_len, void* parent);
+char* QRadioButton_tr(const char* s, long long* __out_len);
+void QRadioButton_setTabOrder(void* arg1, void* arg2);
+void* QRadioButton_mouseGrabber();
+void* QRadioButton_keyboardGrabber();
+void* QRadioButton_find(unsigned long long arg1);
+void* QRadioButton_createWindowContainer(void* window);
+void QRadioButton_updateMicroFocus(void* self);
+void QRadioButton_create(void* self);
+void QRadioButton_destroy(void* self);
+int QRadioButton_focusNextChild(void* self);
+int QRadioButton_focusPreviousChild(void* self);
+void* QRadioButton_connect(void* sender, const char* signal, void* receiver, const char* member);
+void* QRadioButton_connect2(void* sender, void* signal, void* receiver, void* method);
+void* QRadioButton_sender(void* self);
+int QRadioButton_senderSignalIndex(void* self);
+int QRadioButton_receivers(void* self, const char* signal);
+int QRadioButton_isSignalConnected(void* self, void* signal);
+double QRadioButton_devicePixelRatioFScale();
+int QRadioButton_encodeMetricF(int metric, double value);
+double QRadioButton_getDecodedMetricF(void* self, int metricA, int metricB);
+char* QRadioButton_tr2(const char* s, const char* c, long long* __out_len);
+char* QRadioButton_tr3(const char* s, const char* c, int n, long long* __out_len);
+void* QRadioButton_createWindowContainer2(void* window, void* parent);
+void* QRadioButton_createWindowContainer3(void* window, void* parent, int flags);
+void QRadioButton_updateMicroFocus2(void* self, int query);
+void QRadioButton_create2(void* self, unsigned long long arg1);
+void QRadioButton_create3(void* self, unsigned long long arg1, int initializeWindow);
+void QRadioButton_create4(void* self, unsigned long long arg1, int initializeWindow, int destroyOldWindow);
+void QRadioButton_destroy2(void* self, int destroyWindow);
+void QRadioButton_destroy3(void* self, int destroyWindow, int destroySubWindows);
+void* QRadioButton_connect3(void* sender, const char* signal, void* receiver, const char* member, int arg5);
+void* QRadioButton_connect4(void* sender, void* signal, void* receiver, void* method, int type_);
+void* QRadioButton_metaObject_default(void* self);
+void* QRadioButton_sizeHint_default(void* self);
+void* QRadioButton_minimumSizeHint_default(void* self);
+int QRadioButton_event_default(void* self, void* e);
+int QRadioButton_hitButton_default(void* self, void* arg1);
+void QRadioButton_paintEvent_default(void* self, void* arg1);
+void QRadioButton_mouseMoveEvent_default(void* self, void* arg1);
+void QRadioButton_initStyleOption_default(void* self, void* button);
+void QRadioButton_checkStateSet_default(void* self);
+void QRadioButton_nextCheckState_default(void* self);
+void QRadioButton_keyPressEvent_default(void* self, void* e);
+void QRadioButton_keyReleaseEvent_default(void* self, void* e);
+void QRadioButton_mousePressEvent_default(void* self, void* e);
+void QRadioButton_mouseReleaseEvent_default(void* self, void* e);
+void QRadioButton_focusInEvent_default(void* self, void* e);
+void QRadioButton_focusOutEvent_default(void* self, void* e);
+void QRadioButton_changeEvent_default(void* self, void* e);
+void QRadioButton_timerEvent_default(void* self, void* e);
+int QRadioButton_devType_default(void* self);
+void QRadioButton_setVisible_default(void* self, int visible);
+int QRadioButton_heightForWidth_default(void* self, int arg1);
+int QRadioButton_hasHeightForWidth_default(void* self);
+void* QRadioButton_paintEngine_default(void* self);
+void QRadioButton_mouseDoubleClickEvent_default(void* self, void* event);
+void QRadioButton_wheelEvent_default(void* self, void* event);
+void QRadioButton_enterEvent_default(void* self, void* event);
+void QRadioButton_leaveEvent_default(void* self, void* event);
+void QRadioButton_moveEvent_default(void* self, void* event);
+void QRadioButton_resizeEvent_default(void* self, void* event);
+void QRadioButton_closeEvent_default(void* self, void* event);
+void QRadioButton_contextMenuEvent_default(void* self, void* event);
+void QRadioButton_tabletEvent_default(void* self, void* event);
+void QRadioButton_actionEvent_default(void* self, void* event);
+void QRadioButton_dragEnterEvent_default(void* self, void* event);
+void QRadioButton_dragMoveEvent_default(void* self, void* event);
+void QRadioButton_dragLeaveEvent_default(void* self, void* event);
+void QRadioButton_dropEvent_default(void* self, void* event);
+void QRadioButton_showEvent_default(void* self, void* event);
+void QRadioButton_hideEvent_default(void* self, void* event);
+int QRadioButton_metric_default(void* self, int arg1);
+void QRadioButton_initPainter_default(void* self, void* painter);
+void* QRadioButton_redirected_default(void* self, void* offset);
+void* QRadioButton_sharedPainter_default(void* self);
+void QRadioButton_inputMethodEvent_default(void* self, void* arg1);
+void* QRadioButton_inputMethodQuery_default(void* self, int arg1);
+int QRadioButton_focusNextPrevChild_default(void* self, int next);
+int QRadioButton_eventFilter_default(void* self, void* watched, void* event);
+void QRadioButton_childEvent_default(void* self, void* event);
+void QRadioButton_customEvent_default(void* self, void* event);
+void QRadioButton_connectNotify_default(void* self, void* signal);
+void QRadioButton_disconnectNotify_default(void* self, void* signal);
+void QRadioButton_connect_pressed(void* self, long long id);
+void QRadioButton_connect_released(void* self, long long id);
+void QRadioButton_connect_clicked(void* self, long long id);
+void QRadioButton_connect_clicked2(void* self, long long id);
+void QRadioButton_connect_toggled(void* self, long long id);
+void QRadioButton_connect_windowTitleChanged(void* self, long long id);
+void QRadioButton_connect_windowIconChanged(void* self, long long id);
+void QRadioButton_connect_windowIconTextChanged(void* self, long long id);
+void QRadioButton_connect_customContextMenuRequested(void* self, long long id);
+void QRadioButton_connect_destroyed(void* self, long long id);
+void QRadioButton_connect_destroyed2(void* self, long long id);
+void QRadioButton_connect_objectNameChanged(void* self, long long id);
+void QRadioButton__disconnect(long long id);
+void* QRadioButton__Go_new(long long id);
+void QRadioButton_delete(void* self);
+
+#ifdef __cplusplus
+}
+#endif

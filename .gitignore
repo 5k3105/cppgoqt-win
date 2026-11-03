@@ -1,0 +1,4 @@
+# the shim DLL is built from qt/cshim by build-dll.sh (it contains a static Qt): never committed
+*.dll
+# build-dll.sh's object files
+build/

@@ -1,0 +1,13 @@
+package qt
+
+type QStringConverterBase__Flag int64
+
+const (
+	QStringConverterBase__Flag__Default QStringConverterBase__Flag = 0
+	QStringConverterBase__Flag__Stateless QStringConverterBase__Flag = 1
+	QStringConverterBase__Flag__ConvertInvalidToNull QStringConverterBase__Flag = 2
+	QStringConverterBase__Flag__WriteBom QStringConverterBase__Flag = 4
+	QStringConverterBase__Flag__ConvertInitialBom QStringConverterBase__Flag = 8
+	QStringConverterBase__Flag__UsesIcu QStringConverterBase__Flag = 16
+)
+

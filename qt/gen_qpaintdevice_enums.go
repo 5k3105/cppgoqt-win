@@ -1,0 +1,21 @@
+package qt
+
+type QPaintDevice__PaintDeviceMetric int64
+
+const (
+	QPaintDevice__PdmWidth QPaintDevice__PaintDeviceMetric = 1
+	QPaintDevice__PdmHeight QPaintDevice__PaintDeviceMetric = 2
+	QPaintDevice__PdmWidthMM QPaintDevice__PaintDeviceMetric = 3
+	QPaintDevice__PdmHeightMM QPaintDevice__PaintDeviceMetric = 4
+	QPaintDevice__PdmNumColors QPaintDevice__PaintDeviceMetric = 5
+	QPaintDevice__PdmDepth QPaintDevice__PaintDeviceMetric = 6
+	QPaintDevice__PdmDpiX QPaintDevice__PaintDeviceMetric = 7
+	QPaintDevice__PdmDpiY QPaintDevice__PaintDeviceMetric = 8
+	QPaintDevice__PdmPhysicalDpiX QPaintDevice__PaintDeviceMetric = 9
+	QPaintDevice__PdmPhysicalDpiY QPaintDevice__PaintDeviceMetric = 10
+	QPaintDevice__PdmDevicePixelRatio QPaintDevice__PaintDeviceMetric = 11
+	QPaintDevice__PdmDevicePixelRatioScaled QPaintDevice__PaintDeviceMetric = 12
+	QPaintDevice__PdmDevicePixelRatioF_EncodedA QPaintDevice__PaintDeviceMetric = 13
+	QPaintDevice__PdmDevicePixelRatioF_EncodedB QPaintDevice__PaintDeviceMetric = 14
+)
+

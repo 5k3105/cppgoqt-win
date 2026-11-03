@@ -1,0 +1,118 @@
+#pragma once
+#include <stddef.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void* QFormLayout_base(void* self);
+void QFormLayout_chain(void* self, void** out);
+void QFormLayout__set_override(void* self, int idx);
+void* QFormLayout_fromQObject(void* o);
+void* QFormLayout_new(long long __goid, void* parent);
+void* QFormLayout_new2(long long __goid);
+char* QFormLayout_tr(const char* s, long long* __out_len);
+void QFormLayout_setFieldGrowthPolicy(void* self, int policy);
+int QFormLayout_fieldGrowthPolicy(void* self);
+void QFormLayout_setRowWrapPolicy(void* self, int policy);
+int QFormLayout_rowWrapPolicy(void* self);
+void QFormLayout_setLabelAlignment(void* self, int alignment);
+int QFormLayout_labelAlignment(void* self);
+void QFormLayout_setFormAlignment(void* self, int alignment);
+int QFormLayout_formAlignment(void* self);
+void QFormLayout_setHorizontalSpacing(void* self, int spacing);
+int QFormLayout_horizontalSpacing(void* self);
+void QFormLayout_setVerticalSpacing(void* self, int spacing);
+int QFormLayout_verticalSpacing(void* self);
+void QFormLayout_addRow(void* self, void* label, void* field);
+void QFormLayout_addRow2(void* self, void* label, void* field);
+void QFormLayout_addRow3(void* self, const char* labelText, long long labelText_len, void* field);
+void QFormLayout_addRow4(void* self, const char* labelText, long long labelText_len, void* field);
+void QFormLayout_addRow5(void* self, void* widget);
+void QFormLayout_addRow6(void* self, void* layout);
+void QFormLayout_insertRow(void* self, int row, void* label, void* field);
+void QFormLayout_insertRow2(void* self, int row, void* label, void* field);
+void QFormLayout_insertRow3(void* self, int row, const char* labelText, long long labelText_len, void* field);
+void QFormLayout_insertRow4(void* self, int row, const char* labelText, long long labelText_len, void* field);
+void QFormLayout_insertRow5(void* self, int row, void* widget);
+void QFormLayout_insertRow6(void* self, int row, void* layout);
+void QFormLayout_removeRow(void* self, int row);
+void QFormLayout_removeRow2(void* self, void* widget);
+void QFormLayout_removeRow3(void* self, void* layout);
+void* QFormLayout_takeRow(void* self, int row);
+void* QFormLayout_takeRow2(void* self, void* widget);
+void* QFormLayout_takeRow3(void* self, void* layout);
+void QFormLayout_setItem(void* self, int row, int role, void* item);
+void QFormLayout_setWidget(void* self, int row, int role, void* widget);
+void QFormLayout_setLayout(void* self, int row, int role, void* layout);
+void QFormLayout_setRowVisible(void* self, int row, int on);
+void QFormLayout_setRowVisible2(void* self, void* widget, int on);
+void QFormLayout_setRowVisible3(void* self, void* layout, int on);
+int QFormLayout_isRowVisible(void* self, int row);
+int QFormLayout_isRowVisible2(void* self, void* widget);
+int QFormLayout_isRowVisible3(void* self, void* layout);
+void* QFormLayout_itemAt(void* self, int row, int role);
+void QFormLayout_getItemPosition(void* self, int index, int* rowPtr, int* rolePtr);
+void QFormLayout_getWidgetPosition(void* self, void* widget, int* rowPtr, int* rolePtr);
+void QFormLayout_getLayoutPosition(void* self, void* layout, int* rowPtr, int* rolePtr);
+void* QFormLayout_labelForField(void* self, void* field);
+void* QFormLayout_labelForField2(void* self, void* field);
+void* QFormLayout_itemAt2(void* self, int index);
+int QFormLayout_rowCount(void* self);
+void* QFormLayout_closestAcceptableSize(void* w, void* s);
+void QFormLayout_widgetEvent(void* self, void* arg1);
+void QFormLayout_addChildLayout(void* self, void* l);
+void QFormLayout_addChildWidget(void* self, void* w);
+int QFormLayout_adoptLayout(void* self, void* layout);
+void* QFormLayout_alignmentRect(void* self, void* arg1);
+void* QFormLayout_connect(void* sender, const char* signal, void* receiver, const char* member);
+void* QFormLayout_connect2(void* sender, void* signal, void* receiver, void* method);
+void* QFormLayout_sender(void* self);
+int QFormLayout_senderSignalIndex(void* self);
+int QFormLayout_receivers(void* self, const char* signal);
+int QFormLayout_isSignalConnected(void* self, void* signal);
+char* QFormLayout_tr2(const char* s, const char* c, long long* __out_len);
+char* QFormLayout_tr3(const char* s, const char* c, int n, long long* __out_len);
+void* QFormLayout_connect3(void* sender, const char* signal, void* receiver, const char* member, int arg5);
+void* QFormLayout_connect4(void* sender, void* signal, void* receiver, void* method, int type_);
+void* QFormLayout_itemAt_default(void* self, int row, int role);
+void* QFormLayout_itemAt_default2(void* self, int index);
+void* QFormLayout_metaObject_default(void* self);
+int QFormLayout_spacing_default(void* self);
+void QFormLayout_setSpacing_default(void* self, int arg1);
+void QFormLayout_addItem_default(void* self, void* item);
+void* QFormLayout_takeAt_default(void* self, int index);
+void QFormLayout_setGeometry_default(void* self, void* rect);
+void* QFormLayout_minimumSize_default(void* self);
+void* QFormLayout_sizeHint_default(void* self);
+void QFormLayout_invalidate_default(void* self);
+int QFormLayout_hasHeightForWidth_default(void* self);
+int QFormLayout_heightForWidth_default(void* self, int width);
+int QFormLayout_expandingDirections_default(void* self);
+int QFormLayout_count_default(void* self);
+void* QFormLayout_geometry_default(void* self);
+void* QFormLayout_maximumSize_default(void* self);
+int QFormLayout_indexOf_default(void* self, void* arg1);
+int QFormLayout_isEmpty_default(void* self);
+int QFormLayout_controlTypes_default(void* self);
+void* QFormLayout_replaceWidget_default(void* self, void* from, void* to, int options);
+void* QFormLayout_layout_default(void* self);
+void QFormLayout_childEvent_default(void* self, void* e);
+int QFormLayout_event_default(void* self, void* event);
+int QFormLayout_eventFilter_default(void* self, void* watched, void* event);
+void QFormLayout_timerEvent_default(void* self, void* event);
+void QFormLayout_customEvent_default(void* self, void* event);
+void QFormLayout_connectNotify_default(void* self, void* signal);
+void QFormLayout_disconnectNotify_default(void* self, void* signal);
+int QFormLayout_minimumHeightForWidth_default(void* self, int arg1);
+void* QFormLayout_widget_default(void* self);
+void* QFormLayout_spacerItem_default(void* self);
+void QFormLayout_connect_destroyed(void* self, long long id);
+void QFormLayout_connect_destroyed2(void* self, long long id);
+void QFormLayout_connect_objectNameChanged(void* self, long long id);
+void QFormLayout__disconnect(long long id);
+void* QFormLayout__Go_new(long long id);
+void QFormLayout_delete(void* self);
+
+#ifdef __cplusplus
+}
+#endif

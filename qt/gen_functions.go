@@ -1,0 +1,4357 @@
+package qt
+
+import (
+	"unsafe"
+	"runtime"
+	"github.com/ebitengine/purego"
+)
+
+var (
+	addr_cppgofn_qt_qt_assert uintptr
+	addr_cppgofn_qt_qt_assert_x uintptr
+	addr_cppgofn_qt_qt_no_assert_x uintptr
+	addr_cppgofn_qt_qt_check_pointer uintptr
+	addr_cppgofn_qt_qBadAlloc uintptr
+	addr_cppgofn_qt_qt_assume_is_deprecated uintptr
+	addr_cppgofn_qt_qVersion uintptr
+	addr_cppgofn_qt_qErrnoWarning uintptr
+	addr_cppgofn_qt_qErrnoWarning2 uintptr
+	addr_cppgofn_qt_qt_message_output uintptr
+	addr_cppgofn_qt_qSetMessagePattern uintptr
+	addr_cppgofn_qt_qFormatLogMessage uintptr
+	addr_cppgofn_qt_qt_error_string uintptr
+	addr_cppgofn_qt_qYieldCpu uintptr
+	addr_cppgofn_qt_is_constant_evaluated uintptr
+	pg_cppgofn_qt_qIsInf func(float64) int32
+	pg_cppgofn_qt_qIsNaN func(float64) int32
+	pg_cppgofn_qt_qIsFinite func(float64) int32
+	pg_cppgofn_qt_qFpClassify func(float64) int32
+	pg_cppgofn_qt_qIsInf2 func(float32) int32
+	pg_cppgofn_qt_qIsNaN2 func(float32) int32
+	pg_cppgofn_qt_qIsFinite2 func(float32) int32
+	pg_cppgofn_qt_qFpClassify2 func(float32) int32
+	pg_cppgofn_qt_qSNaN func() float64
+	pg_cppgofn_qt_qQNaN func() float64
+	pg_cppgofn_qt_qInf func() float64
+	pg_cppgofn_qt_qFloatDistance func(float32, float32) int32
+	pg_cppgofn_qt_qFloatDistance2 func(float64, float64) int64
+	pg_cppgofn_qt_qRound func(float64) int32
+	pg_cppgofn_qt_qRound2 func(float32) int32
+	pg_cppgofn_qt_qRound64 func(float64) int64
+	pg_cppgofn_qt_qRound642 func(float32) int64
+	pg_cppgofn_qt_qFuzzyCompare func(float64, float64) int32
+	pg_cppgofn_qt_qFuzzyCompare2 func(float32, float32) int32
+	pg_cppgofn_qt_qFuzzyIsNull func(float64) int32
+	pg_cppgofn_qt_qFuzzyIsNull2 func(float32) int32
+	pg_cppgofn_qt_qIsNull func(float64) int32
+	pg_cppgofn_qt_qIsNull2 func(float32) int32
+	pg_cppgofn_qt_qIntCast func(float64) int32
+	pg_cppgofn_qt_qIntCast2 func(float32) int32
+	addr_cppgofn_qt_qgetenv uintptr
+	addr_cppgofn_qt_qEnvironmentVariable uintptr
+	addr_cppgofn_qt_qEnvironmentVariable2 uintptr
+	addr_cppgofn_qt_qputenv uintptr
+	addr_cppgofn_qt_qunsetenv uintptr
+	addr_cppgofn_qt_qEnvironmentVariableIsEmpty uintptr
+	addr_cppgofn_qt_qEnvironmentVariableIsSet uintptr
+	addr_cppgofn_qt_qEnvironmentVariableIntValue uintptr
+	addr_cppgofn_qt_qEnvironmentVariableIntegerValue uintptr
+	addr_cppgofn_qt_qtTrId uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject uintptr
+	addr_cppgofn_qt_qt_getEnumName uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject2 uintptr
+	addr_cppgofn_qt_qt_getEnumName2 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject3 uintptr
+	addr_cppgofn_qt_qt_getEnumName3 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject4 uintptr
+	addr_cppgofn_qt_qt_getEnumName4 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject5 uintptr
+	addr_cppgofn_qt_qt_getEnumName5 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject6 uintptr
+	addr_cppgofn_qt_qt_getEnumName6 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject7 uintptr
+	addr_cppgofn_qt_qt_getEnumName7 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject8 uintptr
+	addr_cppgofn_qt_qt_getEnumName8 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject9 uintptr
+	addr_cppgofn_qt_qt_getEnumName9 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject10 uintptr
+	addr_cppgofn_qt_qt_getEnumName10 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject11 uintptr
+	addr_cppgofn_qt_qt_getEnumName11 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject12 uintptr
+	addr_cppgofn_qt_qt_getEnumName12 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject13 uintptr
+	addr_cppgofn_qt_qt_getEnumName13 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject14 uintptr
+	addr_cppgofn_qt_qt_getEnumName14 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject15 uintptr
+	addr_cppgofn_qt_qt_getEnumName15 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject16 uintptr
+	addr_cppgofn_qt_qt_getEnumName16 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject17 uintptr
+	addr_cppgofn_qt_qt_getEnumName17 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject18 uintptr
+	addr_cppgofn_qt_qt_getEnumName18 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject19 uintptr
+	addr_cppgofn_qt_qt_getEnumName19 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject20 uintptr
+	addr_cppgofn_qt_qt_getEnumName20 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject21 uintptr
+	addr_cppgofn_qt_qt_getEnumName21 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject22 uintptr
+	addr_cppgofn_qt_qt_getEnumName22 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject23 uintptr
+	addr_cppgofn_qt_qt_getEnumName23 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject24 uintptr
+	addr_cppgofn_qt_qt_getEnumName24 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject25 uintptr
+	addr_cppgofn_qt_qt_getEnumName25 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject26 uintptr
+	addr_cppgofn_qt_qt_getEnumName26 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject27 uintptr
+	addr_cppgofn_qt_qt_getEnumName27 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject28 uintptr
+	addr_cppgofn_qt_qt_getEnumName28 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject29 uintptr
+	addr_cppgofn_qt_qt_getEnumName29 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject30 uintptr
+	addr_cppgofn_qt_qt_getEnumName30 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject31 uintptr
+	addr_cppgofn_qt_qt_getEnumName31 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject32 uintptr
+	addr_cppgofn_qt_qt_getEnumName32 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject33 uintptr
+	addr_cppgofn_qt_qt_getEnumName33 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject34 uintptr
+	addr_cppgofn_qt_qt_getEnumName34 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject35 uintptr
+	addr_cppgofn_qt_qt_getEnumName35 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject36 uintptr
+	addr_cppgofn_qt_qt_getEnumName36 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject37 uintptr
+	addr_cppgofn_qt_qt_getEnumName37 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject38 uintptr
+	addr_cppgofn_qt_qt_getEnumName38 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject39 uintptr
+	addr_cppgofn_qt_qt_getEnumName39 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject40 uintptr
+	addr_cppgofn_qt_qt_getEnumName40 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject41 uintptr
+	addr_cppgofn_qt_qt_getEnumName41 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject42 uintptr
+	addr_cppgofn_qt_qt_getEnumName42 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject43 uintptr
+	addr_cppgofn_qt_qt_getEnumName43 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject44 uintptr
+	addr_cppgofn_qt_qt_getEnumName44 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject45 uintptr
+	addr_cppgofn_qt_qt_getEnumName45 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject46 uintptr
+	addr_cppgofn_qt_qt_getEnumName46 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject47 uintptr
+	addr_cppgofn_qt_qt_getEnumName47 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject48 uintptr
+	addr_cppgofn_qt_qt_getEnumName48 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject49 uintptr
+	addr_cppgofn_qt_qt_getEnumName49 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject50 uintptr
+	addr_cppgofn_qt_qt_getEnumName50 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject51 uintptr
+	addr_cppgofn_qt_qt_getEnumName51 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject52 uintptr
+	addr_cppgofn_qt_qt_getEnumName52 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject53 uintptr
+	addr_cppgofn_qt_qt_getEnumName53 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject54 uintptr
+	addr_cppgofn_qt_qt_getEnumName54 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject55 uintptr
+	addr_cppgofn_qt_qt_getEnumName55 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject56 uintptr
+	addr_cppgofn_qt_qt_getEnumName56 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject57 uintptr
+	addr_cppgofn_qt_qt_getEnumName57 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject58 uintptr
+	addr_cppgofn_qt_qt_getEnumName58 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject59 uintptr
+	addr_cppgofn_qt_qt_getEnumName59 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject60 uintptr
+	addr_cppgofn_qt_qt_getEnumName60 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject61 uintptr
+	addr_cppgofn_qt_qt_getEnumName61 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject62 uintptr
+	addr_cppgofn_qt_qt_getEnumName62 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject63 uintptr
+	addr_cppgofn_qt_qt_getEnumName63 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject64 uintptr
+	addr_cppgofn_qt_qt_getEnumName64 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject65 uintptr
+	addr_cppgofn_qt_qt_getEnumName65 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject66 uintptr
+	addr_cppgofn_qt_qt_getEnumName66 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject67 uintptr
+	addr_cppgofn_qt_qt_getEnumName67 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject68 uintptr
+	addr_cppgofn_qt_qt_getEnumName68 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject69 uintptr
+	addr_cppgofn_qt_qt_getEnumName69 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject70 uintptr
+	addr_cppgofn_qt_qt_getEnumName70 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject71 uintptr
+	addr_cppgofn_qt_qt_getEnumName71 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject72 uintptr
+	addr_cppgofn_qt_qt_getEnumName72 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject73 uintptr
+	addr_cppgofn_qt_qt_getEnumName73 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject74 uintptr
+	addr_cppgofn_qt_qt_getEnumName74 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject75 uintptr
+	addr_cppgofn_qt_qt_getEnumName75 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject76 uintptr
+	addr_cppgofn_qt_qt_getEnumName76 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject77 uintptr
+	addr_cppgofn_qt_qt_getEnumName77 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject78 uintptr
+	addr_cppgofn_qt_qt_getEnumName78 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject79 uintptr
+	addr_cppgofn_qt_qt_getEnumName79 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject80 uintptr
+	addr_cppgofn_qt_qt_getEnumName80 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject81 uintptr
+	addr_cppgofn_qt_qt_getEnumName81 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject82 uintptr
+	addr_cppgofn_qt_qt_getEnumName82 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject83 uintptr
+	addr_cppgofn_qt_qt_getEnumName83 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject84 uintptr
+	addr_cppgofn_qt_qt_getEnumName84 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject85 uintptr
+	addr_cppgofn_qt_qt_getEnumName85 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject86 uintptr
+	addr_cppgofn_qt_qt_getEnumName86 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject87 uintptr
+	addr_cppgofn_qt_qt_getEnumName87 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject88 uintptr
+	addr_cppgofn_qt_qt_getEnumName88 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject89 uintptr
+	addr_cppgofn_qt_qt_getEnumName89 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject90 uintptr
+	addr_cppgofn_qt_qt_getEnumName90 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject91 uintptr
+	addr_cppgofn_qt_qt_getEnumName91 uintptr
+	addr_cppgofn_qt_qt_getEnumMetaObject92 uintptr
+	addr_cppgofn_qt_qt_getEnumName92 uintptr
+	addr_cppgofn_qt_qFlagLocation uintptr
+	addr_cppgofn_qt_swap uintptr
+	addr_cppgofn_qt_qstrlen uintptr
+	addr_cppgofn_qt_qstrnlen uintptr
+	addr_cppgofn_qt_qstrcmp uintptr
+	addr_cppgofn_qt_qstrncmp uintptr
+	addr_cppgofn_qt_qstricmp uintptr
+	addr_cppgofn_qt_qstrnicmp uintptr
+	addr_cppgofn_qt_qstrnicmp2 uintptr
+	addr_cppgofn_qt_qsnprintf uintptr
+	addr_cppgofn_qt_qChecksum uintptr
+	addr_cppgofn_qt_qChecksum2 uintptr
+	addr_cppgofn_qt_qCompress uintptr
+	addr_cppgofn_qt_qUncompress uintptr
+	addr_cppgofn_qt_qCompress2 uintptr
+	addr_cppgofn_qt_qUncompress2 uintptr
+	addr_cppgofn_qt_swap2 uintptr
+	addr_cppgofn_qt_swap3 uintptr
+	addr_cppgofn_qt_qHash uintptr
+	addr_cppgofn_qt_swap4 uintptr
+	addr_cppgofn_qt_qGlobalQHashSeed uintptr
+	addr_cppgofn_qt_qSetGlobalQHashSeed uintptr
+	addr_cppgofn_qt_hash uintptr
+	addr_cppgofn_qt_qHash2 uintptr
+	addr_cppgofn_qt_qHash3 uintptr
+	addr_cppgofn_qt_qHash4 uintptr
+	addr_cppgofn_qt_qHash5 uintptr
+	addr_cppgofn_qt_qHash6 uintptr
+	addr_cppgofn_qt_qHash7 uintptr
+	addr_cppgofn_qt_qHash8 uintptr
+	addr_cppgofn_qt_qHash9 uintptr
+	addr_cppgofn_qt_qHash10 uintptr
+	addr_cppgofn_qt_qHash11 uintptr
+	addr_cppgofn_qt_qHash12 uintptr
+	pg_cppgofn_qt_qHash13 func(float32, int64) int64
+	pg_cppgofn_qt_qHash14 func(float64, int64) int64
+	addr_cppgofn_qt_qHash15 uintptr
+	addr_cppgofn_qt_qHash16 uintptr
+	addr_cppgofn_qt_qHash17 uintptr
+	addr_cppgofn_qt_qHash18 uintptr
+	addr_cppgofn_qt_qHash19 uintptr
+	addr_cppgofn_qt_qHash20 uintptr
+	addr_cppgofn_qt_qHash21 uintptr
+	addr_cppgofn_qt_qHash22 uintptr
+	addr_cppgofn_qt_qHash23 uintptr
+	addr_cppgofn_qt_qHash24 uintptr
+	addr_cppgofn_qt_qt_hash uintptr
+	addr_cppgofn_qt_qPopulationCount uintptr
+	addr_cppgofn_qt_qPopulationCount2 uintptr
+	addr_cppgofn_qt_qPopulationCount3 uintptr
+	addr_cppgofn_qt_qPopulationCount4 uintptr
+	addr_cppgofn_qt_qPopulationCount5 uintptr
+	addr_cppgofn_qt_qCountTrailingZeroBits uintptr
+	addr_cppgofn_qt_qCountTrailingZeroBits2 uintptr
+	addr_cppgofn_qt_qCountTrailingZeroBits3 uintptr
+	addr_cppgofn_qt_qCountTrailingZeroBits4 uintptr
+	addr_cppgofn_qt_qCountTrailingZeroBits5 uintptr
+	addr_cppgofn_qt_qCountLeadingZeroBits uintptr
+	addr_cppgofn_qt_qCountLeadingZeroBits2 uintptr
+	addr_cppgofn_qt_qCountLeadingZeroBits3 uintptr
+	addr_cppgofn_qt_qCountLeadingZeroBits4 uintptr
+	addr_cppgofn_qt_qCountLeadingZeroBits5 uintptr
+	pg_cppgofn_qt_qFastSin func(float64) float64
+	pg_cppgofn_qt_qFastCos func(float64) float64
+	pg_cppgofn_qt_qDegreesToRadians func(float32) float32
+	pg_cppgofn_qt_qDegreesToRadians2 func(float64) float64
+	pg_cppgofn_qt_qRadiansToDegrees func(float32) float32
+	pg_cppgofn_qt_qRadiansToDegrees2 func(float64) float64
+	addr_cppgofn_qt_qNextPowerOfTwo uintptr
+	addr_cppgofn_qt_qNextPowerOfTwo2 uintptr
+	addr_cppgofn_qt_qNextPowerOfTwo3 uintptr
+	addr_cppgofn_qt_qNextPowerOfTwo4 uintptr
+	addr_cppgofn_qt_qNextPowerOfTwo5 uintptr
+	addr_cppgofn_qt_qNextPowerOfTwo6 uintptr
+	addr_cppgofn_qt_qFloatFromFloat16 uintptr
+	addr_cppgofn_qt_qIsInf3 uintptr
+	addr_cppgofn_qt_qIsNaN3 uintptr
+	addr_cppgofn_qt_qIsFinite3 uintptr
+	addr_cppgofn_qt_qFpClassify3 uintptr
+	addr_cppgofn_qt_qSqrt uintptr
+	addr_cppgofn_qt_qRound3 uintptr
+	addr_cppgofn_qt_qRound643 uintptr
+	addr_cppgofn_qt_qFuzzyCompare3 uintptr
+	addr_cppgofn_qt_qFuzzyIsNull3 uintptr
+	addr_cppgofn_qt_qIsNull3 uintptr
+	addr_cppgofn_qt_qIntCast3 uintptr
+	addr_cppgofn_qt_qHypot uintptr
+	addr_cppgofn_qt_qHypot2 uintptr
+	addr_cppgofn_qt_qRegisterMetaType uintptr
+	addr_cppgofn_qt_qHash25 uintptr
+	addr_cppgofn_qt_qt_qFindChild_helper uintptr
+	addr_cppgofn_qt_qGetBindingStorage uintptr
+	addr_cppgofn_qt_qGetBindingStorage2 uintptr
+	addr_cppgofn_qt_swap5 uintptr
+	addr_cppgofn_qt_bucketsForCapacity uintptr
+	addr_cppgofn_qt_bucketForHash uintptr
+	addr_cppgofn_qt_bin uintptr
+	addr_cppgofn_qt_oct uintptr
+	addr_cppgofn_qt_dec uintptr
+	addr_cppgofn_qt_hex uintptr
+	addr_cppgofn_qt_showbase uintptr
+	addr_cppgofn_qt_forcesign uintptr
+	addr_cppgofn_qt_forcepoint uintptr
+	addr_cppgofn_qt_noshowbase uintptr
+	addr_cppgofn_qt_noforcesign uintptr
+	addr_cppgofn_qt_noforcepoint uintptr
+	addr_cppgofn_qt_uppercasebase uintptr
+	addr_cppgofn_qt_uppercasedigits uintptr
+	addr_cppgofn_qt_lowercasebase uintptr
+	addr_cppgofn_qt_lowercasedigits uintptr
+	addr_cppgofn_qt_fixed uintptr
+	addr_cppgofn_qt_scientific uintptr
+	addr_cppgofn_qt_left uintptr
+	addr_cppgofn_qt_right uintptr
+	addr_cppgofn_qt_center uintptr
+	addr_cppgofn_qt_endl uintptr
+	addr_cppgofn_qt_flush uintptr
+	addr_cppgofn_qt_reset uintptr
+	addr_cppgofn_qt_bom uintptr
+	addr_cppgofn_qt_ws uintptr
+	addr_cppgofn_qt_qSetFieldWidth uintptr
+	addr_cppgofn_qt_qSetPadChar uintptr
+	addr_cppgofn_qt_qSetRealNumberPrecision uintptr
+	addr_cppgofn_qt_swap6 uintptr
+	addr_cppgofn_qt_qt_QMetaEnum_debugOperator uintptr
+	addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator uintptr
+	addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator2 uintptr
+	addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator3 uintptr
+	addr_cppgofn_qt_swap7 uintptr
+	addr_cppgofn_qt_qHash26 uintptr
+	addr_cppgofn_qt_swap8 uintptr
+	addr_cppgofn_qt_qHash27 uintptr
+	addr_cppgofn_qt_swap9 uintptr
+	addr_cppgofn_qt_qAppName uintptr
+	addr_cppgofn_qt_swap10 uintptr
+	addr_cppgofn_qt_qHash28 uintptr
+	addr_cppgofn_qt_swap11 uintptr
+	addr_cppgofn_qt_qHash29 uintptr
+	addr_cppgofn_qt_qHash30 uintptr
+	addr_cppgofn_qt_swap12 uintptr
+	addr_cppgofn_qt_qHash31 uintptr
+	addr_cppgofn_qt_qHash32 uintptr
+	addr_cppgofn_qt_qHash33 uintptr
+	addr_cppgofn_qt_qHash34 uintptr
+	addr_cppgofn_qt_swap13 uintptr
+	addr_cppgofn_qt_swap14 uintptr
+	addr_cppgofn_qt_swap15 uintptr
+	addr_cppgofn_qt_qHash35 uintptr
+	addr_cppgofn_qt_swap16 uintptr
+	addr_cppgofn_qt_qbswap_helper uintptr
+	addr_cppgofn_qt_qbswap_helper2 uintptr
+	addr_cppgofn_qt_qbswap_helper3 uintptr
+	addr_cppgofn_qt_qbswap_helper4 uintptr
+	addr_cppgofn_qt_qbswap uintptr
+	pg_cppgofn_qt_qbswap2 func(float32) float32
+	pg_cppgofn_qt_qbswap3 func(float64) float64
+	addr_cppgofn_qt_qHash36 uintptr
+	addr_cppgofn_qt_swap17 uintptr
+	addr_cppgofn_qt_qHash37 uintptr
+	addr_cppgofn_qt_swap18 uintptr
+	addr_cppgofn_qt_qHash38 uintptr
+	addr_cppgofn_qt_swap19 uintptr
+	addr_cppgofn_qt_qHash39 uintptr
+	addr_cppgofn_qt_beginPropertyUpdateGroup uintptr
+	addr_cppgofn_qt_endPropertyUpdateGroup uintptr
+	addr_cppgofn_qt_swap20 uintptr
+	addr_cppgofn_qt_swap21 uintptr
+	addr_cppgofn_qt_swap22 uintptr
+	addr_cppgofn_qt_qEnableNtfsPermissionChecks uintptr
+	addr_cppgofn_qt_qDisableNtfsPermissionChecks uintptr
+	addr_cppgofn_qt_qAreNtfsPermissionChecksEnabled uintptr
+	addr_cppgofn_qt_swap23 uintptr
+	addr_cppgofn_qt_swap24 uintptr
+	addr_cppgofn_qt_swap25 uintptr
+	addr_cppgofn_qt_swap26 uintptr
+	addr_cppgofn_qt_swap27 uintptr
+	addr_cppgofn_qt_swap28 uintptr
+	addr_cppgofn_qt_swap29 uintptr
+	addr_cppgofn_qt_swap30 uintptr
+	addr_cppgofn_qt_qHash40 uintptr
+	addr_cppgofn_qt_swap31 uintptr
+	addr_cppgofn_qt_qHash41 uintptr
+	addr_cppgofn_qt_swap32 uintptr
+	addr_cppgofn_qt_qHash42 uintptr
+	addr_cppgofn_qt_qHash43 uintptr
+	addr_cppgofn_qt_qHash44 uintptr
+	addr_cppgofn_qt_qSharedBuild uintptr
+	addr_cppgofn_qt_qHash45 uintptr
+	addr_cppgofn_qt_qHash46 uintptr
+	addr_cppgofn_qt_swap33 uintptr
+	addr_cppgofn_qt_swap34 uintptr
+	addr_cppgofn_qt_swap35 uintptr
+	addr_cppgofn_qt_swap36 uintptr
+	addr_cppgofn_qt_swap37 uintptr
+	addr_cppgofn_qt_swap38 uintptr
+	addr_cppgofn_qt_swap39 uintptr
+	addr_cppgofn_qt_qPluginArchRequirements uintptr
+	addr_cppgofn_qt_qRegisterStaticPluginFunction uintptr
+	addr_cppgofn_qt_swap40 uintptr
+	addr_cppgofn_qt_qHash47 uintptr
+	addr_cppgofn_qt_qHash48 uintptr
+	addr_cppgofn_qt_swap41 uintptr
+	addr_cppgofn_qt_swap42 uintptr
+	addr_cppgofn_qt_swap43 uintptr
+	addr_cppgofn_qt_swap44 uintptr
+	addr_cppgofn_qt_qHash49 uintptr
+	addr_cppgofn_qt_swap45 uintptr
+	addr_cppgofn_qt_qRed uintptr
+	addr_cppgofn_qt_qGreen uintptr
+	addr_cppgofn_qt_qBlue uintptr
+	addr_cppgofn_qt_qAlpha uintptr
+	addr_cppgofn_qt_qRgb uintptr
+	addr_cppgofn_qt_qRgba uintptr
+	addr_cppgofn_qt_qGray uintptr
+	addr_cppgofn_qt_qGray2 uintptr
+	addr_cppgofn_qt_qIsGray uintptr
+	addr_cppgofn_qt_qPremultiply uintptr
+	addr_cppgofn_qt_qUnpremultiply uintptr
+	addr_cppgofn_qt_qRgba64 uintptr
+	addr_cppgofn_qt_qRgba642 uintptr
+	addr_cppgofn_qt_qPremultiply2 uintptr
+	addr_cppgofn_qt_qUnpremultiply2 uintptr
+	addr_cppgofn_qt_qRed2 uintptr
+	addr_cppgofn_qt_qGreen2 uintptr
+	addr_cppgofn_qt_qBlue2 uintptr
+	addr_cppgofn_qt_qAlpha2 uintptr
+	addr_cppgofn_qt_qPixelFormatRgba uintptr
+	addr_cppgofn_qt_qPixelFormatGrayscale uintptr
+	addr_cppgofn_qt_qPixelFormatAlpha uintptr
+	addr_cppgofn_qt_qPixelFormatCmyk uintptr
+	addr_cppgofn_qt_qPixelFormatHsl uintptr
+	addr_cppgofn_qt_qPixelFormatHsv uintptr
+	addr_cppgofn_qt_qPixelFormatYuv uintptr
+	addr_cppgofn_qt_swap46 uintptr
+	addr_cppgofn_qt_swap47 uintptr
+	addr_cppgofn_qt_swap48 uintptr
+	addr_cppgofn_qt_qHash50 uintptr
+	addr_cppgofn_qt_qFuzzyCompare4 uintptr
+	addr_cppgofn_qt_swap49 uintptr
+	addr_cppgofn_qt_swap50 uintptr
+	addr_cppgofn_qt_swap51 uintptr
+	pg_cppgofn_qt_qt_findAtNxFile func(string, int64, float64, uintptr, *int64) uintptr
+	addr_cppgofn_qt_qHash51 uintptr
+	addr_cppgofn_qt_swap52 uintptr
+	addr_cppgofn_qt_qHash52 uintptr
+	addr_cppgofn_qt_swap53 uintptr
+	addr_cppgofn_qt_swap54 uintptr
+	addr_cppgofn_qt_qHash53 uintptr
+	addr_cppgofn_qt_swap55 uintptr
+	addr_cppgofn_qt_qHash54 uintptr
+	addr_cppgofn_qt_swap56 uintptr
+	addr_cppgofn_qt_mightBeRichText uintptr
+	addr_cppgofn_qt_convertFromPlainText uintptr
+	addr_cppgofn_qt_swap57 uintptr
+	addr_cppgofn_qt_swap58 uintptr
+	addr_cppgofn_qt_swap59 uintptr
+	addr_cppgofn_qt_swap60 uintptr
+	addr_cppgofn_qt_swap61 uintptr
+	addr_cppgofn_qt_swap62 uintptr
+	addr_cppgofn_qt_swap63 uintptr
+	addr_cppgofn_qt_swap64 uintptr
+	addr_cppgofn_qt_swap65 uintptr
+	addr_cppgofn_qt_swap66 uintptr
+	addr_cppgofn_qt_swap67 uintptr
+	addr_cppgofn_qt_swap68 uintptr
+	addr_cppgofn_qt_qAccessibleRoleString uintptr
+	addr_cppgofn_qt_qAccessibleEventString uintptr
+	addr_cppgofn_qt_qAccessibleLocalizedActionDescription uintptr
+	addr_cppgofn_qt_swap69 uintptr
+	addr_cppgofn_qt_swap70 uintptr
+	addr_cppgofn_qt_swap71 uintptr
+	addr_cppgofn_qt_swap72 uintptr
+	addr_cppgofn_qt_swap73 uintptr
+	addr_cppgofn_qt_swap74 uintptr
+	addr_cppgofn_qt_swap75 uintptr
+	addr_cppgofn_qt_swap76 uintptr
+	addr_cppgofn_qt_swap77 uintptr
+	addr_cppgofn_qt_swap78 uintptr
+	addr_cppgofn_qt_swap79 uintptr
+	addr_cppgofn_qt_swap80 uintptr
+	addr_cppgofn_qt_swap81 uintptr
+	addr_cppgofn_qt_swap82 uintptr
+	addr_cppgofn_qt_swap83 uintptr
+	addr_cppgofn_qt_qFuzzyCompare5 uintptr
+	addr_cppgofn_qt_swap84 uintptr
+	addr_cppgofn_qt_qDrawShadeLine uintptr
+	addr_cppgofn_qt_qDrawShadeLine2 uintptr
+	addr_cppgofn_qt_qDrawShadeRect uintptr
+	addr_cppgofn_qt_qDrawShadeRect2 uintptr
+	addr_cppgofn_qt_qDrawShadePanel uintptr
+	addr_cppgofn_qt_qDrawShadePanel2 uintptr
+	addr_cppgofn_qt_qDrawWinButton uintptr
+	addr_cppgofn_qt_qDrawWinButton2 uintptr
+	addr_cppgofn_qt_qDrawWinPanel uintptr
+	addr_cppgofn_qt_qDrawWinPanel2 uintptr
+	addr_cppgofn_qt_qDrawPlainRect uintptr
+	addr_cppgofn_qt_qDrawPlainRect2 uintptr
+	pg_cppgofn_qt_qDrawPlainRoundedRect func(uintptr, int32, int32, int32, int32, float64, float64, uintptr, int32, uintptr)
+	pg_cppgofn_qt_qDrawPlainRoundedRect2 func(uintptr, uintptr, float64, float64, uintptr, int32, uintptr)
+	addr_cppgofn_qt_qDrawBorderPixmap uintptr
+	addr_cppgofn_qt_qDrawBorderPixmap2 uintptr
+)
+
+func init() {
+	symaddr(&addr_cppgofn_qt_qt_assert, "cppgofn_qt_qt_assert")
+	symaddr(&addr_cppgofn_qt_qt_assert_x, "cppgofn_qt_qt_assert_x")
+	symaddr(&addr_cppgofn_qt_qt_no_assert_x, "cppgofn_qt_qt_no_assert_x")
+	symaddr(&addr_cppgofn_qt_qt_check_pointer, "cppgofn_qt_qt_check_pointer")
+	symaddr(&addr_cppgofn_qt_qBadAlloc, "cppgofn_qt_qBadAlloc")
+	symaddr(&addr_cppgofn_qt_qt_assume_is_deprecated, "cppgofn_qt_qt_assume_is_deprecated")
+	symaddr(&addr_cppgofn_qt_qVersion, "cppgofn_qt_qVersion")
+	symaddr(&addr_cppgofn_qt_qErrnoWarning, "cppgofn_qt_qErrnoWarning")
+	symaddr(&addr_cppgofn_qt_qErrnoWarning2, "cppgofn_qt_qErrnoWarning2")
+	symaddr(&addr_cppgofn_qt_qt_message_output, "cppgofn_qt_qt_message_output")
+	symaddr(&addr_cppgofn_qt_qSetMessagePattern, "cppgofn_qt_qSetMessagePattern")
+	symaddr(&addr_cppgofn_qt_qFormatLogMessage, "cppgofn_qt_qFormatLogMessage")
+	symaddr(&addr_cppgofn_qt_qt_error_string, "cppgofn_qt_qt_error_string")
+	symaddr(&addr_cppgofn_qt_qYieldCpu, "cppgofn_qt_qYieldCpu")
+	symaddr(&addr_cppgofn_qt_is_constant_evaluated, "cppgofn_qt_is_constant_evaluated")
+	reg(&pg_cppgofn_qt_qIsInf, "cppgofn_qt_qIsInf")
+	reg(&pg_cppgofn_qt_qIsNaN, "cppgofn_qt_qIsNaN")
+	reg(&pg_cppgofn_qt_qIsFinite, "cppgofn_qt_qIsFinite")
+	reg(&pg_cppgofn_qt_qFpClassify, "cppgofn_qt_qFpClassify")
+	reg(&pg_cppgofn_qt_qIsInf2, "cppgofn_qt_qIsInf2")
+	reg(&pg_cppgofn_qt_qIsNaN2, "cppgofn_qt_qIsNaN2")
+	reg(&pg_cppgofn_qt_qIsFinite2, "cppgofn_qt_qIsFinite2")
+	reg(&pg_cppgofn_qt_qFpClassify2, "cppgofn_qt_qFpClassify2")
+	reg(&pg_cppgofn_qt_qSNaN, "cppgofn_qt_qSNaN")
+	reg(&pg_cppgofn_qt_qQNaN, "cppgofn_qt_qQNaN")
+	reg(&pg_cppgofn_qt_qInf, "cppgofn_qt_qInf")
+	reg(&pg_cppgofn_qt_qFloatDistance, "cppgofn_qt_qFloatDistance")
+	reg(&pg_cppgofn_qt_qFloatDistance2, "cppgofn_qt_qFloatDistance2")
+	reg(&pg_cppgofn_qt_qRound, "cppgofn_qt_qRound")
+	reg(&pg_cppgofn_qt_qRound2, "cppgofn_qt_qRound2")
+	reg(&pg_cppgofn_qt_qRound64, "cppgofn_qt_qRound64")
+	reg(&pg_cppgofn_qt_qRound642, "cppgofn_qt_qRound642")
+	reg(&pg_cppgofn_qt_qFuzzyCompare, "cppgofn_qt_qFuzzyCompare")
+	reg(&pg_cppgofn_qt_qFuzzyCompare2, "cppgofn_qt_qFuzzyCompare2")
+	reg(&pg_cppgofn_qt_qFuzzyIsNull, "cppgofn_qt_qFuzzyIsNull")
+	reg(&pg_cppgofn_qt_qFuzzyIsNull2, "cppgofn_qt_qFuzzyIsNull2")
+	reg(&pg_cppgofn_qt_qIsNull, "cppgofn_qt_qIsNull")
+	reg(&pg_cppgofn_qt_qIsNull2, "cppgofn_qt_qIsNull2")
+	reg(&pg_cppgofn_qt_qIntCast, "cppgofn_qt_qIntCast")
+	reg(&pg_cppgofn_qt_qIntCast2, "cppgofn_qt_qIntCast2")
+	symaddr(&addr_cppgofn_qt_qgetenv, "cppgofn_qt_qgetenv")
+	symaddr(&addr_cppgofn_qt_qEnvironmentVariable, "cppgofn_qt_qEnvironmentVariable")
+	symaddr(&addr_cppgofn_qt_qEnvironmentVariable2, "cppgofn_qt_qEnvironmentVariable2")
+	symaddr(&addr_cppgofn_qt_qputenv, "cppgofn_qt_qputenv")
+	symaddr(&addr_cppgofn_qt_qunsetenv, "cppgofn_qt_qunsetenv")
+	symaddr(&addr_cppgofn_qt_qEnvironmentVariableIsEmpty, "cppgofn_qt_qEnvironmentVariableIsEmpty")
+	symaddr(&addr_cppgofn_qt_qEnvironmentVariableIsSet, "cppgofn_qt_qEnvironmentVariableIsSet")
+	symaddr(&addr_cppgofn_qt_qEnvironmentVariableIntValue, "cppgofn_qt_qEnvironmentVariableIntValue")
+	symaddr(&addr_cppgofn_qt_qEnvironmentVariableIntegerValue, "cppgofn_qt_qEnvironmentVariableIntegerValue")
+	symaddr(&addr_cppgofn_qt_qtTrId, "cppgofn_qt_qtTrId")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject, "cppgofn_qt_qt_getEnumMetaObject")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName, "cppgofn_qt_qt_getEnumName")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject2, "cppgofn_qt_qt_getEnumMetaObject2")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName2, "cppgofn_qt_qt_getEnumName2")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject3, "cppgofn_qt_qt_getEnumMetaObject3")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName3, "cppgofn_qt_qt_getEnumName3")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject4, "cppgofn_qt_qt_getEnumMetaObject4")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName4, "cppgofn_qt_qt_getEnumName4")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject5, "cppgofn_qt_qt_getEnumMetaObject5")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName5, "cppgofn_qt_qt_getEnumName5")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject6, "cppgofn_qt_qt_getEnumMetaObject6")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName6, "cppgofn_qt_qt_getEnumName6")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject7, "cppgofn_qt_qt_getEnumMetaObject7")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName7, "cppgofn_qt_qt_getEnumName7")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject8, "cppgofn_qt_qt_getEnumMetaObject8")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName8, "cppgofn_qt_qt_getEnumName8")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject9, "cppgofn_qt_qt_getEnumMetaObject9")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName9, "cppgofn_qt_qt_getEnumName9")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject10, "cppgofn_qt_qt_getEnumMetaObject10")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName10, "cppgofn_qt_qt_getEnumName10")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject11, "cppgofn_qt_qt_getEnumMetaObject11")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName11, "cppgofn_qt_qt_getEnumName11")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject12, "cppgofn_qt_qt_getEnumMetaObject12")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName12, "cppgofn_qt_qt_getEnumName12")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject13, "cppgofn_qt_qt_getEnumMetaObject13")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName13, "cppgofn_qt_qt_getEnumName13")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject14, "cppgofn_qt_qt_getEnumMetaObject14")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName14, "cppgofn_qt_qt_getEnumName14")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject15, "cppgofn_qt_qt_getEnumMetaObject15")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName15, "cppgofn_qt_qt_getEnumName15")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject16, "cppgofn_qt_qt_getEnumMetaObject16")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName16, "cppgofn_qt_qt_getEnumName16")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject17, "cppgofn_qt_qt_getEnumMetaObject17")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName17, "cppgofn_qt_qt_getEnumName17")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject18, "cppgofn_qt_qt_getEnumMetaObject18")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName18, "cppgofn_qt_qt_getEnumName18")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject19, "cppgofn_qt_qt_getEnumMetaObject19")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName19, "cppgofn_qt_qt_getEnumName19")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject20, "cppgofn_qt_qt_getEnumMetaObject20")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName20, "cppgofn_qt_qt_getEnumName20")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject21, "cppgofn_qt_qt_getEnumMetaObject21")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName21, "cppgofn_qt_qt_getEnumName21")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject22, "cppgofn_qt_qt_getEnumMetaObject22")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName22, "cppgofn_qt_qt_getEnumName22")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject23, "cppgofn_qt_qt_getEnumMetaObject23")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName23, "cppgofn_qt_qt_getEnumName23")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject24, "cppgofn_qt_qt_getEnumMetaObject24")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName24, "cppgofn_qt_qt_getEnumName24")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject25, "cppgofn_qt_qt_getEnumMetaObject25")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName25, "cppgofn_qt_qt_getEnumName25")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject26, "cppgofn_qt_qt_getEnumMetaObject26")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName26, "cppgofn_qt_qt_getEnumName26")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject27, "cppgofn_qt_qt_getEnumMetaObject27")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName27, "cppgofn_qt_qt_getEnumName27")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject28, "cppgofn_qt_qt_getEnumMetaObject28")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName28, "cppgofn_qt_qt_getEnumName28")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject29, "cppgofn_qt_qt_getEnumMetaObject29")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName29, "cppgofn_qt_qt_getEnumName29")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject30, "cppgofn_qt_qt_getEnumMetaObject30")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName30, "cppgofn_qt_qt_getEnumName30")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject31, "cppgofn_qt_qt_getEnumMetaObject31")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName31, "cppgofn_qt_qt_getEnumName31")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject32, "cppgofn_qt_qt_getEnumMetaObject32")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName32, "cppgofn_qt_qt_getEnumName32")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject33, "cppgofn_qt_qt_getEnumMetaObject33")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName33, "cppgofn_qt_qt_getEnumName33")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject34, "cppgofn_qt_qt_getEnumMetaObject34")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName34, "cppgofn_qt_qt_getEnumName34")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject35, "cppgofn_qt_qt_getEnumMetaObject35")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName35, "cppgofn_qt_qt_getEnumName35")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject36, "cppgofn_qt_qt_getEnumMetaObject36")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName36, "cppgofn_qt_qt_getEnumName36")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject37, "cppgofn_qt_qt_getEnumMetaObject37")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName37, "cppgofn_qt_qt_getEnumName37")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject38, "cppgofn_qt_qt_getEnumMetaObject38")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName38, "cppgofn_qt_qt_getEnumName38")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject39, "cppgofn_qt_qt_getEnumMetaObject39")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName39, "cppgofn_qt_qt_getEnumName39")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject40, "cppgofn_qt_qt_getEnumMetaObject40")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName40, "cppgofn_qt_qt_getEnumName40")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject41, "cppgofn_qt_qt_getEnumMetaObject41")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName41, "cppgofn_qt_qt_getEnumName41")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject42, "cppgofn_qt_qt_getEnumMetaObject42")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName42, "cppgofn_qt_qt_getEnumName42")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject43, "cppgofn_qt_qt_getEnumMetaObject43")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName43, "cppgofn_qt_qt_getEnumName43")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject44, "cppgofn_qt_qt_getEnumMetaObject44")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName44, "cppgofn_qt_qt_getEnumName44")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject45, "cppgofn_qt_qt_getEnumMetaObject45")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName45, "cppgofn_qt_qt_getEnumName45")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject46, "cppgofn_qt_qt_getEnumMetaObject46")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName46, "cppgofn_qt_qt_getEnumName46")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject47, "cppgofn_qt_qt_getEnumMetaObject47")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName47, "cppgofn_qt_qt_getEnumName47")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject48, "cppgofn_qt_qt_getEnumMetaObject48")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName48, "cppgofn_qt_qt_getEnumName48")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject49, "cppgofn_qt_qt_getEnumMetaObject49")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName49, "cppgofn_qt_qt_getEnumName49")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject50, "cppgofn_qt_qt_getEnumMetaObject50")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName50, "cppgofn_qt_qt_getEnumName50")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject51, "cppgofn_qt_qt_getEnumMetaObject51")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName51, "cppgofn_qt_qt_getEnumName51")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject52, "cppgofn_qt_qt_getEnumMetaObject52")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName52, "cppgofn_qt_qt_getEnumName52")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject53, "cppgofn_qt_qt_getEnumMetaObject53")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName53, "cppgofn_qt_qt_getEnumName53")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject54, "cppgofn_qt_qt_getEnumMetaObject54")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName54, "cppgofn_qt_qt_getEnumName54")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject55, "cppgofn_qt_qt_getEnumMetaObject55")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName55, "cppgofn_qt_qt_getEnumName55")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject56, "cppgofn_qt_qt_getEnumMetaObject56")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName56, "cppgofn_qt_qt_getEnumName56")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject57, "cppgofn_qt_qt_getEnumMetaObject57")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName57, "cppgofn_qt_qt_getEnumName57")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject58, "cppgofn_qt_qt_getEnumMetaObject58")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName58, "cppgofn_qt_qt_getEnumName58")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject59, "cppgofn_qt_qt_getEnumMetaObject59")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName59, "cppgofn_qt_qt_getEnumName59")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject60, "cppgofn_qt_qt_getEnumMetaObject60")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName60, "cppgofn_qt_qt_getEnumName60")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject61, "cppgofn_qt_qt_getEnumMetaObject61")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName61, "cppgofn_qt_qt_getEnumName61")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject62, "cppgofn_qt_qt_getEnumMetaObject62")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName62, "cppgofn_qt_qt_getEnumName62")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject63, "cppgofn_qt_qt_getEnumMetaObject63")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName63, "cppgofn_qt_qt_getEnumName63")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject64, "cppgofn_qt_qt_getEnumMetaObject64")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName64, "cppgofn_qt_qt_getEnumName64")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject65, "cppgofn_qt_qt_getEnumMetaObject65")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName65, "cppgofn_qt_qt_getEnumName65")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject66, "cppgofn_qt_qt_getEnumMetaObject66")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName66, "cppgofn_qt_qt_getEnumName66")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject67, "cppgofn_qt_qt_getEnumMetaObject67")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName67, "cppgofn_qt_qt_getEnumName67")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject68, "cppgofn_qt_qt_getEnumMetaObject68")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName68, "cppgofn_qt_qt_getEnumName68")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject69, "cppgofn_qt_qt_getEnumMetaObject69")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName69, "cppgofn_qt_qt_getEnumName69")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject70, "cppgofn_qt_qt_getEnumMetaObject70")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName70, "cppgofn_qt_qt_getEnumName70")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject71, "cppgofn_qt_qt_getEnumMetaObject71")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName71, "cppgofn_qt_qt_getEnumName71")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject72, "cppgofn_qt_qt_getEnumMetaObject72")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName72, "cppgofn_qt_qt_getEnumName72")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject73, "cppgofn_qt_qt_getEnumMetaObject73")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName73, "cppgofn_qt_qt_getEnumName73")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject74, "cppgofn_qt_qt_getEnumMetaObject74")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName74, "cppgofn_qt_qt_getEnumName74")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject75, "cppgofn_qt_qt_getEnumMetaObject75")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName75, "cppgofn_qt_qt_getEnumName75")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject76, "cppgofn_qt_qt_getEnumMetaObject76")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName76, "cppgofn_qt_qt_getEnumName76")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject77, "cppgofn_qt_qt_getEnumMetaObject77")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName77, "cppgofn_qt_qt_getEnumName77")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject78, "cppgofn_qt_qt_getEnumMetaObject78")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName78, "cppgofn_qt_qt_getEnumName78")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject79, "cppgofn_qt_qt_getEnumMetaObject79")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName79, "cppgofn_qt_qt_getEnumName79")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject80, "cppgofn_qt_qt_getEnumMetaObject80")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName80, "cppgofn_qt_qt_getEnumName80")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject81, "cppgofn_qt_qt_getEnumMetaObject81")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName81, "cppgofn_qt_qt_getEnumName81")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject82, "cppgofn_qt_qt_getEnumMetaObject82")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName82, "cppgofn_qt_qt_getEnumName82")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject83, "cppgofn_qt_qt_getEnumMetaObject83")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName83, "cppgofn_qt_qt_getEnumName83")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject84, "cppgofn_qt_qt_getEnumMetaObject84")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName84, "cppgofn_qt_qt_getEnumName84")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject85, "cppgofn_qt_qt_getEnumMetaObject85")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName85, "cppgofn_qt_qt_getEnumName85")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject86, "cppgofn_qt_qt_getEnumMetaObject86")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName86, "cppgofn_qt_qt_getEnumName86")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject87, "cppgofn_qt_qt_getEnumMetaObject87")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName87, "cppgofn_qt_qt_getEnumName87")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject88, "cppgofn_qt_qt_getEnumMetaObject88")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName88, "cppgofn_qt_qt_getEnumName88")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject89, "cppgofn_qt_qt_getEnumMetaObject89")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName89, "cppgofn_qt_qt_getEnumName89")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject90, "cppgofn_qt_qt_getEnumMetaObject90")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName90, "cppgofn_qt_qt_getEnumName90")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject91, "cppgofn_qt_qt_getEnumMetaObject91")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName91, "cppgofn_qt_qt_getEnumName91")
+	symaddr(&addr_cppgofn_qt_qt_getEnumMetaObject92, "cppgofn_qt_qt_getEnumMetaObject92")
+	symaddr(&addr_cppgofn_qt_qt_getEnumName92, "cppgofn_qt_qt_getEnumName92")
+	symaddr(&addr_cppgofn_qt_qFlagLocation, "cppgofn_qt_qFlagLocation")
+	symaddr(&addr_cppgofn_qt_swap, "cppgofn_qt_swap")
+	symaddr(&addr_cppgofn_qt_qstrlen, "cppgofn_qt_qstrlen")
+	symaddr(&addr_cppgofn_qt_qstrnlen, "cppgofn_qt_qstrnlen")
+	symaddr(&addr_cppgofn_qt_qstrcmp, "cppgofn_qt_qstrcmp")
+	symaddr(&addr_cppgofn_qt_qstrncmp, "cppgofn_qt_qstrncmp")
+	symaddr(&addr_cppgofn_qt_qstricmp, "cppgofn_qt_qstricmp")
+	symaddr(&addr_cppgofn_qt_qstrnicmp, "cppgofn_qt_qstrnicmp")
+	symaddr(&addr_cppgofn_qt_qstrnicmp2, "cppgofn_qt_qstrnicmp2")
+	symaddr(&addr_cppgofn_qt_qsnprintf, "cppgofn_qt_qsnprintf")
+	symaddr(&addr_cppgofn_qt_qChecksum, "cppgofn_qt_qChecksum")
+	symaddr(&addr_cppgofn_qt_qChecksum2, "cppgofn_qt_qChecksum2")
+	symaddr(&addr_cppgofn_qt_qCompress, "cppgofn_qt_qCompress")
+	symaddr(&addr_cppgofn_qt_qUncompress, "cppgofn_qt_qUncompress")
+	symaddr(&addr_cppgofn_qt_qCompress2, "cppgofn_qt_qCompress2")
+	symaddr(&addr_cppgofn_qt_qUncompress2, "cppgofn_qt_qUncompress2")
+	symaddr(&addr_cppgofn_qt_swap2, "cppgofn_qt_swap2")
+	symaddr(&addr_cppgofn_qt_swap3, "cppgofn_qt_swap3")
+	symaddr(&addr_cppgofn_qt_qHash, "cppgofn_qt_qHash")
+	symaddr(&addr_cppgofn_qt_swap4, "cppgofn_qt_swap4")
+	symaddr(&addr_cppgofn_qt_qGlobalQHashSeed, "cppgofn_qt_qGlobalQHashSeed")
+	symaddr(&addr_cppgofn_qt_qSetGlobalQHashSeed, "cppgofn_qt_qSetGlobalQHashSeed")
+	symaddr(&addr_cppgofn_qt_hash, "cppgofn_qt_hash")
+	symaddr(&addr_cppgofn_qt_qHash2, "cppgofn_qt_qHash2")
+	symaddr(&addr_cppgofn_qt_qHash3, "cppgofn_qt_qHash3")
+	symaddr(&addr_cppgofn_qt_qHash4, "cppgofn_qt_qHash4")
+	symaddr(&addr_cppgofn_qt_qHash5, "cppgofn_qt_qHash5")
+	symaddr(&addr_cppgofn_qt_qHash6, "cppgofn_qt_qHash6")
+	symaddr(&addr_cppgofn_qt_qHash7, "cppgofn_qt_qHash7")
+	symaddr(&addr_cppgofn_qt_qHash8, "cppgofn_qt_qHash8")
+	symaddr(&addr_cppgofn_qt_qHash9, "cppgofn_qt_qHash9")
+	symaddr(&addr_cppgofn_qt_qHash10, "cppgofn_qt_qHash10")
+	symaddr(&addr_cppgofn_qt_qHash11, "cppgofn_qt_qHash11")
+	symaddr(&addr_cppgofn_qt_qHash12, "cppgofn_qt_qHash12")
+	reg(&pg_cppgofn_qt_qHash13, "cppgofn_qt_qHash13")
+	reg(&pg_cppgofn_qt_qHash14, "cppgofn_qt_qHash14")
+	symaddr(&addr_cppgofn_qt_qHash15, "cppgofn_qt_qHash15")
+	symaddr(&addr_cppgofn_qt_qHash16, "cppgofn_qt_qHash16")
+	symaddr(&addr_cppgofn_qt_qHash17, "cppgofn_qt_qHash17")
+	symaddr(&addr_cppgofn_qt_qHash18, "cppgofn_qt_qHash18")
+	symaddr(&addr_cppgofn_qt_qHash19, "cppgofn_qt_qHash19")
+	symaddr(&addr_cppgofn_qt_qHash20, "cppgofn_qt_qHash20")
+	symaddr(&addr_cppgofn_qt_qHash21, "cppgofn_qt_qHash21")
+	symaddr(&addr_cppgofn_qt_qHash22, "cppgofn_qt_qHash22")
+	symaddr(&addr_cppgofn_qt_qHash23, "cppgofn_qt_qHash23")
+	symaddr(&addr_cppgofn_qt_qHash24, "cppgofn_qt_qHash24")
+	symaddr(&addr_cppgofn_qt_qt_hash, "cppgofn_qt_qt_hash")
+	symaddr(&addr_cppgofn_qt_qPopulationCount, "cppgofn_qt_qPopulationCount")
+	symaddr(&addr_cppgofn_qt_qPopulationCount2, "cppgofn_qt_qPopulationCount2")
+	symaddr(&addr_cppgofn_qt_qPopulationCount3, "cppgofn_qt_qPopulationCount3")
+	symaddr(&addr_cppgofn_qt_qPopulationCount4, "cppgofn_qt_qPopulationCount4")
+	symaddr(&addr_cppgofn_qt_qPopulationCount5, "cppgofn_qt_qPopulationCount5")
+	symaddr(&addr_cppgofn_qt_qCountTrailingZeroBits, "cppgofn_qt_qCountTrailingZeroBits")
+	symaddr(&addr_cppgofn_qt_qCountTrailingZeroBits2, "cppgofn_qt_qCountTrailingZeroBits2")
+	symaddr(&addr_cppgofn_qt_qCountTrailingZeroBits3, "cppgofn_qt_qCountTrailingZeroBits3")
+	symaddr(&addr_cppgofn_qt_qCountTrailingZeroBits4, "cppgofn_qt_qCountTrailingZeroBits4")
+	symaddr(&addr_cppgofn_qt_qCountTrailingZeroBits5, "cppgofn_qt_qCountTrailingZeroBits5")
+	symaddr(&addr_cppgofn_qt_qCountLeadingZeroBits, "cppgofn_qt_qCountLeadingZeroBits")
+	symaddr(&addr_cppgofn_qt_qCountLeadingZeroBits2, "cppgofn_qt_qCountLeadingZeroBits2")
+	symaddr(&addr_cppgofn_qt_qCountLeadingZeroBits3, "cppgofn_qt_qCountLeadingZeroBits3")
+	symaddr(&addr_cppgofn_qt_qCountLeadingZeroBits4, "cppgofn_qt_qCountLeadingZeroBits4")
+	symaddr(&addr_cppgofn_qt_qCountLeadingZeroBits5, "cppgofn_qt_qCountLeadingZeroBits5")
+	reg(&pg_cppgofn_qt_qFastSin, "cppgofn_qt_qFastSin")
+	reg(&pg_cppgofn_qt_qFastCos, "cppgofn_qt_qFastCos")
+	reg(&pg_cppgofn_qt_qDegreesToRadians, "cppgofn_qt_qDegreesToRadians")
+	reg(&pg_cppgofn_qt_qDegreesToRadians2, "cppgofn_qt_qDegreesToRadians2")
+	reg(&pg_cppgofn_qt_qRadiansToDegrees, "cppgofn_qt_qRadiansToDegrees")
+	reg(&pg_cppgofn_qt_qRadiansToDegrees2, "cppgofn_qt_qRadiansToDegrees2")
+	symaddr(&addr_cppgofn_qt_qNextPowerOfTwo, "cppgofn_qt_qNextPowerOfTwo")
+	symaddr(&addr_cppgofn_qt_qNextPowerOfTwo2, "cppgofn_qt_qNextPowerOfTwo2")
+	symaddr(&addr_cppgofn_qt_qNextPowerOfTwo3, "cppgofn_qt_qNextPowerOfTwo3")
+	symaddr(&addr_cppgofn_qt_qNextPowerOfTwo4, "cppgofn_qt_qNextPowerOfTwo4")
+	symaddr(&addr_cppgofn_qt_qNextPowerOfTwo5, "cppgofn_qt_qNextPowerOfTwo5")
+	symaddr(&addr_cppgofn_qt_qNextPowerOfTwo6, "cppgofn_qt_qNextPowerOfTwo6")
+	symaddr(&addr_cppgofn_qt_qFloatFromFloat16, "cppgofn_qt_qFloatFromFloat16")
+	symaddr(&addr_cppgofn_qt_qIsInf3, "cppgofn_qt_qIsInf3")
+	symaddr(&addr_cppgofn_qt_qIsNaN3, "cppgofn_qt_qIsNaN3")
+	symaddr(&addr_cppgofn_qt_qIsFinite3, "cppgofn_qt_qIsFinite3")
+	symaddr(&addr_cppgofn_qt_qFpClassify3, "cppgofn_qt_qFpClassify3")
+	symaddr(&addr_cppgofn_qt_qSqrt, "cppgofn_qt_qSqrt")
+	symaddr(&addr_cppgofn_qt_qRound3, "cppgofn_qt_qRound3")
+	symaddr(&addr_cppgofn_qt_qRound643, "cppgofn_qt_qRound643")
+	symaddr(&addr_cppgofn_qt_qFuzzyCompare3, "cppgofn_qt_qFuzzyCompare3")
+	symaddr(&addr_cppgofn_qt_qFuzzyIsNull3, "cppgofn_qt_qFuzzyIsNull3")
+	symaddr(&addr_cppgofn_qt_qIsNull3, "cppgofn_qt_qIsNull3")
+	symaddr(&addr_cppgofn_qt_qIntCast3, "cppgofn_qt_qIntCast3")
+	symaddr(&addr_cppgofn_qt_qHypot, "cppgofn_qt_qHypot")
+	symaddr(&addr_cppgofn_qt_qHypot2, "cppgofn_qt_qHypot2")
+	symaddr(&addr_cppgofn_qt_qRegisterMetaType, "cppgofn_qt_qRegisterMetaType")
+	symaddr(&addr_cppgofn_qt_qHash25, "cppgofn_qt_qHash25")
+	symaddr(&addr_cppgofn_qt_qt_qFindChild_helper, "cppgofn_qt_qt_qFindChild_helper")
+	symaddr(&addr_cppgofn_qt_qGetBindingStorage, "cppgofn_qt_qGetBindingStorage")
+	symaddr(&addr_cppgofn_qt_qGetBindingStorage2, "cppgofn_qt_qGetBindingStorage2")
+	symaddr(&addr_cppgofn_qt_swap5, "cppgofn_qt_swap5")
+	symaddr(&addr_cppgofn_qt_bucketsForCapacity, "cppgofn_qt_bucketsForCapacity")
+	symaddr(&addr_cppgofn_qt_bucketForHash, "cppgofn_qt_bucketForHash")
+	symaddr(&addr_cppgofn_qt_bin, "cppgofn_qt_bin")
+	symaddr(&addr_cppgofn_qt_oct, "cppgofn_qt_oct")
+	symaddr(&addr_cppgofn_qt_dec, "cppgofn_qt_dec")
+	symaddr(&addr_cppgofn_qt_hex, "cppgofn_qt_hex")
+	symaddr(&addr_cppgofn_qt_showbase, "cppgofn_qt_showbase")
+	symaddr(&addr_cppgofn_qt_forcesign, "cppgofn_qt_forcesign")
+	symaddr(&addr_cppgofn_qt_forcepoint, "cppgofn_qt_forcepoint")
+	symaddr(&addr_cppgofn_qt_noshowbase, "cppgofn_qt_noshowbase")
+	symaddr(&addr_cppgofn_qt_noforcesign, "cppgofn_qt_noforcesign")
+	symaddr(&addr_cppgofn_qt_noforcepoint, "cppgofn_qt_noforcepoint")
+	symaddr(&addr_cppgofn_qt_uppercasebase, "cppgofn_qt_uppercasebase")
+	symaddr(&addr_cppgofn_qt_uppercasedigits, "cppgofn_qt_uppercasedigits")
+	symaddr(&addr_cppgofn_qt_lowercasebase, "cppgofn_qt_lowercasebase")
+	symaddr(&addr_cppgofn_qt_lowercasedigits, "cppgofn_qt_lowercasedigits")
+	symaddr(&addr_cppgofn_qt_fixed, "cppgofn_qt_fixed")
+	symaddr(&addr_cppgofn_qt_scientific, "cppgofn_qt_scientific")
+	symaddr(&addr_cppgofn_qt_left, "cppgofn_qt_left")
+	symaddr(&addr_cppgofn_qt_right, "cppgofn_qt_right")
+	symaddr(&addr_cppgofn_qt_center, "cppgofn_qt_center")
+	symaddr(&addr_cppgofn_qt_endl, "cppgofn_qt_endl")
+	symaddr(&addr_cppgofn_qt_flush, "cppgofn_qt_flush")
+	symaddr(&addr_cppgofn_qt_reset, "cppgofn_qt_reset")
+	symaddr(&addr_cppgofn_qt_bom, "cppgofn_qt_bom")
+	symaddr(&addr_cppgofn_qt_ws, "cppgofn_qt_ws")
+	symaddr(&addr_cppgofn_qt_qSetFieldWidth, "cppgofn_qt_qSetFieldWidth")
+	symaddr(&addr_cppgofn_qt_qSetPadChar, "cppgofn_qt_qSetPadChar")
+	symaddr(&addr_cppgofn_qt_qSetRealNumberPrecision, "cppgofn_qt_qSetRealNumberPrecision")
+	symaddr(&addr_cppgofn_qt_swap6, "cppgofn_qt_swap6")
+	symaddr(&addr_cppgofn_qt_qt_QMetaEnum_debugOperator, "cppgofn_qt_qt_QMetaEnum_debugOperator")
+	symaddr(&addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator, "cppgofn_qt_qt_QMetaEnum_flagDebugOperator")
+	symaddr(&addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator2, "cppgofn_qt_qt_QMetaEnum_flagDebugOperator2")
+	symaddr(&addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator3, "cppgofn_qt_qt_QMetaEnum_flagDebugOperator3")
+	symaddr(&addr_cppgofn_qt_swap7, "cppgofn_qt_swap7")
+	symaddr(&addr_cppgofn_qt_qHash26, "cppgofn_qt_qHash26")
+	symaddr(&addr_cppgofn_qt_swap8, "cppgofn_qt_swap8")
+	symaddr(&addr_cppgofn_qt_qHash27, "cppgofn_qt_qHash27")
+	symaddr(&addr_cppgofn_qt_swap9, "cppgofn_qt_swap9")
+	symaddr(&addr_cppgofn_qt_qAppName, "cppgofn_qt_qAppName")
+	symaddr(&addr_cppgofn_qt_swap10, "cppgofn_qt_swap10")
+	symaddr(&addr_cppgofn_qt_qHash28, "cppgofn_qt_qHash28")
+	symaddr(&addr_cppgofn_qt_swap11, "cppgofn_qt_swap11")
+	symaddr(&addr_cppgofn_qt_qHash29, "cppgofn_qt_qHash29")
+	symaddr(&addr_cppgofn_qt_qHash30, "cppgofn_qt_qHash30")
+	symaddr(&addr_cppgofn_qt_swap12, "cppgofn_qt_swap12")
+	symaddr(&addr_cppgofn_qt_qHash31, "cppgofn_qt_qHash31")
+	symaddr(&addr_cppgofn_qt_qHash32, "cppgofn_qt_qHash32")
+	symaddr(&addr_cppgofn_qt_qHash33, "cppgofn_qt_qHash33")
+	symaddr(&addr_cppgofn_qt_qHash34, "cppgofn_qt_qHash34")
+	symaddr(&addr_cppgofn_qt_swap13, "cppgofn_qt_swap13")
+	symaddr(&addr_cppgofn_qt_swap14, "cppgofn_qt_swap14")
+	symaddr(&addr_cppgofn_qt_swap15, "cppgofn_qt_swap15")
+	symaddr(&addr_cppgofn_qt_qHash35, "cppgofn_qt_qHash35")
+	symaddr(&addr_cppgofn_qt_swap16, "cppgofn_qt_swap16")
+	symaddr(&addr_cppgofn_qt_qbswap_helper, "cppgofn_qt_qbswap_helper")
+	symaddr(&addr_cppgofn_qt_qbswap_helper2, "cppgofn_qt_qbswap_helper2")
+	symaddr(&addr_cppgofn_qt_qbswap_helper3, "cppgofn_qt_qbswap_helper3")
+	symaddr(&addr_cppgofn_qt_qbswap_helper4, "cppgofn_qt_qbswap_helper4")
+	symaddr(&addr_cppgofn_qt_qbswap, "cppgofn_qt_qbswap")
+	reg(&pg_cppgofn_qt_qbswap2, "cppgofn_qt_qbswap2")
+	reg(&pg_cppgofn_qt_qbswap3, "cppgofn_qt_qbswap3")
+	symaddr(&addr_cppgofn_qt_qHash36, "cppgofn_qt_qHash36")
+	symaddr(&addr_cppgofn_qt_swap17, "cppgofn_qt_swap17")
+	symaddr(&addr_cppgofn_qt_qHash37, "cppgofn_qt_qHash37")
+	symaddr(&addr_cppgofn_qt_swap18, "cppgofn_qt_swap18")
+	symaddr(&addr_cppgofn_qt_qHash38, "cppgofn_qt_qHash38")
+	symaddr(&addr_cppgofn_qt_swap19, "cppgofn_qt_swap19")
+	symaddr(&addr_cppgofn_qt_qHash39, "cppgofn_qt_qHash39")
+	symaddr(&addr_cppgofn_qt_beginPropertyUpdateGroup, "cppgofn_qt_beginPropertyUpdateGroup")
+	symaddr(&addr_cppgofn_qt_endPropertyUpdateGroup, "cppgofn_qt_endPropertyUpdateGroup")
+	symaddr(&addr_cppgofn_qt_swap20, "cppgofn_qt_swap20")
+	symaddr(&addr_cppgofn_qt_swap21, "cppgofn_qt_swap21")
+	symaddr(&addr_cppgofn_qt_swap22, "cppgofn_qt_swap22")
+	symaddr(&addr_cppgofn_qt_qEnableNtfsPermissionChecks, "cppgofn_qt_qEnableNtfsPermissionChecks")
+	symaddr(&addr_cppgofn_qt_qDisableNtfsPermissionChecks, "cppgofn_qt_qDisableNtfsPermissionChecks")
+	symaddr(&addr_cppgofn_qt_qAreNtfsPermissionChecksEnabled, "cppgofn_qt_qAreNtfsPermissionChecksEnabled")
+	symaddr(&addr_cppgofn_qt_swap23, "cppgofn_qt_swap23")
+	symaddr(&addr_cppgofn_qt_swap24, "cppgofn_qt_swap24")
+	symaddr(&addr_cppgofn_qt_swap25, "cppgofn_qt_swap25")
+	symaddr(&addr_cppgofn_qt_swap26, "cppgofn_qt_swap26")
+	symaddr(&addr_cppgofn_qt_swap27, "cppgofn_qt_swap27")
+	symaddr(&addr_cppgofn_qt_swap28, "cppgofn_qt_swap28")
+	symaddr(&addr_cppgofn_qt_swap29, "cppgofn_qt_swap29")
+	symaddr(&addr_cppgofn_qt_swap30, "cppgofn_qt_swap30")
+	symaddr(&addr_cppgofn_qt_qHash40, "cppgofn_qt_qHash40")
+	symaddr(&addr_cppgofn_qt_swap31, "cppgofn_qt_swap31")
+	symaddr(&addr_cppgofn_qt_qHash41, "cppgofn_qt_qHash41")
+	symaddr(&addr_cppgofn_qt_swap32, "cppgofn_qt_swap32")
+	symaddr(&addr_cppgofn_qt_qHash42, "cppgofn_qt_qHash42")
+	symaddr(&addr_cppgofn_qt_qHash43, "cppgofn_qt_qHash43")
+	symaddr(&addr_cppgofn_qt_qHash44, "cppgofn_qt_qHash44")
+	symaddr(&addr_cppgofn_qt_qSharedBuild, "cppgofn_qt_qSharedBuild")
+	symaddr(&addr_cppgofn_qt_qHash45, "cppgofn_qt_qHash45")
+	symaddr(&addr_cppgofn_qt_qHash46, "cppgofn_qt_qHash46")
+	symaddr(&addr_cppgofn_qt_swap33, "cppgofn_qt_swap33")
+	symaddr(&addr_cppgofn_qt_swap34, "cppgofn_qt_swap34")
+	symaddr(&addr_cppgofn_qt_swap35, "cppgofn_qt_swap35")
+	symaddr(&addr_cppgofn_qt_swap36, "cppgofn_qt_swap36")
+	symaddr(&addr_cppgofn_qt_swap37, "cppgofn_qt_swap37")
+	symaddr(&addr_cppgofn_qt_swap38, "cppgofn_qt_swap38")
+	symaddr(&addr_cppgofn_qt_swap39, "cppgofn_qt_swap39")
+	symaddr(&addr_cppgofn_qt_qPluginArchRequirements, "cppgofn_qt_qPluginArchRequirements")
+	symaddr(&addr_cppgofn_qt_qRegisterStaticPluginFunction, "cppgofn_qt_qRegisterStaticPluginFunction")
+	symaddr(&addr_cppgofn_qt_swap40, "cppgofn_qt_swap40")
+	symaddr(&addr_cppgofn_qt_qHash47, "cppgofn_qt_qHash47")
+	symaddr(&addr_cppgofn_qt_qHash48, "cppgofn_qt_qHash48")
+	symaddr(&addr_cppgofn_qt_swap41, "cppgofn_qt_swap41")
+	symaddr(&addr_cppgofn_qt_swap42, "cppgofn_qt_swap42")
+	symaddr(&addr_cppgofn_qt_swap43, "cppgofn_qt_swap43")
+	symaddr(&addr_cppgofn_qt_swap44, "cppgofn_qt_swap44")
+	symaddr(&addr_cppgofn_qt_qHash49, "cppgofn_qt_qHash49")
+	symaddr(&addr_cppgofn_qt_swap45, "cppgofn_qt_swap45")
+	symaddr(&addr_cppgofn_qt_qRed, "cppgofn_qt_qRed")
+	symaddr(&addr_cppgofn_qt_qGreen, "cppgofn_qt_qGreen")
+	symaddr(&addr_cppgofn_qt_qBlue, "cppgofn_qt_qBlue")
+	symaddr(&addr_cppgofn_qt_qAlpha, "cppgofn_qt_qAlpha")
+	symaddr(&addr_cppgofn_qt_qRgb, "cppgofn_qt_qRgb")
+	symaddr(&addr_cppgofn_qt_qRgba, "cppgofn_qt_qRgba")
+	symaddr(&addr_cppgofn_qt_qGray, "cppgofn_qt_qGray")
+	symaddr(&addr_cppgofn_qt_qGray2, "cppgofn_qt_qGray2")
+	symaddr(&addr_cppgofn_qt_qIsGray, "cppgofn_qt_qIsGray")
+	symaddr(&addr_cppgofn_qt_qPremultiply, "cppgofn_qt_qPremultiply")
+	symaddr(&addr_cppgofn_qt_qUnpremultiply, "cppgofn_qt_qUnpremultiply")
+	symaddr(&addr_cppgofn_qt_qRgba64, "cppgofn_qt_qRgba64")
+	symaddr(&addr_cppgofn_qt_qRgba642, "cppgofn_qt_qRgba642")
+	symaddr(&addr_cppgofn_qt_qPremultiply2, "cppgofn_qt_qPremultiply2")
+	symaddr(&addr_cppgofn_qt_qUnpremultiply2, "cppgofn_qt_qUnpremultiply2")
+	symaddr(&addr_cppgofn_qt_qRed2, "cppgofn_qt_qRed2")
+	symaddr(&addr_cppgofn_qt_qGreen2, "cppgofn_qt_qGreen2")
+	symaddr(&addr_cppgofn_qt_qBlue2, "cppgofn_qt_qBlue2")
+	symaddr(&addr_cppgofn_qt_qAlpha2, "cppgofn_qt_qAlpha2")
+	symaddr(&addr_cppgofn_qt_qPixelFormatRgba, "cppgofn_qt_qPixelFormatRgba")
+	symaddr(&addr_cppgofn_qt_qPixelFormatGrayscale, "cppgofn_qt_qPixelFormatGrayscale")
+	symaddr(&addr_cppgofn_qt_qPixelFormatAlpha, "cppgofn_qt_qPixelFormatAlpha")
+	symaddr(&addr_cppgofn_qt_qPixelFormatCmyk, "cppgofn_qt_qPixelFormatCmyk")
+	symaddr(&addr_cppgofn_qt_qPixelFormatHsl, "cppgofn_qt_qPixelFormatHsl")
+	symaddr(&addr_cppgofn_qt_qPixelFormatHsv, "cppgofn_qt_qPixelFormatHsv")
+	symaddr(&addr_cppgofn_qt_qPixelFormatYuv, "cppgofn_qt_qPixelFormatYuv")
+	symaddr(&addr_cppgofn_qt_swap46, "cppgofn_qt_swap46")
+	symaddr(&addr_cppgofn_qt_swap47, "cppgofn_qt_swap47")
+	symaddr(&addr_cppgofn_qt_swap48, "cppgofn_qt_swap48")
+	symaddr(&addr_cppgofn_qt_qHash50, "cppgofn_qt_qHash50")
+	symaddr(&addr_cppgofn_qt_qFuzzyCompare4, "cppgofn_qt_qFuzzyCompare4")
+	symaddr(&addr_cppgofn_qt_swap49, "cppgofn_qt_swap49")
+	symaddr(&addr_cppgofn_qt_swap50, "cppgofn_qt_swap50")
+	symaddr(&addr_cppgofn_qt_swap51, "cppgofn_qt_swap51")
+	reg(&pg_cppgofn_qt_qt_findAtNxFile, "cppgofn_qt_qt_findAtNxFile")
+	symaddr(&addr_cppgofn_qt_qHash51, "cppgofn_qt_qHash51")
+	symaddr(&addr_cppgofn_qt_swap52, "cppgofn_qt_swap52")
+	symaddr(&addr_cppgofn_qt_qHash52, "cppgofn_qt_qHash52")
+	symaddr(&addr_cppgofn_qt_swap53, "cppgofn_qt_swap53")
+	symaddr(&addr_cppgofn_qt_swap54, "cppgofn_qt_swap54")
+	symaddr(&addr_cppgofn_qt_qHash53, "cppgofn_qt_qHash53")
+	symaddr(&addr_cppgofn_qt_swap55, "cppgofn_qt_swap55")
+	symaddr(&addr_cppgofn_qt_qHash54, "cppgofn_qt_qHash54")
+	symaddr(&addr_cppgofn_qt_swap56, "cppgofn_qt_swap56")
+	symaddr(&addr_cppgofn_qt_mightBeRichText, "cppgofn_qt_mightBeRichText")
+	symaddr(&addr_cppgofn_qt_convertFromPlainText, "cppgofn_qt_convertFromPlainText")
+	symaddr(&addr_cppgofn_qt_swap57, "cppgofn_qt_swap57")
+	symaddr(&addr_cppgofn_qt_swap58, "cppgofn_qt_swap58")
+	symaddr(&addr_cppgofn_qt_swap59, "cppgofn_qt_swap59")
+	symaddr(&addr_cppgofn_qt_swap60, "cppgofn_qt_swap60")
+	symaddr(&addr_cppgofn_qt_swap61, "cppgofn_qt_swap61")
+	symaddr(&addr_cppgofn_qt_swap62, "cppgofn_qt_swap62")
+	symaddr(&addr_cppgofn_qt_swap63, "cppgofn_qt_swap63")
+	symaddr(&addr_cppgofn_qt_swap64, "cppgofn_qt_swap64")
+	symaddr(&addr_cppgofn_qt_swap65, "cppgofn_qt_swap65")
+	symaddr(&addr_cppgofn_qt_swap66, "cppgofn_qt_swap66")
+	symaddr(&addr_cppgofn_qt_swap67, "cppgofn_qt_swap67")
+	symaddr(&addr_cppgofn_qt_swap68, "cppgofn_qt_swap68")
+	symaddr(&addr_cppgofn_qt_qAccessibleRoleString, "cppgofn_qt_qAccessibleRoleString")
+	symaddr(&addr_cppgofn_qt_qAccessibleEventString, "cppgofn_qt_qAccessibleEventString")
+	symaddr(&addr_cppgofn_qt_qAccessibleLocalizedActionDescription, "cppgofn_qt_qAccessibleLocalizedActionDescription")
+	symaddr(&addr_cppgofn_qt_swap69, "cppgofn_qt_swap69")
+	symaddr(&addr_cppgofn_qt_swap70, "cppgofn_qt_swap70")
+	symaddr(&addr_cppgofn_qt_swap71, "cppgofn_qt_swap71")
+	symaddr(&addr_cppgofn_qt_swap72, "cppgofn_qt_swap72")
+	symaddr(&addr_cppgofn_qt_swap73, "cppgofn_qt_swap73")
+	symaddr(&addr_cppgofn_qt_swap74, "cppgofn_qt_swap74")
+	symaddr(&addr_cppgofn_qt_swap75, "cppgofn_qt_swap75")
+	symaddr(&addr_cppgofn_qt_swap76, "cppgofn_qt_swap76")
+	symaddr(&addr_cppgofn_qt_swap77, "cppgofn_qt_swap77")
+	symaddr(&addr_cppgofn_qt_swap78, "cppgofn_qt_swap78")
+	symaddr(&addr_cppgofn_qt_swap79, "cppgofn_qt_swap79")
+	symaddr(&addr_cppgofn_qt_swap80, "cppgofn_qt_swap80")
+	symaddr(&addr_cppgofn_qt_swap81, "cppgofn_qt_swap81")
+	symaddr(&addr_cppgofn_qt_swap82, "cppgofn_qt_swap82")
+	symaddr(&addr_cppgofn_qt_swap83, "cppgofn_qt_swap83")
+	symaddr(&addr_cppgofn_qt_qFuzzyCompare5, "cppgofn_qt_qFuzzyCompare5")
+	symaddr(&addr_cppgofn_qt_swap84, "cppgofn_qt_swap84")
+	symaddr(&addr_cppgofn_qt_qDrawShadeLine, "cppgofn_qt_qDrawShadeLine")
+	symaddr(&addr_cppgofn_qt_qDrawShadeLine2, "cppgofn_qt_qDrawShadeLine2")
+	symaddr(&addr_cppgofn_qt_qDrawShadeRect, "cppgofn_qt_qDrawShadeRect")
+	symaddr(&addr_cppgofn_qt_qDrawShadeRect2, "cppgofn_qt_qDrawShadeRect2")
+	symaddr(&addr_cppgofn_qt_qDrawShadePanel, "cppgofn_qt_qDrawShadePanel")
+	symaddr(&addr_cppgofn_qt_qDrawShadePanel2, "cppgofn_qt_qDrawShadePanel2")
+	symaddr(&addr_cppgofn_qt_qDrawWinButton, "cppgofn_qt_qDrawWinButton")
+	symaddr(&addr_cppgofn_qt_qDrawWinButton2, "cppgofn_qt_qDrawWinButton2")
+	symaddr(&addr_cppgofn_qt_qDrawWinPanel, "cppgofn_qt_qDrawWinPanel")
+	symaddr(&addr_cppgofn_qt_qDrawWinPanel2, "cppgofn_qt_qDrawWinPanel2")
+	symaddr(&addr_cppgofn_qt_qDrawPlainRect, "cppgofn_qt_qDrawPlainRect")
+	symaddr(&addr_cppgofn_qt_qDrawPlainRect2, "cppgofn_qt_qDrawPlainRect2")
+	reg(&pg_cppgofn_qt_qDrawPlainRoundedRect, "cppgofn_qt_qDrawPlainRoundedRect")
+	reg(&pg_cppgofn_qt_qDrawPlainRoundedRect2, "cppgofn_qt_qDrawPlainRoundedRect2")
+	symaddr(&addr_cppgofn_qt_qDrawBorderPixmap, "cppgofn_qt_qDrawBorderPixmap")
+	symaddr(&addr_cppgofn_qt_qDrawBorderPixmap2, "cppgofn_qt_qDrawBorderPixmap2")
+}
+
+func Qt_assert(assertion string, file string, line int) {
+	assertion_b := append([]byte(assertion), 0)
+	file_b := append([]byte(file), 0)
+	purego.SyscallN(addr_cppgofn_qt_qt_assert, uintptr(unsafe.Pointer(&assertion_b[0])), uintptr(unsafe.Pointer(&file_b[0])), uintptr(line))
+	runtime.KeepAlive(assertion_b)
+	runtime.KeepAlive(file_b)
+}
+
+func Qt_assert_x(where string, what string, file string, line int) {
+	where_b := append([]byte(where), 0)
+	what_b := append([]byte(what), 0)
+	file_b := append([]byte(file), 0)
+	purego.SyscallN(addr_cppgofn_qt_qt_assert_x, uintptr(unsafe.Pointer(&where_b[0])), uintptr(unsafe.Pointer(&what_b[0])), uintptr(unsafe.Pointer(&file_b[0])), uintptr(line))
+	runtime.KeepAlive(where_b)
+	runtime.KeepAlive(what_b)
+	runtime.KeepAlive(file_b)
+}
+
+func Qt_no_assert_x(arg1 bool, arg2 string, arg3 string) bool {
+	arg2_b := append([]byte(arg2), 0)
+	arg3_b := append([]byte(arg3), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_no_assert_x, uintptr(b2i(arg1)), uintptr(unsafe.Pointer(&arg2_b[0])), uintptr(unsafe.Pointer(&arg3_b[0])))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(arg2_b)
+	runtime.KeepAlive(arg3_b)
+	return __r != 0
+}
+
+func Qt_check_pointer(arg1 string, arg2 int) {
+	arg1_b := append([]byte(arg1), 0)
+	purego.SyscallN(addr_cppgofn_qt_qt_check_pointer, uintptr(unsafe.Pointer(&arg1_b[0])), uintptr(arg2))
+	runtime.KeepAlive(arg1_b)
+}
+
+func QBadAlloc() {
+	purego.SyscallN(addr_cppgofn_qt_qBadAlloc)
+}
+
+func Qt_assume_is_deprecated(cond bool) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_assume_is_deprecated, uintptr(b2i(cond)))
+	__r := int32(uint32(__r0))
+	return __r != 0
+}
+
+func QVersion() string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qVersion, uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func QErrnoWarning(code int, msg string) {
+	msg_b := append([]byte(msg), 0)
+	purego.SyscallN(addr_cppgofn_qt_qErrnoWarning, uintptr(code), uintptr(unsafe.Pointer(&msg_b[0])))
+	runtime.KeepAlive(msg_b)
+}
+
+func QErrnoWarningWithMsg(msg string) {
+	msg_b := append([]byte(msg), 0)
+	purego.SyscallN(addr_cppgofn_qt_qErrnoWarning2, uintptr(unsafe.Pointer(&msg_b[0])))
+	runtime.KeepAlive(msg_b)
+}
+
+func Qt_message_output(arg1 QtMsgType, context *QMessageLogContext, message string) {
+	var message_p uintptr
+	if len(message) > 0 {
+		message_p = uintptr(unsafe.Pointer(unsafe.StringData(message)))
+	}
+	purego.SyscallN(addr_cppgofn_qt_qt_message_output, uintptr(arg1), uintptr(context.UnsafePointer()), message_p, uintptr(len(message)))
+	runtime.KeepAlive(context)
+	runtime.KeepAlive(message)
+}
+
+func QSetMessagePattern(messagePattern string) {
+	var messagePattern_p uintptr
+	if len(messagePattern) > 0 {
+		messagePattern_p = uintptr(unsafe.Pointer(unsafe.StringData(messagePattern)))
+	}
+	purego.SyscallN(addr_cppgofn_qt_qSetMessagePattern, messagePattern_p, uintptr(len(messagePattern)))
+	runtime.KeepAlive(messagePattern)
+}
+
+func QFormatLogMessage(type_ QtMsgType, context *QMessageLogContext, buf string) string {
+	var buf_p uintptr
+	if len(buf) > 0 {
+		buf_p = uintptr(unsafe.Pointer(unsafe.StringData(buf)))
+	}
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qFormatLogMessage, uintptr(type_), uintptr(context.UnsafePointer()), buf_p, uintptr(len(buf)), uintptr(unsafe.Pointer(&__n)))
+	runtime.KeepAlive(context)
+	runtime.KeepAlive(buf)
+	return pgStr(__r, __n)
+}
+
+func Qt_error_string(errorCode int) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_error_string, uintptr(errorCode), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func QYieldCpu() {
+	purego.SyscallN(addr_cppgofn_qt_qYieldCpu)
+}
+
+func Is_constant_evaluated() bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_is_constant_evaluated)
+	__r := int32(uint32(__r0))
+	return __r != 0
+}
+
+func QIsInf(d float64) bool {
+	__r := pg_cppgofn_qt_qIsInf(d)
+	return __r != 0
+}
+
+func QIsNaN(d float64) bool {
+	__r := pg_cppgofn_qt_qIsNaN(d)
+	return __r != 0
+}
+
+func QIsFinite(d float64) bool {
+	__r := pg_cppgofn_qt_qIsFinite(d)
+	return __r != 0
+}
+
+func QFpClassify(val float64) int {
+	__r := pg_cppgofn_qt_qFpClassify(val)
+	return int(__r)
+}
+
+func QIsInfWithFloat(f float32) bool {
+	__r := pg_cppgofn_qt_qIsInf2(f)
+	return __r != 0
+}
+
+func QIsNaNWithFloat(f float32) bool {
+	__r := pg_cppgofn_qt_qIsNaN2(f)
+	return __r != 0
+}
+
+func QIsFiniteWithFloat(f float32) bool {
+	__r := pg_cppgofn_qt_qIsFinite2(f)
+	return __r != 0
+}
+
+func QFpClassifyWithVal(val float32) int {
+	__r := pg_cppgofn_qt_qFpClassify2(val)
+	return int(__r)
+}
+
+func QSNaN() float64 {
+	__r := pg_cppgofn_qt_qSNaN()
+	return __r
+}
+
+func QQNaN() float64 {
+	__r := pg_cppgofn_qt_qQNaN()
+	return __r
+}
+
+func QInf() float64 {
+	__r := pg_cppgofn_qt_qInf()
+	return __r
+}
+
+func QFloatDistance(a float32, b float32) uint {
+	__r := pg_cppgofn_qt_qFloatDistance(a, b)
+	return uint(__r)
+}
+
+func QFloatDistance2(a float64, b float64) uint64 {
+	__r := pg_cppgofn_qt_qFloatDistance2(a, b)
+	return uint64(__r)
+}
+
+func QRound(d float64) int {
+	__r := pg_cppgofn_qt_qRound(d)
+	return int(__r)
+}
+
+func QRoundWithFloat(f float32) int {
+	__r := pg_cppgofn_qt_qRound2(f)
+	return int(__r)
+}
+
+func QRound64(d float64) int64 {
+	__r := pg_cppgofn_qt_qRound64(d)
+	return __r
+}
+
+func QRound64WithFloat(f float32) int64 {
+	__r := pg_cppgofn_qt_qRound642(f)
+	return __r
+}
+
+func QFuzzyCompare(p1 float64, p2 float64) bool {
+	__r := pg_cppgofn_qt_qFuzzyCompare(p1, p2)
+	return __r != 0
+}
+
+func QFuzzyCompare2(p1 float32, p2 float32) bool {
+	__r := pg_cppgofn_qt_qFuzzyCompare2(p1, p2)
+	return __r != 0
+}
+
+func QFuzzyIsNull(d float64) bool {
+	__r := pg_cppgofn_qt_qFuzzyIsNull(d)
+	return __r != 0
+}
+
+func QFuzzyIsNullWithFloat(f float32) bool {
+	__r := pg_cppgofn_qt_qFuzzyIsNull2(f)
+	return __r != 0
+}
+
+func QIsNull(d float64) bool {
+	__r := pg_cppgofn_qt_qIsNull(d)
+	return __r != 0
+}
+
+func QIsNullWithFloat(f float32) bool {
+	__r := pg_cppgofn_qt_qIsNull2(f)
+	return __r != 0
+}
+
+func QIntCast(f float64) int {
+	__r := pg_cppgofn_qt_qIntCast(f)
+	return int(__r)
+}
+
+func QIntCastWithFloat(f float32) int {
+	__r := pg_cppgofn_qt_qIntCast2(f)
+	return int(__r)
+}
+
+func Qgetenv(varName string) *QByteArray {
+	varName_b := append([]byte(varName), 0)
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qgetenv, uintptr(unsafe.Pointer(&varName_b[0])))
+	runtime.KeepAlive(varName_b)
+	return newownedQByteArray(__r)
+}
+
+func QEnvironmentVariable(varName string) string {
+	varName_b := append([]byte(varName), 0)
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qEnvironmentVariable, uintptr(unsafe.Pointer(&varName_b[0])), uintptr(unsafe.Pointer(&__n)))
+	runtime.KeepAlive(varName_b)
+	return pgStr(__r, __n)
+}
+
+func QEnvironmentVariable2(varName string, defaultValue string) string {
+	varName_b := append([]byte(varName), 0)
+	var defaultValue_p uintptr
+	if len(defaultValue) > 0 {
+		defaultValue_p = uintptr(unsafe.Pointer(unsafe.StringData(defaultValue)))
+	}
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qEnvironmentVariable2, uintptr(unsafe.Pointer(&varName_b[0])), defaultValue_p, uintptr(len(defaultValue)), uintptr(unsafe.Pointer(&__n)))
+	runtime.KeepAlive(varName_b)
+	runtime.KeepAlive(defaultValue)
+	return pgStr(__r, __n)
+}
+
+func Qputenv(varName string, value *QByteArrayView) bool {
+	varName_b := append([]byte(varName), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qputenv, uintptr(unsafe.Pointer(&varName_b[0])), uintptr(value.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(varName_b)
+	runtime.KeepAlive(value)
+	return __r != 0
+}
+
+func Qunsetenv(varName string) bool {
+	varName_b := append([]byte(varName), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qunsetenv, uintptr(unsafe.Pointer(&varName_b[0])))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(varName_b)
+	return __r != 0
+}
+
+func QEnvironmentVariableIsEmpty(varName string) bool {
+	varName_b := append([]byte(varName), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qEnvironmentVariableIsEmpty, uintptr(unsafe.Pointer(&varName_b[0])))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(varName_b)
+	return __r != 0
+}
+
+func QEnvironmentVariableIsSet(varName string) bool {
+	varName_b := append([]byte(varName), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qEnvironmentVariableIsSet, uintptr(unsafe.Pointer(&varName_b[0])))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(varName_b)
+	return __r != 0
+}
+
+func QEnvironmentVariableIntValue(varName string) (int, bool) {
+	varName_b := append([]byte(varName), 0)
+	var ok_out int32
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qEnvironmentVariableIntValue, uintptr(unsafe.Pointer(&varName_b[0])), uintptr(unsafe.Pointer(&ok_out)))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(varName_b)
+	return int(__r), ok_out != 0
+}
+
+func QEnvironmentVariableIntegerValue(varName string) (int64, bool) {
+	varName_b := append([]byte(varName), 0)
+	var __b int32
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qEnvironmentVariableIntegerValue, uintptr(unsafe.Pointer(&varName_b[0])), uintptr(unsafe.Pointer(&__b)))
+	__r := int64(__r0)
+	runtime.KeepAlive(varName_b)
+	return __r, __b != 0
+}
+
+func QtTrId(id string, n int) string {
+	id_b := append([]byte(id), 0)
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qtTrId, uintptr(unsafe.Pointer(&id_b[0])), uintptr(n), uintptr(unsafe.Pointer(&__n)))
+	runtime.KeepAlive(id_b)
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject(arg1 ScrollBarPolicy) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName(arg1 ScrollBarPolicy) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtFocusPolicy(arg1 FocusPolicy) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject2, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtFocusPolicy(arg1 FocusPolicy) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName2, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtContextMenuPolicy(arg1 ContextMenuPolicy) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject3, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtContextMenuPolicy(arg1 ContextMenuPolicy) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName3, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtContextMenuTrigger(arg1 ContextMenuTrigger) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject4, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtContextMenuTrigger(arg1 ContextMenuTrigger) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName4, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtArrowType(arg1 ArrowType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject5, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtArrowType(arg1 ArrowType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName5, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtToolButtonStyle(arg1 ToolButtonStyle) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject6, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtToolButtonStyle(arg1 ToolButtonStyle) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName6, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtPenStyle(arg1 PenStyle) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject7, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtPenStyle(arg1 PenStyle) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName7, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtPenCapStyle(arg1 PenCapStyle) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject8, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtPenCapStyle(arg1 PenCapStyle) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName8, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtPenJoinStyle(arg1 PenJoinStyle) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject9, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtPenJoinStyle(arg1 PenJoinStyle) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName9, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtBrushStyle(arg1 BrushStyle) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject10, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtBrushStyle(arg1 BrushStyle) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName10, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtFillRule(arg1 FillRule) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject11, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtFillRule(arg1 FillRule) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName11, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtMaskMode(arg1 MaskMode) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject12, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtMaskMode(arg1 MaskMode) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName12, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtBGMode(arg1 BGMode) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject13, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtBGMode(arg1 BGMode) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName13, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtClipOperation(arg1 ClipOperation) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject14, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtClipOperation(arg1 ClipOperation) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName14, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtSizeMode(arg1 SizeMode) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject15, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtSizeMode(arg1 SizeMode) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName15, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtAxis(arg1 Axis) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject16, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtAxis(arg1 Axis) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName16, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtCorner(arg1 Corner) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject17, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtCorner(arg1 Corner) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName17, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtEdge(arg1 Edge) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject18, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtEdge(arg1 Edge) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName18, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtLayoutDirection(arg1 LayoutDirection) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject19, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtLayoutDirection(arg1 LayoutDirection) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName19, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtSizeHint(arg1 SizeHint) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject20, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtSizeHint(arg1 SizeHint) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName20, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtOrientation(arg1 Orientation) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject21, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtOrientation(arg1 Orientation) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName21, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtDropAction(arg1 DropAction) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject22, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtDropAction(arg1 DropAction) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName22, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWith(arg1 AlignmentFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject23, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWith(arg1 AlignmentFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName23, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTextFlag(arg1 TextFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject24, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTextFlag(arg1 TextFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName24, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject2(arg1 Orientation) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject25, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName2(arg1 Orientation) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName25, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject3(arg1 SplitBehaviorFlags) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject26, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName3(arg1 SplitBehaviorFlags) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName26, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject4(arg1 DropAction) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject27, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName4(arg1 DropAction) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName27, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject5(arg1 Edge) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject28, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName5(arg1 Edge) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName28, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject6(arg1 DockWidgetArea) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject29, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName6(arg1 DockWidgetArea) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName29, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject7(arg1 ToolBarArea) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject30, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName7(arg1 ToolBarArea) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName30, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtDockWidgetArea(arg1 DockWidgetArea) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject31, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtDockWidgetArea(arg1 DockWidgetArea) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName31, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtToolBarArea(arg1 ToolBarArea) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject32, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtToolBarArea(arg1 ToolBarArea) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName32, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTextFormat(arg1 TextFormat) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject33, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTextFormat(arg1 TextFormat) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName33, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTextElideMode(arg1 TextElideMode) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject34, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTextElideMode(arg1 TextElideMode) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName34, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtDateFormat(arg1 DateFormat) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject35, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtDateFormat(arg1 DateFormat) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName35, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTimeSpec(arg1 TimeSpec) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject36, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTimeSpec(arg1 TimeSpec) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName36, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtDayOfWeek(arg1 DayOfWeek) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject37, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtDayOfWeek(arg1 DayOfWeek) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName37, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtCursorShape(arg1 CursorShape) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject38, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtCursorShape(arg1 CursorShape) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName38, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtGlobalColor(arg1 GlobalColor) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject39, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtGlobalColor(arg1 GlobalColor) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName39, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtColorScheme(arg1 ColorScheme) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject40, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtColorScheme(arg1 ColorScheme) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName40, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtContrastPreference(arg1 ContrastPreference) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject41, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtContrastPreference(arg1 ContrastPreference) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName41, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtAspectRatioMode(arg1 AspectRatioMode) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject42, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtAspectRatioMode(arg1 AspectRatioMode) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName42, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTransformationMode(arg1 TransformationMode) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject43, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTransformationMode(arg1 TransformationMode) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName43, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject8(arg1 ImageConversionFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject44, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName8(arg1 ImageConversionFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName44, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtKey(arg1 Key) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject45, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtKey(arg1 Key) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName45, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtShortcutContext(arg1 ShortcutContext) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject46, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtShortcutContext(arg1 ShortcutContext) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName46, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTextInteractionFlag(arg1 TextInteractionFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject47, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTextInteractionFlag(arg1 TextInteractionFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName47, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject9(arg1 TextInteractionFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject48, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName9(arg1 TextInteractionFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName48, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtItemSelectionMode(arg1 ItemSelectionMode) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject49, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtItemSelectionMode(arg1 ItemSelectionMode) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName49, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtItemSelectionOperation(arg1 ItemSelectionOperation) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject50, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtItemSelectionOperation(arg1 ItemSelectionOperation) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName50, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject10(arg1 ItemFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject51, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName10(arg1 ItemFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName51, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtCheckState(arg1 CheckState) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject52, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtCheckState(arg1 CheckState) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName52, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtItemDataRole(arg1 ItemDataRole) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject53, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtItemDataRole(arg1 ItemDataRole) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName53, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtSortOrder(arg1 SortOrder) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject54, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtSortOrder(arg1 SortOrder) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName54, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtCaseSensitivity(arg1 CaseSensitivity) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject55, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtCaseSensitivity(arg1 CaseSensitivity) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName55, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject11(arg1 MatchFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject56, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName11(arg1 MatchFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName56, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtModifier(arg1 Modifier) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject57, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtModifier(arg1 Modifier) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName57, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject12(arg1 Modifier) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject58, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName12(arg1 Modifier) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName58, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtKeyboardModifier(arg1 KeyboardModifier) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject59, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtKeyboardModifier(arg1 KeyboardModifier) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName59, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject13(arg1 KeyboardModifier) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject60, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName13(arg1 KeyboardModifier) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName60, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject14(arg1 MouseButton) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject61, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName14(arg1 MouseButton) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName61, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtWindowType(arg1 WindowType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject62, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtWindowType(arg1 WindowType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName62, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtWindowState(arg1 WindowState) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject63, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtWindowState(arg1 WindowState) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName63, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtWindowModality(arg1 WindowModality) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject64, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtWindowModality(arg1 WindowModality) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName64, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtWidgetAttribute(arg1 WidgetAttribute) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject65, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtWidgetAttribute(arg1 WidgetAttribute) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName65, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtApplicationAttribute(arg1 ApplicationAttribute) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject66, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtApplicationAttribute(arg1 ApplicationAttribute) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName66, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject15(arg1 WindowType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject67, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName15(arg1 WindowType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName67, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject16(arg1 WindowState) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject68, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName16(arg1 WindowState) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName68, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtFocusReason(arg1 FocusReason) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject69, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtFocusReason(arg1 FocusReason) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName69, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtInputMethodHint(arg1 InputMethodHint) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject70, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtInputMethodHint(arg1 InputMethodHint) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName70, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtInputMethodQuery(arg1 InputMethodQuery) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject71, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtInputMethodQuery(arg1 InputMethodQuery) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName71, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject17(arg1 InputMethodHint) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject72, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName17(arg1 InputMethodHint) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName72, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtEnterKeyType(arg1 EnterKeyType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject73, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtEnterKeyType(arg1 EnterKeyType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName73, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject18(arg1 InputMethodQuery) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject74, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName18(arg1 InputMethodQuery) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName74, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject19(arg1 TouchPointState) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject75, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName19(arg1 TouchPointState) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName75, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtScreenOrientation(arg1 ScreenOrientation) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject76, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtScreenOrientation(arg1 ScreenOrientation) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName76, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject20(arg1 ScreenOrientation) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject77, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName20(arg1 ScreenOrientation) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName77, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtConnectionType(arg1 ConnectionType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject78, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtConnectionType(arg1 ConnectionType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName78, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtApplicationState(arg1 ApplicationState) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject79, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtApplicationState(arg1 ApplicationState) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName79, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtGestureState(arg1 GestureState) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject80, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtGestureState(arg1 GestureState) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName80, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtGestureType(arg1 GestureType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject81, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtGestureType(arg1 GestureType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName81, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtNativeGestureType(arg1 NativeGestureType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject82, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtNativeGestureType(arg1 NativeGestureType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName82, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtCursorMoveStyle(arg1 CursorMoveStyle) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject83, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtCursorMoveStyle(arg1 CursorMoveStyle) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName83, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTimerType(arg1 TimerType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject84, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTimerType(arg1 TimerType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName84, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTimerId(arg1 TimerId) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject85, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTimerId(arg1 TimerId) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName85, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtScrollPhase(arg1 ScrollPhase) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject86, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtScrollPhase(arg1 ScrollPhase) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName86, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtMouseEventSource(arg1 MouseEventSource) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject87, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtMouseEventSource(arg1 MouseEventSource) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName87, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObject21(arg1 MouseEventFlag) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject88, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumName21(arg1 MouseEventFlag) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName88, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtChecksumType(arg1 ChecksumType) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject89, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtChecksumType(arg1 ChecksumType) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName89, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtHighDpiScaleFactorRoundingPolicy(arg1 HighDpiScaleFactorRoundingPolicy) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject90, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtHighDpiScaleFactorRoundingPolicy(arg1 HighDpiScaleFactorRoundingPolicy) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName90, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtTabFocusBehavior(arg1 TabFocusBehavior) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject91, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtTabFocusBehavior(arg1 TabFocusBehavior) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName91, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Qt_getEnumMetaObjectWithQtPermissionStatus(arg1 PermissionStatus) *QMetaObject {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumMetaObject92, uintptr(arg1))
+	return bindQMetaObject(__r)
+}
+
+func Qt_getEnumNameWithQtPermissionStatus(arg1 PermissionStatus) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_getEnumName92, uintptr(arg1), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func QFlagLocation(method string) string {
+	method_b := append([]byte(method), 0)
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qFlagLocation, uintptr(unsafe.Pointer(&method_b[0])), uintptr(unsafe.Pointer(&__n)))
+	runtime.KeepAlive(method_b)
+	return pgStr(__r, __n)
+}
+
+func Swap(lhs *QMetaObject__Connection, rhs *QMetaObject__Connection) {
+	purego.SyscallN(addr_cppgofn_qt_swap, uintptr(lhs.UnsafePointer()), uintptr(rhs.UnsafePointer()))
+	runtime.KeepAlive(lhs)
+	runtime.KeepAlive(rhs)
+}
+
+func Qstrlen(str string) uint64 {
+	str_b := append([]byte(str), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qstrlen, uintptr(unsafe.Pointer(&str_b[0])))
+	__r := int64(__r0)
+	runtime.KeepAlive(str_b)
+	return uint64(__r)
+}
+
+func Qstrnlen(str string, maxlen uint64) uint64 {
+	str_b := append([]byte(str), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qstrnlen, uintptr(unsafe.Pointer(&str_b[0])), uintptr(maxlen))
+	__r := int64(__r0)
+	runtime.KeepAlive(str_b)
+	return uint64(__r)
+}
+
+func Qstrcmp(str1 string, str2 string) int {
+	str1_b := append([]byte(str1), 0)
+	str2_b := append([]byte(str2), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qstrcmp, uintptr(unsafe.Pointer(&str1_b[0])), uintptr(unsafe.Pointer(&str2_b[0])))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(str1_b)
+	runtime.KeepAlive(str2_b)
+	return int(__r)
+}
+
+func Qstrncmp(str1 string, str2 string, len_ uint64) int {
+	str1_b := append([]byte(str1), 0)
+	str2_b := append([]byte(str2), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qstrncmp, uintptr(unsafe.Pointer(&str1_b[0])), uintptr(unsafe.Pointer(&str2_b[0])), uintptr(len_))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(str1_b)
+	runtime.KeepAlive(str2_b)
+	return int(__r)
+}
+
+func Qstricmp(arg1 string, arg2 string) int {
+	arg1_b := append([]byte(arg1), 0)
+	arg2_b := append([]byte(arg2), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qstricmp, uintptr(unsafe.Pointer(&arg1_b[0])), uintptr(unsafe.Pointer(&arg2_b[0])))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(arg1_b)
+	runtime.KeepAlive(arg2_b)
+	return int(__r)
+}
+
+func Qstrnicmp(arg1 string, arg2 string, len_ uint64) int {
+	arg1_b := append([]byte(arg1), 0)
+	arg2_b := append([]byte(arg2), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qstrnicmp, uintptr(unsafe.Pointer(&arg1_b[0])), uintptr(unsafe.Pointer(&arg2_b[0])), uintptr(len_))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(arg1_b)
+	runtime.KeepAlive(arg2_b)
+	return int(__r)
+}
+
+func Qstrnicmp2(arg1 string, arg2 int64, arg3 string, arg4 int64) int {
+	arg1_b := append([]byte(arg1), 0)
+	arg3_b := append([]byte(arg3), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qstrnicmp2, uintptr(unsafe.Pointer(&arg1_b[0])), uintptr(arg2), uintptr(unsafe.Pointer(&arg3_b[0])), uintptr(arg4))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(arg1_b)
+	runtime.KeepAlive(arg3_b)
+	return int(__r)
+}
+
+func Qsnprintf(str []byte, n uint64, fmt string) int {
+	var str_p uintptr
+	if len(str) > 0 {
+		str_p = uintptr(unsafe.Pointer(&str[0]))
+	}
+	fmt_b := append([]byte(fmt), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qsnprintf, str_p, uintptr(n), uintptr(unsafe.Pointer(&fmt_b[0])))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(str)
+	runtime.KeepAlive(fmt_b)
+	return int(__r)
+}
+
+func QChecksum(data *QByteArrayView, standard ChecksumType) uint16 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qChecksum, uintptr(data.UnsafePointer()), uintptr(standard))
+	__r := int16(uint16(__r0))
+	runtime.KeepAlive(data)
+	return uint16(__r)
+}
+
+func QChecksum2(s string, len_ int64, standard ChecksumType) uint16 {
+	s_b := append([]byte(s), 0)
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qChecksum2, uintptr(unsafe.Pointer(&s_b[0])), uintptr(len_), uintptr(standard))
+	__r := int16(uint16(__r0))
+	runtime.KeepAlive(s_b)
+	return uint16(__r)
+}
+
+func QCompress(data []byte, nbytes int64, compressionLevel int) *QByteArray {
+	var data_p uintptr
+	if len(data) > 0 {
+		data_p = uintptr(unsafe.Pointer(&data[0]))
+	}
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qCompress, data_p, uintptr(nbytes), uintptr(compressionLevel))
+	runtime.KeepAlive(data)
+	return newownedQByteArray(__r)
+}
+
+func QUncompress(data []byte, nbytes int64) *QByteArray {
+	var data_p uintptr
+	if len(data) > 0 {
+		data_p = uintptr(unsafe.Pointer(&data[0]))
+	}
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qUncompress, data_p, uintptr(nbytes))
+	runtime.KeepAlive(data)
+	return newownedQByteArray(__r)
+}
+
+func QCompress2(data *QByteArray, compressionLevel int) *QByteArray {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qCompress2, uintptr(data.UnsafePointer()), uintptr(compressionLevel))
+	runtime.KeepAlive(data)
+	return newownedQByteArray(__r)
+}
+
+func QUncompressWithData(data *QByteArray) *QByteArray {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qUncompress2, uintptr(data.UnsafePointer()))
+	runtime.KeepAlive(data)
+	return newownedQByteArray(__r)
+}
+
+func Swap2(value1 *QByteArray, value2 *QByteArray) {
+	purego.SyscallN(addr_cppgofn_qt_swap2, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap3(value1 *QByteArray__FromBase64Result, value2 *QByteArray__FromBase64Result) {
+	purego.SyscallN(addr_cppgofn_qt_swap3, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash(key *QByteArray__FromBase64Result, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Swap4(value1 *QString, value2 *QString) {
+	purego.SyscallN(addr_cppgofn_qt_swap4, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QGlobalQHashSeed() int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qGlobalQHashSeed)
+	__r := int32(uint32(__r0))
+	return int(__r)
+}
+
+func QSetGlobalQHashSeed(newSeed int) {
+	purego.SyscallN(addr_cppgofn_qt_qSetGlobalQHashSeed, uintptr(newSeed))
+}
+
+func Hash(key uint64, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_hash, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash2(key int8, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash2, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash3(key byte, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash3, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash4(key int8, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash4, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash5(key uint16, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash5, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash6(key int16, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash6, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash7(key uint, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash7, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash8(key int, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash8, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash9(key uint32, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash9, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash10(key int32, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash10, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash11(key uint64, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash11, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash12(key int64, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash12, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash13(key float32, seed uint64) uint64 {
+	__r := pg_cppgofn_qt_qHash13(key, int64(seed))
+	return uint64(__r)
+}
+
+func QHash14(key float64, seed uint64) uint64 {
+	__r := pg_cppgofn_qt_qHash14(key, int64(seed))
+	return uint64(__r)
+}
+
+func QHash15(key uint16, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash15, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash16(key uint16, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash16, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash17(key uint32, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash17, uintptr(key), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash18(key *QChar, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash18, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash19(key *QByteArrayView, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash19, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash20(key *QStringView, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash20, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash21(key string, seed uint64) uint64 {
+	var key_p uintptr
+	if len(key) > 0 {
+		key_p = uintptr(unsafe.Pointer(unsafe.StringData(key)))
+	}
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash21, key_p, uintptr(len(key)), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash22(key *QBitArray, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash22, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash23(key *QLatin1String, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash23, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash24(key *QKeyCombination, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash24, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Qt_hash(key *QStringView, chained uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_hash, uintptr(key.UnsafePointer()), uintptr(chained))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(key)
+	return uint(__r)
+}
+
+func QPopulationCount(v uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qPopulationCount, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QPopulationCountWith(v byte) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qPopulationCount2, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QPopulationCount2(v uint16) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qPopulationCount3, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QPopulationCount3(v uint64) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qPopulationCount4, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QPopulationCountWithUnsignedlong(v uint32) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qPopulationCount5, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountTrailingZeroBits(v uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountTrailingZeroBits, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountTrailingZeroBitsWith(v byte) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountTrailingZeroBits2, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountTrailingZeroBits2(v uint16) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountTrailingZeroBits3, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountTrailingZeroBits3(v uint64) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountTrailingZeroBits4, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountTrailingZeroBitsWithUnsignedlong(v uint32) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountTrailingZeroBits5, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountLeadingZeroBits(v uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountLeadingZeroBits, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountLeadingZeroBitsWith(v byte) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountLeadingZeroBits2, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountLeadingZeroBits2(v uint16) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountLeadingZeroBits3, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountLeadingZeroBits3(v uint64) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountLeadingZeroBits4, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QCountLeadingZeroBitsWithUnsignedlong(v uint32) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qCountLeadingZeroBits5, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QFastSin(x float64) float64 {
+	__r := pg_cppgofn_qt_qFastSin(x)
+	return __r
+}
+
+func QFastCos(x float64) float64 {
+	__r := pg_cppgofn_qt_qFastCos(x)
+	return __r
+}
+
+func QDegreesToRadians(degrees float32) float32 {
+	__r := pg_cppgofn_qt_qDegreesToRadians(degrees)
+	return __r
+}
+
+func QDegreesToRadiansWithDegrees(degrees float64) float64 {
+	__r := pg_cppgofn_qt_qDegreesToRadians2(degrees)
+	return __r
+}
+
+func QRadiansToDegrees(radians float32) float32 {
+	__r := pg_cppgofn_qt_qRadiansToDegrees(radians)
+	return __r
+}
+
+func QRadiansToDegreesWithRadians(radians float64) float64 {
+	__r := pg_cppgofn_qt_qRadiansToDegrees2(radians)
+	return __r
+}
+
+func QNextPowerOfTwo(v uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qNextPowerOfTwo, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QNextPowerOfTwoWith(v uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qNextPowerOfTwo2, uintptr(v))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QNextPowerOfTwo2(v int) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qNextPowerOfTwo3, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QNextPowerOfTwo3(v int64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qNextPowerOfTwo4, uintptr(v))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QNextPowerOfTwoWithUnsignedlong(v uint32) uint32 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qNextPowerOfTwo5, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint32(__r)
+}
+
+func QNextPowerOfTwoWithLong(v int32) uint32 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qNextPowerOfTwo6, uintptr(v))
+	__r := int32(uint32(__r0))
+	return uint32(__r)
+}
+
+func QFloatFromFloat16(arg2 *qfloat16, length int64) float32 {
+	var arg1_out float32
+	purego.SyscallN(addr_cppgofn_qt_qFloatFromFloat16, uintptr(unsafe.Pointer(&arg1_out)), uintptr(arg2.UnsafePointer()), uintptr(length))
+	runtime.KeepAlive(arg2)
+	return arg1_out
+}
+
+func QIsInfWithQfloat16(f *qfloat16) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qIsInf3, uintptr(f.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(f)
+	return __r != 0
+}
+
+func QIsNaNWithQfloat16(f *qfloat16) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qIsNaN3, uintptr(f.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(f)
+	return __r != 0
+}
+
+func QIsFiniteWithQfloat16(f *qfloat16) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qIsFinite3, uintptr(f.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(f)
+	return __r != 0
+}
+
+func QFpClassifyWithQfloat16(f *qfloat16) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qFpClassify3, uintptr(f.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(f)
+	return int(__r)
+}
+
+func QSqrt(f *qfloat16) *qfloat16 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qSqrt, uintptr(f.UnsafePointer()))
+	runtime.KeepAlive(f)
+	return newownedqfloat16(__r)
+}
+
+func QRoundWithQfloat16(d *qfloat16) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qRound3, uintptr(d.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(d)
+	return int(__r)
+}
+
+func QRound64WithQfloat16(d *qfloat16) int64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qRound643, uintptr(d.UnsafePointer()))
+	__r := int64(__r0)
+	runtime.KeepAlive(d)
+	return __r
+}
+
+func QFuzzyCompare3(p1 *qfloat16, p2 *qfloat16) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qFuzzyCompare3, uintptr(p1.UnsafePointer()), uintptr(p2.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(p1)
+	runtime.KeepAlive(p2)
+	return __r != 0
+}
+
+func QFuzzyIsNullWithQfloat16(f *qfloat16) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qFuzzyIsNull3, uintptr(f.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(f)
+	return __r != 0
+}
+
+func QIsNullWithQfloat16(f *qfloat16) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qIsNull3, uintptr(f.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(f)
+	return __r != 0
+}
+
+func QIntCastWithQfloat16(f *qfloat16) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qIntCast3, uintptr(f.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(f)
+	return int(__r)
+}
+
+func QHypot(x *qfloat16, y *qfloat16) *qfloat16 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qHypot, uintptr(x.UnsafePointer()), uintptr(y.UnsafePointer()))
+	runtime.KeepAlive(x)
+	runtime.KeepAlive(y)
+	return newownedqfloat16(__r)
+}
+
+func QHypot2(x *qfloat16, y *qfloat16, z *qfloat16) *qfloat16 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qHypot2, uintptr(x.UnsafePointer()), uintptr(y.UnsafePointer()), uintptr(z.UnsafePointer()))
+	runtime.KeepAlive(x)
+	runtime.KeepAlive(y)
+	runtime.KeepAlive(z)
+	return newownedqfloat16(__r)
+}
+
+func QRegisterMetaType(meta *QMetaType) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qRegisterMetaType, uintptr(meta.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(meta)
+	return int(__r)
+}
+
+func QHash25(type_ *QMetaType, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash25, uintptr(type_.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(type_)
+	return uint64(__r)
+}
+
+func Qt_qFindChild_helper(parent *QObject, name string, mo *QMetaObject, options FindChildOption) *QObject {
+	var name_p uintptr
+	if len(name) > 0 {
+		name_p = uintptr(unsafe.Pointer(unsafe.StringData(name)))
+	}
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_qFindChild_helper, uintptr(parent.UnsafePointer()), name_p, uintptr(len(name)), uintptr(mo.UnsafePointer()), uintptr(options))
+	runtime.KeepAlive(parent)
+	runtime.KeepAlive(name)
+	runtime.KeepAlive(mo)
+	return bindQObject(__r)
+}
+
+func QGetBindingStorage(o *QObject) *QBindingStorage {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qGetBindingStorage, uintptr(o.UnsafePointer()))
+	runtime.KeepAlive(o)
+	return bindQBindingStorage(__r)
+}
+
+func QGetBindingStorageWithQObject(o *QObject) *QBindingStorage {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qGetBindingStorage2, uintptr(o.UnsafePointer()))
+	runtime.KeepAlive(o)
+	return bindQBindingStorage(__r)
+}
+
+func Swap5(value1 *QDeadlineTimer, value2 *QDeadlineTimer) {
+	purego.SyscallN(addr_cppgofn_qt_swap5, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func BucketsForCapacity(requestedCapacity uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_bucketsForCapacity, uintptr(requestedCapacity))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func BucketForHash(nBuckets uint64, hash uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_bucketForHash, uintptr(nBuckets), uintptr(hash))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func Bin(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_bin, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Oct(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_oct, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Dec(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_dec, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Hex(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_hex, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Showbase(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_showbase, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Forcesign(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_forcesign, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Forcepoint(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_forcepoint, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Noshowbase(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_noshowbase, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Noforcesign(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_noforcesign, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Noforcepoint(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_noforcepoint, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Uppercasebase(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_uppercasebase, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Uppercasedigits(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_uppercasedigits, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Lowercasebase(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_lowercasebase, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Lowercasedigits(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_lowercasedigits, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Fixed(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_fixed, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Scientific(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_scientific, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Left(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_left, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Right(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_right, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Center(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_center, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Endl(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_endl, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Flush(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_flush, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Reset(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_reset, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Bom(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_bom, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func Ws(s *QTextStream) *QTextStream {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_ws, uintptr(s.UnsafePointer()))
+	runtime.KeepAlive(s)
+	return bindQTextStream(__r)
+}
+
+func QSetFieldWidth(width int) *QTextStreamManipulator {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qSetFieldWidth, uintptr(width))
+	return newownedQTextStreamManipulator(__r)
+}
+
+func QSetPadChar(ch *QChar) *QTextStreamManipulator {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qSetPadChar, uintptr(ch.UnsafePointer()))
+	runtime.KeepAlive(ch)
+	return newownedQTextStreamManipulator(__r)
+}
+
+func QSetRealNumberPrecision(precision int) *QTextStreamManipulator {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qSetRealNumberPrecision, uintptr(precision))
+	return newownedQTextStreamManipulator(__r)
+}
+
+func Swap6(value1 *QDebug, value2 *QDebug) {
+	purego.SyscallN(addr_cppgofn_qt_swap6, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Qt_QMetaEnum_debugOperator(arg1 *QDebug, value int64, meta *QMetaObject, name string) *QDebug {
+	name_b := append([]byte(name), 0)
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_QMetaEnum_debugOperator, uintptr(arg1.UnsafePointer()), uintptr(value), uintptr(meta.UnsafePointer()), uintptr(unsafe.Pointer(&name_b[0])))
+	runtime.KeepAlive(arg1)
+	runtime.KeepAlive(meta)
+	runtime.KeepAlive(name_b)
+	return newownedQDebug(__r)
+}
+
+func Qt_QMetaEnum_flagDebugOperator(dbg *QDebug, value uint64, meta *QMetaObject, name string) *QDebug {
+	name_b := append([]byte(name), 0)
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator, uintptr(dbg.UnsafePointer()), uintptr(value), uintptr(meta.UnsafePointer()), uintptr(unsafe.Pointer(&name_b[0])))
+	runtime.KeepAlive(dbg)
+	runtime.KeepAlive(meta)
+	runtime.KeepAlive(name_b)
+	return newownedQDebug(__r)
+}
+
+func Qt_QMetaEnum_flagDebugOperator2(debug *QDebug, sizeofT uint64, value uint) {
+	purego.SyscallN(addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator2, uintptr(debug.UnsafePointer()), uintptr(sizeofT), uintptr(value))
+	runtime.KeepAlive(debug)
+}
+
+func Qt_QMetaEnum_flagDebugOperator3(debug *QDebug, sizeofT uint64, value uint64) {
+	purego.SyscallN(addr_cppgofn_qt_qt_QMetaEnum_flagDebugOperator3, uintptr(debug.UnsafePointer()), uintptr(sizeofT), uintptr(value))
+	runtime.KeepAlive(debug)
+}
+
+func Swap7(value1 *QVariant, value2 *QVariant) {
+	purego.SyscallN(addr_cppgofn_qt_swap7, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash26(index *QPersistentModelIndex, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash26, uintptr(index.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(index)
+	return uint64(__r)
+}
+
+func Swap8(value1 *QPersistentModelIndex, value2 *QPersistentModelIndex) {
+	purego.SyscallN(addr_cppgofn_qt_swap8, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash27(index *QModelIndex, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash27, uintptr(index.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(index)
+	return uint64(__r)
+}
+
+func Swap9(lhs *QBasicTimer, rhs *QBasicTimer) {
+	purego.SyscallN(addr_cppgofn_qt_swap9, uintptr(lhs.UnsafePointer()), uintptr(rhs.UnsafePointer()))
+	runtime.KeepAlive(lhs)
+	runtime.KeepAlive(rhs)
+}
+
+func QAppName() string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qAppName, uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func Swap10(value1 *QBitArray, value2 *QBitArray) {
+	purego.SyscallN(addr_cppgofn_qt_swap10, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash28(key *QLocale, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash28, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Swap11(value1 *QLocale, value2 *QLocale) {
+	purego.SyscallN(addr_cppgofn_qt_swap11, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash29(tag QCborSimpleType, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash29, uintptr(tag), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func QHash30(tag QCborTag, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash30, uintptr(tag), uintptr(seed))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func Swap12(value1 *QDateTime, value2 *QDateTime) {
+	purego.SyscallN(addr_cppgofn_qt_swap12, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash31(key *QDateTime, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash31, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash32(key *QDate, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash32, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash33(key *QTime, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash33, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash34(key *QRegularExpression, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash34, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Swap13(value1 *QRegularExpression, value2 *QRegularExpression) {
+	purego.SyscallN(addr_cppgofn_qt_swap13, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap14(value1 *QRegularExpressionMatch, value2 *QRegularExpressionMatch) {
+	purego.SyscallN(addr_cppgofn_qt_swap14, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap15(value1 *QRegularExpressionMatchIterator, value2 *QRegularExpressionMatchIterator) {
+	purego.SyscallN(addr_cppgofn_qt_swap15, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash35(url *QUrl, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash35, uintptr(url.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(url)
+	return uint64(__r)
+}
+
+func Swap16(value1 *QUrl, value2 *QUrl) {
+	purego.SyscallN(addr_cppgofn_qt_swap16, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Qbswap_helper(source uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qbswap_helper, uintptr(source))
+	__r := int64(__r0)
+	return uint64(__r)
+}
+
+func Qbswap_helperWithSource(source uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qbswap_helper2, uintptr(source))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func Qbswap_helper2(source uint16) uint16 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qbswap_helper3, uintptr(source))
+	__r := int16(uint16(__r0))
+	return uint16(__r)
+}
+
+func Qbswap_helper3(source byte) byte {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qbswap_helper4, uintptr(source))
+	__r := uint8(__r0)
+	return byte(__r)
+}
+
+func Qbswap(source *qfloat16) *qfloat16 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qbswap, uintptr(source.UnsafePointer()))
+	runtime.KeepAlive(source)
+	return newownedqfloat16(__r)
+}
+
+func QbswapWithSource(source float32) float32 {
+	__r := pg_cppgofn_qt_qbswap2(source)
+	return __r
+}
+
+func Qbswap2(source float64) float64 {
+	__r := pg_cppgofn_qt_qbswap3(source)
+	return __r
+}
+
+func QHash36(uuid *QUuid, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash36, uintptr(uuid.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(uuid)
+	return uint64(__r)
+}
+
+func Swap17(value1 *QCborValue, value2 *QCborValue) {
+	purego.SyscallN(addr_cppgofn_qt_swap17, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash37(value *QCborValue, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash37, uintptr(value.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(value)
+	return uint64(__r)
+}
+
+func Swap18(value1 *QCborArray, value2 *QCborArray) {
+	purego.SyscallN(addr_cppgofn_qt_swap18, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash38(array *QCborArray, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash38, uintptr(array.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(array)
+	return uint64(__r)
+}
+
+func Swap19(value1 *QCborMap, value2 *QCborMap) {
+	purego.SyscallN(addr_cppgofn_qt_swap19, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash39(map_ *QCborMap, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash39, uintptr(map_.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(map_)
+	return uint64(__r)
+}
+
+func BeginPropertyUpdateGroup() {
+	purego.SyscallN(addr_cppgofn_qt_beginPropertyUpdateGroup)
+}
+
+func EndPropertyUpdateGroup() {
+	purego.SyscallN(addr_cppgofn_qt_endPropertyUpdateGroup)
+}
+
+func Swap20(value1 *QCollatorSortKey, value2 *QCollatorSortKey) {
+	purego.SyscallN(addr_cppgofn_qt_swap20, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap21(value1 *QCollator, value2 *QCollator) {
+	purego.SyscallN(addr_cppgofn_qt_swap21, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap22(value1 *QCommandLineOption, value2 *QCommandLineOption) {
+	purego.SyscallN(addr_cppgofn_qt_swap22, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QEnableNtfsPermissionChecks() bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qEnableNtfsPermissionChecks)
+	__r := int32(uint32(__r0))
+	return __r != 0
+}
+
+func QDisableNtfsPermissionChecks() bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qDisableNtfsPermissionChecks)
+	__r := int32(uint32(__r0))
+	return __r != 0
+}
+
+func QAreNtfsPermissionChecksEnabled() bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qAreNtfsPermissionChecksEnabled)
+	__r := int32(uint32(__r0))
+	return __r != 0
+}
+
+func Swap23(value1 *QTimeZone, value2 *QTimeZone) {
+	purego.SyscallN(addr_cppgofn_qt_swap23, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap24(value1 *QFileInfo, value2 *QFileInfo) {
+	purego.SyscallN(addr_cppgofn_qt_swap24, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap25(value1 *QDir, value2 *QDir) {
+	purego.SyscallN(addr_cppgofn_qt_swap25, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap26(value1 *QEasingCurve, value2 *QEasingCurve) {
+	purego.SyscallN(addr_cppgofn_qt_swap26, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap27(lhs *QFutureInterfaceBase, rhs *QFutureInterfaceBase) {
+	purego.SyscallN(addr_cppgofn_qt_swap27, uintptr(lhs.UnsafePointer()), uintptr(rhs.UnsafePointer()))
+	runtime.KeepAlive(lhs)
+	runtime.KeepAlive(rhs)
+}
+
+func Swap28(value1 *QItemSelection, value2 *QItemSelection) {
+	purego.SyscallN(addr_cppgofn_qt_swap28, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap29(value1 *QJsonDocument, value2 *QJsonDocument) {
+	purego.SyscallN(addr_cppgofn_qt_swap29, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap30(value1 *QJsonValue, value2 *QJsonValue) {
+	purego.SyscallN(addr_cppgofn_qt_swap30, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash40(value *QJsonValue, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash40, uintptr(value.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(value)
+	return uint64(__r)
+}
+
+func Swap31(value1 *QJsonArray, value2 *QJsonArray) {
+	purego.SyscallN(addr_cppgofn_qt_swap31, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash41(array *QJsonArray, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash41, uintptr(array.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(array)
+	return uint64(__r)
+}
+
+func Swap32(value1 *QJsonObject, value2 *QJsonObject) {
+	purego.SyscallN(addr_cppgofn_qt_swap32, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash42(object *QJsonObject, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash42, uintptr(object.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(object)
+	return uint64(__r)
+}
+
+func QHash43(key *QTypeRevision, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash43, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash44(key *QVersionNumber, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash44, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QSharedBuild() bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qSharedBuild)
+	__r := int32(uint32(__r0))
+	return __r != 0
+}
+
+func QHash45(key *QPoint, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash45, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QHash46(key *QMimeType, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash46, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Swap33(value1 *QMimeType, value2 *QMimeType) {
+	purego.SyscallN(addr_cppgofn_qt_swap33, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap34(value1 *QLocationPermission, value2 *QLocationPermission) {
+	purego.SyscallN(addr_cppgofn_qt_swap34, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap35(value1 *QCalendarPermission, value2 *QCalendarPermission) {
+	purego.SyscallN(addr_cppgofn_qt_swap35, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap36(value1 *QContactsPermission, value2 *QContactsPermission) {
+	purego.SyscallN(addr_cppgofn_qt_swap36, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap37(value1 *QBluetoothPermission, value2 *QBluetoothPermission) {
+	purego.SyscallN(addr_cppgofn_qt_swap37, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap38(value1 *QCameraPermission, value2 *QCameraPermission) {
+	purego.SyscallN(addr_cppgofn_qt_swap38, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap39(value1 *QMicrophonePermission, value2 *QMicrophonePermission) {
+	purego.SyscallN(addr_cppgofn_qt_swap39, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QPluginArchRequirements() byte {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qPluginArchRequirements)
+	__r := uint8(__r0)
+	return byte(__r)
+}
+
+func QRegisterStaticPluginFunction(staticPlugin *QStaticPlugin) {
+	purego.SyscallN(addr_cppgofn_qt_qRegisterStaticPluginFunction, uintptr(staticPlugin.UnsafePointer()))
+	runtime.KeepAlive(staticPlugin)
+}
+
+func Swap40(value1 *QProcessEnvironment, value2 *QProcessEnvironment) {
+	purego.SyscallN(addr_cppgofn_qt_swap40, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash47(s *QSize, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash47, uintptr(s.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(s)
+	return uint64(__r)
+}
+
+func QHash48(r *QRect, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash48, uintptr(r.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(r)
+	return uint64(__r)
+}
+
+func Swap41(value1 *QNativeIpcKey, value2 *QNativeIpcKey) {
+	purego.SyscallN(addr_cppgofn_qt_swap41, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap42(value1 *QStorageInfo, value2 *QStorageInfo) {
+	purego.SyscallN(addr_cppgofn_qt_swap42, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap43(lhs *QTemporaryDir, rhs *QTemporaryDir) {
+	purego.SyscallN(addr_cppgofn_qt_swap43, uintptr(lhs.UnsafePointer()), uintptr(rhs.UnsafePointer()))
+	runtime.KeepAlive(lhs)
+	runtime.KeepAlive(rhs)
+}
+
+func Swap44(value1 *QTextBoundaryFinder, value2 *QTextBoundaryFinder) {
+	purego.SyscallN(addr_cppgofn_qt_swap44, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash49(key *QUrlQuery, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash49, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Swap45(value1 *QUrlQuery, value2 *QUrlQuery) {
+	purego.SyscallN(addr_cppgofn_qt_swap45, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QRed(rgb uint) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qRed, uintptr(rgb))
+	__r := int32(uint32(__r0))
+	return int(__r)
+}
+
+func QGreen(rgb uint) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qGreen, uintptr(rgb))
+	__r := int32(uint32(__r0))
+	return int(__r)
+}
+
+func QBlue(rgb uint) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qBlue, uintptr(rgb))
+	__r := int32(uint32(__r0))
+	return int(__r)
+}
+
+func QAlpha(rgb uint) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qAlpha, uintptr(rgb))
+	__r := int32(uint32(__r0))
+	return int(__r)
+}
+
+func QRgb(r int, g int, b int) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qRgb, uintptr(r), uintptr(g), uintptr(b))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QRgba(r int, g int, b int, a int) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qRgba, uintptr(r), uintptr(g), uintptr(b), uintptr(a))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QGray(r int, g int, b int) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qGray, uintptr(r), uintptr(g), uintptr(b))
+	__r := int32(uint32(__r0))
+	return int(__r)
+}
+
+func QGrayWithRgb(rgb uint) int {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qGray2, uintptr(rgb))
+	__r := int32(uint32(__r0))
+	return int(__r)
+}
+
+func QIsGray(rgb uint) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qIsGray, uintptr(rgb))
+	__r := int32(uint32(__r0))
+	return __r != 0
+}
+
+func QPremultiply(x uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qPremultiply, uintptr(x))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QUnpremultiply(p uint) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qUnpremultiply, uintptr(p))
+	__r := int32(uint32(__r0))
+	return uint(__r)
+}
+
+func QRgba642(r uint16, g uint16, b uint16, a uint16) *QRgba64 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qRgba64, uintptr(r), uintptr(g), uintptr(b), uintptr(a))
+	return newownedQRgba64(__r)
+}
+
+func QRgba64With(c uint64) *QRgba64 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qRgba642, uintptr(c))
+	return newownedQRgba64(__r)
+}
+
+func QPremultiplyWithQRgba64(c *QRgba64) *QRgba64 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPremultiply2, uintptr(c.UnsafePointer()))
+	runtime.KeepAlive(c)
+	return newownedQRgba64(__r)
+}
+
+func QUnpremultiplyWithQRgba64(c *QRgba64) *QRgba64 {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qUnpremultiply2, uintptr(c.UnsafePointer()))
+	runtime.KeepAlive(c)
+	return newownedQRgba64(__r)
+}
+
+func QRedWithRgb(rgb *QRgba64) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qRed2, uintptr(rgb.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(rgb)
+	return uint(__r)
+}
+
+func QGreenWithRgb(rgb *QRgba64) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qGreen2, uintptr(rgb.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(rgb)
+	return uint(__r)
+}
+
+func QBlueWithRgb(rgb *QRgba64) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qBlue2, uintptr(rgb.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(rgb)
+	return uint(__r)
+}
+
+func QAlphaWithRgb(rgb *QRgba64) uint {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qAlpha2, uintptr(rgb.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(rgb)
+	return uint(__r)
+}
+
+func QPixelFormatRgba(red byte, green byte, blue byte, alfa byte, usage QPixelFormat__AlphaUsage, position QPixelFormat__AlphaPosition, pmul QPixelFormat__AlphaPremultiplied, typeInt QPixelFormat__TypeInterpretation) *QPixelFormat {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPixelFormatRgba, uintptr(red), uintptr(green), uintptr(blue), uintptr(alfa), uintptr(usage), uintptr(position), uintptr(pmul), uintptr(typeInt))
+	return newownedQPixelFormat(__r)
+}
+
+func QPixelFormatGrayscale(channelSize byte, typeInt QPixelFormat__TypeInterpretation) *QPixelFormat {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPixelFormatGrayscale, uintptr(channelSize), uintptr(typeInt))
+	return newownedQPixelFormat(__r)
+}
+
+func QPixelFormatAlpha(channelSize byte, typeInt QPixelFormat__TypeInterpretation) *QPixelFormat {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPixelFormatAlpha, uintptr(channelSize), uintptr(typeInt))
+	return newownedQPixelFormat(__r)
+}
+
+func QPixelFormatCmyk(channelSize byte, alfa byte, usage QPixelFormat__AlphaUsage, position QPixelFormat__AlphaPosition, typeInt QPixelFormat__TypeInterpretation) *QPixelFormat {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPixelFormatCmyk, uintptr(channelSize), uintptr(alfa), uintptr(usage), uintptr(position), uintptr(typeInt))
+	return newownedQPixelFormat(__r)
+}
+
+func QPixelFormatHsl(channelSize byte, alfa byte, usage QPixelFormat__AlphaUsage, position QPixelFormat__AlphaPosition, typeInt QPixelFormat__TypeInterpretation) *QPixelFormat {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPixelFormatHsl, uintptr(channelSize), uintptr(alfa), uintptr(usage), uintptr(position), uintptr(typeInt))
+	return newownedQPixelFormat(__r)
+}
+
+func QPixelFormatHsv(channelSize byte, alfa byte, usage QPixelFormat__AlphaUsage, position QPixelFormat__AlphaPosition, typeInt QPixelFormat__TypeInterpretation) *QPixelFormat {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPixelFormatHsv, uintptr(channelSize), uintptr(alfa), uintptr(usage), uintptr(position), uintptr(typeInt))
+	return newownedQPixelFormat(__r)
+}
+
+func QPixelFormatYuv(layout QPixelFormat__YUVLayout, alfa byte, usage QPixelFormat__AlphaUsage, position QPixelFormat__AlphaPosition, p_mul QPixelFormat__AlphaPremultiplied, typeInt QPixelFormat__TypeInterpretation, b_order QPixelFormat__ByteOrder) *QPixelFormat {
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qPixelFormatYuv, uintptr(layout), uintptr(alfa), uintptr(usage), uintptr(position), uintptr(p_mul), uintptr(typeInt), uintptr(b_order))
+	return newownedQPixelFormat(__r)
+}
+
+func Swap46(value1 *QPolygon, value2 *QPolygon) {
+	purego.SyscallN(addr_cppgofn_qt_swap46, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap47(value1 *QPolygonF, value2 *QPolygonF) {
+	purego.SyscallN(addr_cppgofn_qt_swap47, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap48(value1 *QRegion, value2 *QRegion) {
+	purego.SyscallN(addr_cppgofn_qt_swap48, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash50(key *QTransform, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash50, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func QFuzzyCompare4(t1 *QTransform, t2 *QTransform) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qFuzzyCompare4, uintptr(t1.UnsafePointer()), uintptr(t2.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(t1)
+	runtime.KeepAlive(t2)
+	return __r != 0
+}
+
+func Swap49(value1 *QImage, value2 *QImage) {
+	purego.SyscallN(addr_cppgofn_qt_swap49, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap50(value1 *QPixmap, value2 *QPixmap) {
+	purego.SyscallN(addr_cppgofn_qt_swap50, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap51(value1 *QIcon, value2 *QIcon) {
+	purego.SyscallN(addr_cppgofn_qt_swap51, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Qt_findAtNxFile(baseFileName string, targetDevicePixelRatio float64) (string, float64) {
+	var sourceDevicePixelRatio_out float64
+	var __n int64
+	__r := pg_cppgofn_qt_qt_findAtNxFile(baseFileName, int64(len(baseFileName)), targetDevicePixelRatio, uintptr(unsafe.Pointer(&sourceDevicePixelRatio_out)), &__n)
+	return pgStr(__r, __n), sourceDevicePixelRatio_out
+}
+
+func QHash51(key *QPointingDeviceUniqueId, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash51, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Swap52(value1 *QEventPoint, value2 *QEventPoint) {
+	purego.SyscallN(addr_cppgofn_qt_swap52, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash52(key *QKeySequence, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash52, uintptr(key.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(key)
+	return uint64(__r)
+}
+
+func Swap53(value1 *QKeySequence, value2 *QKeySequence) {
+	purego.SyscallN(addr_cppgofn_qt_swap53, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap54(value1 *QFont, value2 *QFont) {
+	purego.SyscallN(addr_cppgofn_qt_swap54, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash53(font *QFont, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash53, uintptr(font.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(font)
+	return uint64(__r)
+}
+
+func Swap55(value1 *QRawFont, value2 *QRawFont) {
+	purego.SyscallN(addr_cppgofn_qt_swap55, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QHash54(font *QRawFont, seed uint64) uint64 {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qHash54, uintptr(font.UnsafePointer()), uintptr(seed))
+	__r := int64(__r0)
+	runtime.KeepAlive(font)
+	return uint64(__r)
+}
+
+func Swap56(value1 *QGlyphRun, value2 *QGlyphRun) {
+	purego.SyscallN(addr_cppgofn_qt_swap56, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func MightBeRichText(arg1 string) bool {
+	var arg1_p uintptr
+	if len(arg1) > 0 {
+		arg1_p = uintptr(unsafe.Pointer(unsafe.StringData(arg1)))
+	}
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_mightBeRichText, arg1_p, uintptr(len(arg1)))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(arg1)
+	return __r != 0
+}
+
+func ConvertFromPlainText(plain string, mode WhiteSpaceMode) string {
+	var plain_p uintptr
+	if len(plain) > 0 {
+		plain_p = uintptr(unsafe.Pointer(unsafe.StringData(plain)))
+	}
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_convertFromPlainText, plain_p, uintptr(len(plain)), uintptr(mode), uintptr(unsafe.Pointer(&__n)))
+	runtime.KeepAlive(plain)
+	return pgStr(__r, __n)
+}
+
+func Swap57(value1 *QBrush, value2 *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_swap57, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap58(value1 *QPen, value2 *QPen) {
+	purego.SyscallN(addr_cppgofn_qt_swap58, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap59(value1 *QTextFormat, value2 *QTextFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap59, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap60(value1 *QTextCharFormat, value2 *QTextCharFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap60, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap61(value1 *QTextBlockFormat, value2 *QTextBlockFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap61, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap62(value1 *QTextListFormat, value2 *QTextListFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap62, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap63(value1 *QTextImageFormat, value2 *QTextImageFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap63, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap64(value1 *QTextFrameFormat, value2 *QTextFrameFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap64, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap65(value1 *QTextTableFormat, value2 *QTextTableFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap65, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap66(value1 *QTextTableCellFormat, value2 *QTextTableCellFormat) {
+	purego.SyscallN(addr_cppgofn_qt_swap66, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap67(value1 *QTextCursor, value2 *QTextCursor) {
+	purego.SyscallN(addr_cppgofn_qt_swap67, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap68(value1 *QPalette, value2 *QPalette) {
+	purego.SyscallN(addr_cppgofn_qt_swap68, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QAccessibleRoleString(role QAccessible__Role) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qAccessibleRoleString, uintptr(role), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func QAccessibleEventString(event QAccessible__Event) string {
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qAccessibleEventString, uintptr(event), uintptr(unsafe.Pointer(&__n)))
+	return pgStr(__r, __n)
+}
+
+func QAccessibleLocalizedActionDescription(actionName string) string {
+	var actionName_p uintptr
+	if len(actionName) > 0 {
+		actionName_p = uintptr(unsafe.Pointer(unsafe.StringData(actionName)))
+	}
+	var __n int64
+	__r, _, _ := purego.SyscallN(addr_cppgofn_qt_qAccessibleLocalizedActionDescription, actionName_p, uintptr(len(actionName)), uintptr(unsafe.Pointer(&__n)))
+	runtime.KeepAlive(actionName)
+	return pgStr(__r, __n)
+}
+
+func Swap69(value1 *QBitmap, value2 *QBitmap) {
+	purego.SyscallN(addr_cppgofn_qt_swap69, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap70(value1 *QCursor, value2 *QCursor) {
+	purego.SyscallN(addr_cppgofn_qt_swap70, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap71(value1 *QColorTransform, value2 *QColorTransform) {
+	purego.SyscallN(addr_cppgofn_qt_swap71, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap72(value1 *QColorSpace, value2 *QColorSpace) {
+	purego.SyscallN(addr_cppgofn_qt_swap72, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap73(value1 *QFontVariableAxis, value2 *QFontVariableAxis) {
+	purego.SyscallN(addr_cppgofn_qt_swap73, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap74(value1 *QFontInfo, value2 *QFontInfo) {
+	purego.SyscallN(addr_cppgofn_qt_swap74, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap75(value1 *QFontMetrics, value2 *QFontMetrics) {
+	purego.SyscallN(addr_cppgofn_qt_swap75, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap76(value1 *QFontMetricsF, value2 *QFontMetricsF) {
+	purego.SyscallN(addr_cppgofn_qt_swap76, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap77(value1 *QPageSize, value2 *QPageSize) {
+	purego.SyscallN(addr_cppgofn_qt_swap77, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap78(value1 *QPageLayout, value2 *QPageLayout) {
+	purego.SyscallN(addr_cppgofn_qt_swap78, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap79(value1 *QPageRanges, value2 *QPageRanges) {
+	purego.SyscallN(addr_cppgofn_qt_swap79, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap80(value1 *QPainterPath, value2 *QPainterPath) {
+	purego.SyscallN(addr_cppgofn_qt_swap80, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap81(value1 *QPdfOutputIntent, value2 *QPdfOutputIntent) {
+	purego.SyscallN(addr_cppgofn_qt_swap81, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap82(value1 *QPicture, value2 *QPicture) {
+	purego.SyscallN(addr_cppgofn_qt_swap82, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func Swap83(value1 *QPixmapCache__Key, value2 *QPixmapCache__Key) {
+	purego.SyscallN(addr_cppgofn_qt_swap83, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QFuzzyCompare5(q1 *QQuaternion, q2 *QQuaternion) bool {
+	__r0, _, _ := purego.SyscallN(addr_cppgofn_qt_qFuzzyCompare5, uintptr(q1.UnsafePointer()), uintptr(q2.UnsafePointer()))
+	__r := int32(uint32(__r0))
+	runtime.KeepAlive(q1)
+	runtime.KeepAlive(q2)
+	return __r != 0
+}
+
+func Swap84(value1 *QStaticText, value2 *QStaticText) {
+	purego.SyscallN(addr_cppgofn_qt_swap84, uintptr(value1.UnsafePointer()), uintptr(value2.UnsafePointer()))
+	runtime.KeepAlive(value1)
+	runtime.KeepAlive(value2)
+}
+
+func QDrawShadeLine(p *QPainter, x1 int, y1 int, x2 int, y2 int, pal *QPalette, sunken bool, lineWidth int, midLineWidth int) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawShadeLine, uintptr(p.UnsafePointer()), uintptr(x1), uintptr(y1), uintptr(x2), uintptr(y2), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(lineWidth), uintptr(midLineWidth))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(pal)
+}
+
+func QDrawShadeLine2(p *QPainter, p1 *QPoint, p2 *QPoint, pal *QPalette, sunken bool, lineWidth int, midLineWidth int) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawShadeLine2, uintptr(p.UnsafePointer()), uintptr(p1.UnsafePointer()), uintptr(p2.UnsafePointer()), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(lineWidth), uintptr(midLineWidth))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(p1)
+	runtime.KeepAlive(p2)
+	runtime.KeepAlive(pal)
+}
+
+func QDrawShadeRect(p *QPainter, x int, y int, w int, h int, pal *QPalette, sunken bool, lineWidth int, midLineWidth int, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawShadeRect, uintptr(p.UnsafePointer()), uintptr(x), uintptr(y), uintptr(w), uintptr(h), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(lineWidth), uintptr(midLineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawShadeRect2(p *QPainter, r *QRect, pal *QPalette, sunken bool, lineWidth int, midLineWidth int, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawShadeRect2, uintptr(p.UnsafePointer()), uintptr(r.UnsafePointer()), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(lineWidth), uintptr(midLineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(r)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawShadePanel(p *QPainter, x int, y int, w int, h int, pal *QPalette, sunken bool, lineWidth int, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawShadePanel, uintptr(p.UnsafePointer()), uintptr(x), uintptr(y), uintptr(w), uintptr(h), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(lineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawShadePanel2(p *QPainter, r *QRect, pal *QPalette, sunken bool, lineWidth int, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawShadePanel2, uintptr(p.UnsafePointer()), uintptr(r.UnsafePointer()), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(lineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(r)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawWinButton(p *QPainter, x int, y int, w int, h int, pal *QPalette, sunken bool, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawWinButton, uintptr(p.UnsafePointer()), uintptr(x), uintptr(y), uintptr(w), uintptr(h), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawWinButton2(p *QPainter, r *QRect, pal *QPalette, sunken bool, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawWinButton2, uintptr(p.UnsafePointer()), uintptr(r.UnsafePointer()), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(r)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawWinPanel(p *QPainter, x int, y int, w int, h int, pal *QPalette, sunken bool, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawWinPanel, uintptr(p.UnsafePointer()), uintptr(x), uintptr(y), uintptr(w), uintptr(h), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawWinPanel2(p *QPainter, r *QRect, pal *QPalette, sunken bool, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawWinPanel2, uintptr(p.UnsafePointer()), uintptr(r.UnsafePointer()), uintptr(pal.UnsafePointer()), uintptr(b2i(sunken)), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(r)
+	runtime.KeepAlive(pal)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawPlainRect(p *QPainter, x int, y int, w int, h int, arg6 *QColor, lineWidth int, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawPlainRect, uintptr(p.UnsafePointer()), uintptr(x), uintptr(y), uintptr(w), uintptr(h), uintptr(arg6.UnsafePointer()), uintptr(lineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(arg6)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawPlainRect2(p *QPainter, r *QRect, arg3 *QColor, lineWidth int, fill *QBrush) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawPlainRect2, uintptr(p.UnsafePointer()), uintptr(r.UnsafePointer()), uintptr(arg3.UnsafePointer()), uintptr(lineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(r)
+	runtime.KeepAlive(arg3)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawPlainRoundedRect(p *QPainter, x int, y int, w int, h int, rx float64, ry float64, arg8 *QColor, lineWidth int, fill *QBrush) {
+	pg_cppgofn_qt_qDrawPlainRoundedRect(uintptr(p.UnsafePointer()), int32(x), int32(y), int32(w), int32(h), rx, ry, uintptr(arg8.UnsafePointer()), int32(lineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(p)
+	runtime.KeepAlive(arg8)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawPlainRoundedRect2(painter *QPainter, rect *QRect, rx float64, ry float64, lineColor *QColor, lineWidth int, fill *QBrush) {
+	pg_cppgofn_qt_qDrawPlainRoundedRect2(uintptr(painter.UnsafePointer()), uintptr(rect.UnsafePointer()), rx, ry, uintptr(lineColor.UnsafePointer()), int32(lineWidth), uintptr(fill.UnsafePointer()))
+	runtime.KeepAlive(painter)
+	runtime.KeepAlive(rect)
+	runtime.KeepAlive(lineColor)
+	runtime.KeepAlive(fill)
+}
+
+func QDrawBorderPixmap(painter *QPainter, targetRect *QRect, targetMargins *QMargins, pixmap *QPixmap, sourceRect *QRect, sourceMargins *QMargins, rules *QTileRules, hints QDrawBorderPixmap__DrawingHint) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawBorderPixmap, uintptr(painter.UnsafePointer()), uintptr(targetRect.UnsafePointer()), uintptr(targetMargins.UnsafePointer()), uintptr(pixmap.UnsafePointer()), uintptr(sourceRect.UnsafePointer()), uintptr(sourceMargins.UnsafePointer()), uintptr(rules.UnsafePointer()), uintptr(hints))
+	runtime.KeepAlive(painter)
+	runtime.KeepAlive(targetRect)
+	runtime.KeepAlive(targetMargins)
+	runtime.KeepAlive(pixmap)
+	runtime.KeepAlive(sourceRect)
+	runtime.KeepAlive(sourceMargins)
+	runtime.KeepAlive(rules)
+}
+
+func QDrawBorderPixmap2(painter *QPainter, target *QRect, margins *QMargins, pixmap *QPixmap) {
+	purego.SyscallN(addr_cppgofn_qt_qDrawBorderPixmap2, uintptr(painter.UnsafePointer()), uintptr(target.UnsafePointer()), uintptr(margins.UnsafePointer()), uintptr(pixmap.UnsafePointer()))
+	runtime.KeepAlive(painter)
+	runtime.KeepAlive(target)
+	runtime.KeepAlive(margins)
+	runtime.KeepAlive(pixmap)
+}
+

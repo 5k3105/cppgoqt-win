@@ -1,0 +1,15 @@
+#pragma once
+#include <QtCore/qlist.h>
+#include <QtCore/qset.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qstringview.h>
+#include <QtCore/qanystringview.h>
+#include <QtCore/qobject.h>
+#include <utility>
+#include <cstdlib>
+#include <cstring>
+#include <unordered_map>
+#include <mutex>

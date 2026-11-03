@@ -1,0 +1,10 @@
+package qt
+
+type QtPrivate__BindableWarnings__Reason int64
+
+const (
+	QtPrivate__BindableWarnings__InvalidInterface QtPrivate__BindableWarnings__Reason = 0
+	QtPrivate__BindableWarnings__NonBindableInterface QtPrivate__BindableWarnings__Reason = 1
+	QtPrivate__BindableWarnings__ReadOnlyInterface QtPrivate__BindableWarnings__Reason = 2
+)
+

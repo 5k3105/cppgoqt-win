@@ -1,0 +1,9 @@
+package qt
+
+type QPlatformSurfaceEvent__SurfaceEventType int64
+
+const (
+	QPlatformSurfaceEvent__SurfaceCreated QPlatformSurfaceEvent__SurfaceEventType = 0
+	QPlatformSurfaceEvent__SurfaceAboutToBeDestroyed QPlatformSurfaceEvent__SurfaceEventType = 1
+)
+

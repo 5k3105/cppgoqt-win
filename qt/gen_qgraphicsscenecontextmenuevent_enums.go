@@ -1,0 +1,10 @@
+package qt
+
+type QGraphicsSceneContextMenuEvent__Reason int64
+
+const (
+	QGraphicsSceneContextMenuEvent__Mouse QGraphicsSceneContextMenuEvent__Reason = 0
+	QGraphicsSceneContextMenuEvent__Keyboard QGraphicsSceneContextMenuEvent__Reason = 1
+	QGraphicsSceneContextMenuEvent__Other QGraphicsSceneContextMenuEvent__Reason = 2
+)
+

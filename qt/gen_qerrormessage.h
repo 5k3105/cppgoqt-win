@@ -1,0 +1,117 @@
+#pragma once
+#include <stddef.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void* QErrorMessage_base(void* self);
+void QErrorMessage_chain(void* self, void** out);
+void QErrorMessage__set_override(void* self, int idx);
+void* QErrorMessage_fromQObject(void* o);
+void* QErrorMessage_new(long long __goid, void* parent);
+void* QErrorMessage_new2(long long __goid);
+char* QErrorMessage_tr(const char* s, long long* __out_len);
+void* QErrorMessage_qtHandler();
+void QErrorMessage_showMessage(void* self, const char* message, long long message_len);
+void QErrorMessage_showMessage2(void* self, const char* message, long long message_len, const char* type_, long long type__len);
+void QErrorMessage_adjustPosition(void* self, void* arg1);
+void QErrorMessage_setTabOrder(void* arg1, void* arg2);
+void* QErrorMessage_mouseGrabber();
+void* QErrorMessage_keyboardGrabber();
+void* QErrorMessage_find(unsigned long long arg1);
+void* QErrorMessage_createWindowContainer(void* window);
+void QErrorMessage_updateMicroFocus(void* self);
+void QErrorMessage_create(void* self);
+void QErrorMessage_destroy(void* self);
+int QErrorMessage_focusNextChild(void* self);
+int QErrorMessage_focusPreviousChild(void* self);
+void* QErrorMessage_connect(void* sender, const char* signal, void* receiver, const char* member);
+void* QErrorMessage_connect2(void* sender, void* signal, void* receiver, void* method);
+void* QErrorMessage_sender(void* self);
+int QErrorMessage_senderSignalIndex(void* self);
+int QErrorMessage_receivers(void* self, const char* signal);
+int QErrorMessage_isSignalConnected(void* self, void* signal);
+double QErrorMessage_devicePixelRatioFScale();
+int QErrorMessage_encodeMetricF(int metric, double value);
+double QErrorMessage_getDecodedMetricF(void* self, int metricA, int metricB);
+char* QErrorMessage_tr2(const char* s, const char* c, long long* __out_len);
+char* QErrorMessage_tr3(const char* s, const char* c, int n, long long* __out_len);
+void* QErrorMessage_createWindowContainer2(void* window, void* parent);
+void* QErrorMessage_createWindowContainer3(void* window, void* parent, int flags);
+void QErrorMessage_updateMicroFocus2(void* self, int query);
+void QErrorMessage_create2(void* self, unsigned long long arg1);
+void QErrorMessage_create3(void* self, unsigned long long arg1, int initializeWindow);
+void QErrorMessage_create4(void* self, unsigned long long arg1, int initializeWindow, int destroyOldWindow);
+void QErrorMessage_destroy2(void* self, int destroyWindow);
+void QErrorMessage_destroy3(void* self, int destroyWindow, int destroySubWindows);
+void* QErrorMessage_connect3(void* sender, const char* signal, void* receiver, const char* member, int arg5);
+void* QErrorMessage_connect4(void* sender, void* signal, void* receiver, void* method, int type_);
+void* QErrorMessage_metaObject_default(void* self);
+void QErrorMessage_done_default(void* self, int arg1);
+void QErrorMessage_changeEvent_default(void* self, void* e);
+void QErrorMessage_setVisible_default(void* self, int visible);
+void* QErrorMessage_sizeHint_default(void* self);
+void* QErrorMessage_minimumSizeHint_default(void* self);
+void QErrorMessage_open_default(void* self);
+int QErrorMessage_exec_default(void* self);
+void QErrorMessage_accept_default(void* self);
+void QErrorMessage_reject_default(void* self);
+void QErrorMessage_keyPressEvent_default(void* self, void* arg1);
+void QErrorMessage_closeEvent_default(void* self, void* arg1);
+void QErrorMessage_showEvent_default(void* self, void* arg1);
+void QErrorMessage_resizeEvent_default(void* self, void* arg1);
+void QErrorMessage_contextMenuEvent_default(void* self, void* arg1);
+int QErrorMessage_eventFilter_default(void* self, void* arg1, void* arg2);
+int QErrorMessage_devType_default(void* self);
+int QErrorMessage_heightForWidth_default(void* self, int arg1);
+int QErrorMessage_hasHeightForWidth_default(void* self);
+void* QErrorMessage_paintEngine_default(void* self);
+int QErrorMessage_event_default(void* self, void* event);
+void QErrorMessage_mousePressEvent_default(void* self, void* event);
+void QErrorMessage_mouseReleaseEvent_default(void* self, void* event);
+void QErrorMessage_mouseDoubleClickEvent_default(void* self, void* event);
+void QErrorMessage_mouseMoveEvent_default(void* self, void* event);
+void QErrorMessage_wheelEvent_default(void* self, void* event);
+void QErrorMessage_keyReleaseEvent_default(void* self, void* event);
+void QErrorMessage_focusInEvent_default(void* self, void* event);
+void QErrorMessage_focusOutEvent_default(void* self, void* event);
+void QErrorMessage_enterEvent_default(void* self, void* event);
+void QErrorMessage_leaveEvent_default(void* self, void* event);
+void QErrorMessage_paintEvent_default(void* self, void* event);
+void QErrorMessage_moveEvent_default(void* self, void* event);
+void QErrorMessage_tabletEvent_default(void* self, void* event);
+void QErrorMessage_actionEvent_default(void* self, void* event);
+void QErrorMessage_dragEnterEvent_default(void* self, void* event);
+void QErrorMessage_dragMoveEvent_default(void* self, void* event);
+void QErrorMessage_dragLeaveEvent_default(void* self, void* event);
+void QErrorMessage_dropEvent_default(void* self, void* event);
+void QErrorMessage_hideEvent_default(void* self, void* event);
+int QErrorMessage_metric_default(void* self, int arg1);
+void QErrorMessage_initPainter_default(void* self, void* painter);
+void* QErrorMessage_redirected_default(void* self, void* offset);
+void* QErrorMessage_sharedPainter_default(void* self);
+void QErrorMessage_inputMethodEvent_default(void* self, void* arg1);
+void* QErrorMessage_inputMethodQuery_default(void* self, int arg1);
+int QErrorMessage_focusNextPrevChild_default(void* self, int next);
+void QErrorMessage_timerEvent_default(void* self, void* event);
+void QErrorMessage_childEvent_default(void* self, void* event);
+void QErrorMessage_customEvent_default(void* self, void* event);
+void QErrorMessage_connectNotify_default(void* self, void* signal);
+void QErrorMessage_disconnectNotify_default(void* self, void* signal);
+void QErrorMessage_connect_finished(void* self, long long id);
+void QErrorMessage_connect_accepted(void* self, long long id);
+void QErrorMessage_connect_rejected(void* self, long long id);
+void QErrorMessage_connect_windowTitleChanged(void* self, long long id);
+void QErrorMessage_connect_windowIconChanged(void* self, long long id);
+void QErrorMessage_connect_windowIconTextChanged(void* self, long long id);
+void QErrorMessage_connect_customContextMenuRequested(void* self, long long id);
+void QErrorMessage_connect_destroyed(void* self, long long id);
+void QErrorMessage_connect_destroyed2(void* self, long long id);
+void QErrorMessage_connect_objectNameChanged(void* self, long long id);
+void QErrorMessage__disconnect(long long id);
+void* QErrorMessage__Go_new(long long id);
+void QErrorMessage_delete(void* self);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,34 @@
+package qt
+
+type QTextCharFormat__VerticalAlignment int64
+
+const (
+	QTextCharFormat__AlignNormal QTextCharFormat__VerticalAlignment = 0
+	QTextCharFormat__AlignSuperScript QTextCharFormat__VerticalAlignment = 1
+	QTextCharFormat__AlignSubScript QTextCharFormat__VerticalAlignment = 2
+	QTextCharFormat__AlignMiddle QTextCharFormat__VerticalAlignment = 3
+	QTextCharFormat__AlignTop QTextCharFormat__VerticalAlignment = 4
+	QTextCharFormat__AlignBottom QTextCharFormat__VerticalAlignment = 5
+	QTextCharFormat__AlignBaseline QTextCharFormat__VerticalAlignment = 6
+)
+
+type QTextCharFormat__UnderlineStyle int64
+
+const (
+	QTextCharFormat__NoUnderline QTextCharFormat__UnderlineStyle = 0
+	QTextCharFormat__SingleUnderline QTextCharFormat__UnderlineStyle = 1
+	QTextCharFormat__DashUnderline QTextCharFormat__UnderlineStyle = 2
+	QTextCharFormat__DotLine QTextCharFormat__UnderlineStyle = 3
+	QTextCharFormat__DashDotLine QTextCharFormat__UnderlineStyle = 4
+	QTextCharFormat__DashDotDotLine QTextCharFormat__UnderlineStyle = 5
+	QTextCharFormat__WaveUnderline QTextCharFormat__UnderlineStyle = 6
+	QTextCharFormat__SpellCheckUnderline QTextCharFormat__UnderlineStyle = 7
+)
+
+type QTextCharFormat__FontPropertiesInheritanceBehavior int64
+
+const (
+	QTextCharFormat__FontPropertiesSpecifiedOnly QTextCharFormat__FontPropertiesInheritanceBehavior = 0
+	QTextCharFormat__FontPropertiesAll QTextCharFormat__FontPropertiesInheritanceBehavior = 1
+)
+

@@ -1,0 +1,63 @@
+package qt
+
+type QPainter__RenderHint int64
+
+const (
+	QPainter__Antialiasing QPainter__RenderHint = 1
+	QPainter__TextAntialiasing QPainter__RenderHint = 2
+	QPainter__SmoothPixmapTransform QPainter__RenderHint = 4
+	QPainter__VerticalSubpixelPositioning QPainter__RenderHint = 8
+	QPainter__LosslessImageRendering QPainter__RenderHint = 64
+	QPainter__NonCosmeticBrushPatterns QPainter__RenderHint = 128
+)
+
+type QPainter__PixmapFragmentHint int64
+
+const (
+	QPainter__OpaqueHint QPainter__PixmapFragmentHint = 1
+)
+
+type QPainter__CompositionMode int64
+
+const (
+	QPainter__CompositionMode_SourceOver QPainter__CompositionMode = 0
+	QPainter__CompositionMode_DestinationOver QPainter__CompositionMode = 1
+	QPainter__CompositionMode_Clear QPainter__CompositionMode = 2
+	QPainter__CompositionMode_Source QPainter__CompositionMode = 3
+	QPainter__CompositionMode_Destination QPainter__CompositionMode = 4
+	QPainter__CompositionMode_SourceIn QPainter__CompositionMode = 5
+	QPainter__CompositionMode_DestinationIn QPainter__CompositionMode = 6
+	QPainter__CompositionMode_SourceOut QPainter__CompositionMode = 7
+	QPainter__CompositionMode_DestinationOut QPainter__CompositionMode = 8
+	QPainter__CompositionMode_SourceAtop QPainter__CompositionMode = 9
+	QPainter__CompositionMode_DestinationAtop QPainter__CompositionMode = 10
+	QPainter__CompositionMode_Xor QPainter__CompositionMode = 11
+	QPainter__CompositionMode_Plus QPainter__CompositionMode = 12
+	QPainter__CompositionMode_Multiply QPainter__CompositionMode = 13
+	QPainter__CompositionMode_Screen QPainter__CompositionMode = 14
+	QPainter__CompositionMode_Overlay QPainter__CompositionMode = 15
+	QPainter__CompositionMode_Darken QPainter__CompositionMode = 16
+	QPainter__CompositionMode_Lighten QPainter__CompositionMode = 17
+	QPainter__CompositionMode_ColorDodge QPainter__CompositionMode = 18
+	QPainter__CompositionMode_ColorBurn QPainter__CompositionMode = 19
+	QPainter__CompositionMode_HardLight QPainter__CompositionMode = 20
+	QPainter__CompositionMode_SoftLight QPainter__CompositionMode = 21
+	QPainter__CompositionMode_Difference QPainter__CompositionMode = 22
+	QPainter__CompositionMode_Exclusion QPainter__CompositionMode = 23
+	QPainter__RasterOp_SourceOrDestination QPainter__CompositionMode = 24
+	QPainter__RasterOp_SourceAndDestination QPainter__CompositionMode = 25
+	QPainter__RasterOp_SourceXorDestination QPainter__CompositionMode = 26
+	QPainter__RasterOp_NotSourceAndNotDestination QPainter__CompositionMode = 27
+	QPainter__RasterOp_NotSourceOrNotDestination QPainter__CompositionMode = 28
+	QPainter__RasterOp_NotSourceXorDestination QPainter__CompositionMode = 29
+	QPainter__RasterOp_NotSource QPainter__CompositionMode = 30
+	QPainter__RasterOp_NotSourceAndDestination QPainter__CompositionMode = 31
+	QPainter__RasterOp_SourceAndNotDestination QPainter__CompositionMode = 32
+	QPainter__RasterOp_NotSourceOrDestination QPainter__CompositionMode = 33
+	QPainter__RasterOp_SourceOrNotDestination QPainter__CompositionMode = 34
+	QPainter__RasterOp_ClearDestination QPainter__CompositionMode = 35
+	QPainter__RasterOp_SetDestination QPainter__CompositionMode = 36
+	QPainter__RasterOp_NotDestination QPainter__CompositionMode = 37
+	QPainter__NCompositionModes QPainter__CompositionMode = 38
+)
+

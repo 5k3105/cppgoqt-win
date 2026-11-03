@@ -1,0 +1,35 @@
+package qt
+
+type QCryptographicHash__Algorithm int64
+
+const (
+	QCryptographicHash__Md4 QCryptographicHash__Algorithm = 0
+	QCryptographicHash__Md5 QCryptographicHash__Algorithm = 1
+	QCryptographicHash__Sha1 QCryptographicHash__Algorithm = 2
+	QCryptographicHash__Sha224 QCryptographicHash__Algorithm = 3
+	QCryptographicHash__Sha256 QCryptographicHash__Algorithm = 4
+	QCryptographicHash__Sha384 QCryptographicHash__Algorithm = 5
+	QCryptographicHash__Sha512 QCryptographicHash__Algorithm = 6
+	QCryptographicHash__Keccak_224 QCryptographicHash__Algorithm = 7
+	QCryptographicHash__Keccak_256 QCryptographicHash__Algorithm = 8
+	QCryptographicHash__Keccak_384 QCryptographicHash__Algorithm = 9
+	QCryptographicHash__Keccak_512 QCryptographicHash__Algorithm = 10
+	QCryptographicHash__RealSha3_224 QCryptographicHash__Algorithm = 11
+	QCryptographicHash__RealSha3_256 QCryptographicHash__Algorithm = 12
+	QCryptographicHash__RealSha3_384 QCryptographicHash__Algorithm = 13
+	QCryptographicHash__RealSha3_512 QCryptographicHash__Algorithm = 14
+	QCryptographicHash__Sha3_224 QCryptographicHash__Algorithm = 11
+	QCryptographicHash__Sha3_256 QCryptographicHash__Algorithm = 12
+	QCryptographicHash__Sha3_384 QCryptographicHash__Algorithm = 13
+	QCryptographicHash__Sha3_512 QCryptographicHash__Algorithm = 14
+	QCryptographicHash__Blake2b_160 QCryptographicHash__Algorithm = 15
+	QCryptographicHash__Blake2b_256 QCryptographicHash__Algorithm = 16
+	QCryptographicHash__Blake2b_384 QCryptographicHash__Algorithm = 17
+	QCryptographicHash__Blake2b_512 QCryptographicHash__Algorithm = 18
+	QCryptographicHash__Blake2s_128 QCryptographicHash__Algorithm = 19
+	QCryptographicHash__Blake2s_160 QCryptographicHash__Algorithm = 20
+	QCryptographicHash__Blake2s_224 QCryptographicHash__Algorithm = 21
+	QCryptographicHash__Blake2s_256 QCryptographicHash__Algorithm = 22
+	QCryptographicHash__NumAlgorithms QCryptographicHash__Algorithm = 23
+)
+

@@ -1,0 +1,11 @@
+package qt
+
+type QPropertyObserverBase__ObserverTag int64
+
+const (
+	QPropertyObserverBase__ObserverNotifiesBinding QPropertyObserverBase__ObserverTag = 0
+	QPropertyObserverBase__ObserverNotifiesChangeHandler QPropertyObserverBase__ObserverTag = 1
+	QPropertyObserverBase__ObserverIsPlaceholder QPropertyObserverBase__ObserverTag = 2
+	QPropertyObserverBase__ObserverIsAlias QPropertyObserverBase__ObserverTag = 3
+)
+

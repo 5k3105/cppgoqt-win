@@ -1,0 +1,113 @@
+#pragma once
+#include <stddef.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void QStandardItem__set_override(void* self, int idx);
+void* QStandardItem_new(long long __goid);
+void* QStandardItem_new2(long long __goid, const char* text, long long text_len);
+void* QStandardItem_new3(long long __goid, void* icon, const char* text, long long text_len);
+void* QStandardItem_new4(long long __goid, int rows);
+void* QStandardItem_new5(long long __goid, int rows, int columns);
+void* QStandardItem_data(void* self, int role);
+void QStandardItem_multiData(void* self, void* roleDataSpan);
+void QStandardItem_setData(void* self, void* value, int role);
+void QStandardItem_clearData(void* self);
+char* QStandardItem_text(void* self, long long* __out_len);
+void QStandardItem_setText(void* self, const char* text, long long text_len);
+void* QStandardItem_icon(void* self);
+void QStandardItem_setIcon(void* self, void* icon);
+char* QStandardItem_toolTip(void* self, long long* __out_len);
+void QStandardItem_setToolTip(void* self, const char* toolTip, long long toolTip_len);
+char* QStandardItem_statusTip(void* self, long long* __out_len);
+void QStandardItem_setStatusTip(void* self, const char* statusTip, long long statusTip_len);
+char* QStandardItem_whatsThis(void* self, long long* __out_len);
+void QStandardItem_setWhatsThis(void* self, const char* whatsThis, long long whatsThis_len);
+void* QStandardItem_sizeHint(void* self);
+void QStandardItem_setSizeHint(void* self, void* sizeHint);
+void* QStandardItem_font(void* self);
+void QStandardItem_setFont(void* self, void* font);
+int QStandardItem_textAlignment(void* self);
+void QStandardItem_setTextAlignment(void* self, int textAlignment);
+void* QStandardItem_background(void* self);
+void QStandardItem_setBackground(void* self, void* brush);
+void* QStandardItem_foreground(void* self);
+void QStandardItem_setForeground(void* self, void* brush);
+int QStandardItem_checkState(void* self);
+void QStandardItem_setCheckState(void* self, int checkState);
+char* QStandardItem_accessibleText(void* self, long long* __out_len);
+void QStandardItem_setAccessibleText(void* self, const char* accessibleText, long long accessibleText_len);
+char* QStandardItem_accessibleDescription(void* self, long long* __out_len);
+void QStandardItem_setAccessibleDescription(void* self, const char* accessibleDescription, long long accessibleDescription_len);
+int QStandardItem_flags(void* self);
+void QStandardItem_setFlags(void* self, int flags);
+int QStandardItem_isEnabled(void* self);
+void QStandardItem_setEnabled(void* self, int enabled);
+int QStandardItem_isEditable(void* self);
+void QStandardItem_setEditable(void* self, int editable);
+int QStandardItem_isSelectable(void* self);
+void QStandardItem_setSelectable(void* self, int selectable);
+int QStandardItem_isCheckable(void* self);
+void QStandardItem_setCheckable(void* self, int checkable);
+int QStandardItem_isAutoTristate(void* self);
+void QStandardItem_setAutoTristate(void* self, int tristate);
+int QStandardItem_isUserTristate(void* self);
+void QStandardItem_setUserTristate(void* self, int tristate);
+int QStandardItem_isDragEnabled(void* self);
+void QStandardItem_setDragEnabled(void* self, int dragEnabled);
+int QStandardItem_isDropEnabled(void* self);
+void QStandardItem_setDropEnabled(void* self, int dropEnabled);
+void* QStandardItem_parent(void* self);
+int QStandardItem_row(void* self);
+int QStandardItem_column(void* self);
+void* QStandardItem_index(void* self);
+void* QStandardItem_model(void* self);
+int QStandardItem_rowCount(void* self);
+void QStandardItem_setRowCount(void* self, int rows);
+int QStandardItem_columnCount(void* self);
+void QStandardItem_setColumnCount(void* self, int columns);
+int QStandardItem_hasChildren(void* self);
+void* QStandardItem_child(void* self, int row);
+void QStandardItem_setChild(void* self, int row, int column, void* item);
+void QStandardItem_setChild2(void* self, int row, void* item);
+void QStandardItem_insertRow(void* self, int row, void** items, long long items_len);
+void QStandardItem_insertColumn(void* self, int column, void** items, long long items_len);
+void QStandardItem_insertRows(void* self, int row, void** items, long long items_len);
+void QStandardItem_insertRows2(void* self, int row, int count);
+void QStandardItem_insertColumns(void* self, int column, int count);
+void QStandardItem_removeRow(void* self, int row);
+void QStandardItem_removeColumn(void* self, int column);
+void QStandardItem_removeRows(void* self, int row, int count);
+void QStandardItem_removeColumns(void* self, int column, int count);
+void QStandardItem_appendRow(void* self, void** items, long long items_len);
+void QStandardItem_appendRows(void* self, void** items, long long items_len);
+void QStandardItem_appendColumn(void* self, void** items, long long items_len);
+void QStandardItem_insertRow2(void* self, int row, void* item);
+void QStandardItem_appendRow2(void* self, void* item);
+void* QStandardItem_takeChild(void* self, int row);
+void** QStandardItem_takeRow(void* self, int row, long long* __out_len);
+void** QStandardItem_takeColumn(void* self, int column, long long* __out_len);
+void QStandardItem_sortChildren(void* self, int column);
+void* QStandardItem_clone(void* self);
+int QStandardItem_type(void* self);
+void QStandardItem_read(void* self, void* in);
+void QStandardItem_write(void* self, void* out);
+int QStandardItem_OperatorLesser(void* self, void* other);
+void QStandardItem_emitDataChanged(void* self);
+void* QStandardItem_child2(void* self, int row, int column);
+void* QStandardItem_takeChild2(void* self, int row, int column);
+void QStandardItem_sortChildren2(void* self, int column, int order);
+void* QStandardItem_data_default(void* self, int role);
+void QStandardItem_multiData_default(void* self, void* roleDataSpan);
+void QStandardItem_setData_default(void* self, void* value, int role);
+void* QStandardItem_clone_default(void* self);
+int QStandardItem_type_default(void* self);
+void QStandardItem_read_default(void* self, void* in);
+void QStandardItem_write_default(void* self, void* out);
+void* QStandardItem__Go_new(long long id);
+void QStandardItem_delete(void* self);
+
+#ifdef __cplusplus
+}
+#endif

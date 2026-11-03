@@ -1,0 +1,22 @@
+package qt
+
+type QDateTime__TransitionResolution int64
+
+const (
+	QDateTime__TransitionResolution__Reject QDateTime__TransitionResolution = 0
+	QDateTime__TransitionResolution__RelativeToBefore QDateTime__TransitionResolution = 1
+	QDateTime__TransitionResolution__RelativeToAfter QDateTime__TransitionResolution = 2
+	QDateTime__TransitionResolution__PreferBefore QDateTime__TransitionResolution = 3
+	QDateTime__TransitionResolution__PreferAfter QDateTime__TransitionResolution = 4
+	QDateTime__TransitionResolution__PreferStandard QDateTime__TransitionResolution = 5
+	QDateTime__TransitionResolution__PreferDaylightSaving QDateTime__TransitionResolution = 6
+	QDateTime__TransitionResolution__LegacyBehavior QDateTime__TransitionResolution = 1
+)
+
+type QDateTime__YearRange int64
+
+const (
+	QDateTime__YearRange__First QDateTime__YearRange = -292275056
+	QDateTime__YearRange__Last QDateTime__YearRange = 292278994
+)
+

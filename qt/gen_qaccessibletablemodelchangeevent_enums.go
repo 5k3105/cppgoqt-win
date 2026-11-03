@@ -1,0 +1,13 @@
+package qt
+
+type QAccessibleTableModelChangeEvent__ModelChangeType int64
+
+const (
+	QAccessibleTableModelChangeEvent__ModelReset QAccessibleTableModelChangeEvent__ModelChangeType = 0
+	QAccessibleTableModelChangeEvent__DataChanged QAccessibleTableModelChangeEvent__ModelChangeType = 1
+	QAccessibleTableModelChangeEvent__RowsInserted QAccessibleTableModelChangeEvent__ModelChangeType = 2
+	QAccessibleTableModelChangeEvent__ColumnsInserted QAccessibleTableModelChangeEvent__ModelChangeType = 3
+	QAccessibleTableModelChangeEvent__RowsRemoved QAccessibleTableModelChangeEvent__ModelChangeType = 4
+	QAccessibleTableModelChangeEvent__ColumnsRemoved QAccessibleTableModelChangeEvent__ModelChangeType = 5
+)
+

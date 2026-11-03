@@ -1,0 +1,25 @@
+package qt
+
+type QStyleOptionToolButton__StyleOptionType int64
+
+const (
+	QStyleOptionToolButton__Type QStyleOptionToolButton__StyleOptionType = 983043
+)
+
+type QStyleOptionToolButton__StyleOptionVersion int64
+
+const (
+	QStyleOptionToolButton__Version QStyleOptionToolButton__StyleOptionVersion = 1
+)
+
+type QStyleOptionToolButton__ToolButtonFeature int64
+
+const (
+	QStyleOptionToolButton__None QStyleOptionToolButton__ToolButtonFeature = 0
+	QStyleOptionToolButton__Arrow QStyleOptionToolButton__ToolButtonFeature = 1
+	QStyleOptionToolButton__Menu QStyleOptionToolButton__ToolButtonFeature = 4
+	QStyleOptionToolButton__MenuButtonPopup QStyleOptionToolButton__ToolButtonFeature = 4
+	QStyleOptionToolButton__PopupDelay QStyleOptionToolButton__ToolButtonFeature = 8
+	QStyleOptionToolButton__HasMenu QStyleOptionToolButton__ToolButtonFeature = 16
+)
+

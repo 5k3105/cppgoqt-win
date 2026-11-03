@@ -1,0 +1,20 @@
+package qt
+
+type QtMetaContainerPrivate__IteratorCapability int64
+
+const (
+	QtMetaContainerPrivate__InputCapability QtMetaContainerPrivate__IteratorCapability = 1
+	QtMetaContainerPrivate__ForwardCapability QtMetaContainerPrivate__IteratorCapability = 2
+	QtMetaContainerPrivate__BiDirectionalCapability QtMetaContainerPrivate__IteratorCapability = 4
+	QtMetaContainerPrivate__RandomAccessCapability QtMetaContainerPrivate__IteratorCapability = 8
+)
+
+type QtMetaContainerPrivate__AddRemoveCapability int64
+
+const (
+	QtMetaContainerPrivate__CanAddAtBegin QtMetaContainerPrivate__AddRemoveCapability = 1
+	QtMetaContainerPrivate__CanRemoveAtBegin QtMetaContainerPrivate__AddRemoveCapability = 2
+	QtMetaContainerPrivate__CanAddAtEnd QtMetaContainerPrivate__AddRemoveCapability = 4
+	QtMetaContainerPrivate__CanRemoveAtEnd QtMetaContainerPrivate__AddRemoveCapability = 8
+)
+

@@ -1,0 +1,22 @@
+package qt
+
+type QByteArray__Base64Option int64
+
+const (
+	QByteArray__Base64Encoding QByteArray__Base64Option = 0
+	QByteArray__Base64UrlEncoding QByteArray__Base64Option = 1
+	QByteArray__KeepTrailingEquals QByteArray__Base64Option = 0
+	QByteArray__OmitTrailingEquals QByteArray__Base64Option = 2
+	QByteArray__IgnoreBase64DecodingErrors QByteArray__Base64Option = 0
+	QByteArray__AbortOnBase64DecodingErrors QByteArray__Base64Option = 4
+)
+
+type QByteArray__Base64DecodingStatus int64
+
+const (
+	QByteArray__Base64DecodingStatus__Ok QByteArray__Base64DecodingStatus = 0
+	QByteArray__Base64DecodingStatus__IllegalInputLength QByteArray__Base64DecodingStatus = 1
+	QByteArray__Base64DecodingStatus__IllegalCharacter QByteArray__Base64DecodingStatus = 2
+	QByteArray__Base64DecodingStatus__IllegalPadding QByteArray__Base64DecodingStatus = 3
+)
+

@@ -1,0 +1,9 @@
+package qt
+
+type QtPrivate__QConstPreservingPointer__Tag int64
+
+const (
+	QtPrivate__QConstPreservingPointer__Const QtPrivate__QConstPreservingPointer__Tag = 0
+	QtPrivate__QConstPreservingPointer__Mutable QtPrivate__QConstPreservingPointer__Tag = 0
+)
+

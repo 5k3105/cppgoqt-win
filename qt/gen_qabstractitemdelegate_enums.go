@@ -1,0 +1,12 @@
+package qt
+
+type QAbstractItemDelegate__EndEditHint int64
+
+const (
+	QAbstractItemDelegate__NoHint QAbstractItemDelegate__EndEditHint = 0
+	QAbstractItemDelegate__EditNextItem QAbstractItemDelegate__EndEditHint = 1
+	QAbstractItemDelegate__EditPreviousItem QAbstractItemDelegate__EndEditHint = 2
+	QAbstractItemDelegate__SubmitModelCache QAbstractItemDelegate__EndEditHint = 3
+	QAbstractItemDelegate__RevertModelCache QAbstractItemDelegate__EndEditHint = 4
+)
+

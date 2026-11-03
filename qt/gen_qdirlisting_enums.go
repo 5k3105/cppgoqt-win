@@ -1,0 +1,22 @@
+package qt
+
+type QDirListing__IteratorFlag int64
+
+const (
+	QDirListing__IteratorFlag__Default QDirListing__IteratorFlag = 0
+	QDirListing__IteratorFlag__ExcludeFiles QDirListing__IteratorFlag = 4
+	QDirListing__IteratorFlag__ExcludeDirs QDirListing__IteratorFlag = 8
+	QDirListing__IteratorFlag__ExcludeSpecial QDirListing__IteratorFlag = 16
+	QDirListing__IteratorFlag__ExcludeOther QDirListing__IteratorFlag = 16
+	QDirListing__IteratorFlag__ResolveSymlinks QDirListing__IteratorFlag = 32
+	QDirListing__IteratorFlag__FilesOnly QDirListing__IteratorFlag = 24
+	QDirListing__IteratorFlag__DirsOnly QDirListing__IteratorFlag = 20
+	QDirListing__IteratorFlag__IncludeHidden QDirListing__IteratorFlag = 64
+	QDirListing__IteratorFlag__IncludeDotAndDotDot QDirListing__IteratorFlag = 128
+	QDirListing__IteratorFlag__CaseSensitive QDirListing__IteratorFlag = 256
+	QDirListing__IteratorFlag__Recursive QDirListing__IteratorFlag = 1024
+	QDirListing__IteratorFlag__FollowDirSymlinks QDirListing__IteratorFlag = 2048
+	QDirListing__IteratorFlag__IncludeBrokenSymlinks QDirListing__IteratorFlag = 4096
+	QDirListing__IteratorFlag__NoNameFiltersForDirs QDirListing__IteratorFlag = 262144
+)
+

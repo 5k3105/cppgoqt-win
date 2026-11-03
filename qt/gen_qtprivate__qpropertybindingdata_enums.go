@@ -1,0 +1,9 @@
+package qt
+
+type QtPrivate__QPropertyBindingData__NotificationResult int64
+
+const (
+	QtPrivate__QPropertyBindingData__Delayed QtPrivate__QPropertyBindingData__NotificationResult = 0
+	QtPrivate__QPropertyBindingData__Evaluated QtPrivate__QPropertyBindingData__NotificationResult = 1
+)
+
